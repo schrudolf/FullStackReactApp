@@ -3,6 +3,9 @@ import AppBar from "@mui/material/AppBar";
 import Container from "@mui/material/Container";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
+import Link from "@mui/material/Link";
+
+const date = new Date();
 
 export default function Footer() {
   return (
@@ -15,7 +18,7 @@ export default function Footer() {
             </Toolbar>
             <Toolbar>
               <Typography variant="body2" margin={"auto"} color="inherit">
-              © 2021 schrudolf
+              © {date.getUTCFullYear()} <Link href="https://github.com/schrudolf" color="inherit">schrudolf</Link>
               </Typography>
             </Toolbar>
           </Container>
