@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import db from "./database/mysqlConnect";
+import routes from "./routes/routes";
 
 const app = express();
 
@@ -12,6 +13,7 @@ const PORT: string = process.env.PORT || "5000";
 
 async function startServer() {
     const con = await db();
+    routes(app, con);
     app.listen(parseInt(PORT), HOST, () => {
         console.log(`Server is listening on http://${HOST}:${PORT}`);
     });
