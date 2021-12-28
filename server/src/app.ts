@@ -10,7 +10,8 @@ app.use(express.json());
 const HOST: string = process.env.HOST || "localhost";
 const PORT: string = process.env.PORT || "5000";
 
-async function startServer(){
+async function startServer() {
+    const con = await db();
     app.listen(parseInt(PORT), HOST, () => {
         console.log(`Server is listening on http://${HOST}:${PORT}`);
     });

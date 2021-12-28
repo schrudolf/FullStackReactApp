@@ -1,3 +1,5 @@
+import settings from "../settings/settings";
+import createDatabase from "../database/createDatabase";
 import env from "dotenv";
 env.config();
 
@@ -5,26 +7,40 @@ env.config();
 import mysql from 'mysql2/promise';
 
 interface ConnectionInfo {
-    host: string | undefined,
-    user: string | undefined,
-    password: string | undefined,
-    database: string | undefined,
+    host: string,
+    user: string,
+    password: string,
+    database: string,
     connectionLimit: number | 10,
     waitForConnections: boolean | true,
-    namedPlaceholders: boolean | true
-
+    queueLimit: number
 }
 
 const mysqlConnection: ConnectionInfo = {
-    host: process.env.MYSQL_HOST,
-    user: process.env.MYSQL_USER,
-    password: process.env.MYSQL_PASSWORD,
-    database: process.env.MYSQL_DATABASE,
+    host: process.env.MYSQL_HOST!,
+    user: process.env.MYSQL_USER!,
+    password: process.env.MYSQL_PASSWORD!,
+    database: process.env.MYSQL_DATABASE!,
     connectionLimit: 10,
     waitForConnections: true,
-    namedPlaceholders: false
+    queueLimit: 0
 }
 
-export = (function () {
-    return mysql.createPool(mysqlConnection);
-})();
+export = () => {
+    return new Promise(async (resolve, reject) => {
+        try {
+            const db = await mysql.createPool(mysqlConnection);
+            console.log("Connected to database")
+            // if true, create database
+            if (settings.mysql.createDatabase && await createDatabase(db)) {
+                resolve(db);
+            // else already created Mysql Ready
+            } else {
+                resolve(db);
+            }
+        }
+        catch (err) {
+            console.log(err)
+        }
+    })
+};

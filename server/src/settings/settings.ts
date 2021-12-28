@@ -1,0 +1,5 @@
+export = {
+    mysql: {
+        createDatabase: true
+    }
+};
