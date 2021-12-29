@@ -3,7 +3,7 @@ dotenv.config();
 
 export = {
     mysql: {
-        createDatabase: true,
+        createDatabaseTables: true, // it will delete all tables and recreate. You need to create a database before
         host: process.env.MYSQL_HOST!,
         user: process.env.MYSQL_USER!,
         password: process.env.MYSQL_PASSWORD!,

@@ -30,7 +30,7 @@ export = () => {
             const db = await mysql.createPool(mysqlConnection);
             console.log("Connected to database")
             // if true, create database
-            if (settings.mysql.createDatabase && await createDatabase(db)) {
+            if (settings.mysql.createDatabaseTables && await createDatabase(db)) {
                 resolve(db);
             // else already created Mysql Ready
             } else {
