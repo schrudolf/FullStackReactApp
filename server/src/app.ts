@@ -1,15 +1,14 @@
 import express from "express";
-import dotenv from "dotenv";
 import db from "./database/mysqlConnect";
 import routes from "./routes/routes";
+import settings from "./settings/settings";
 
 const app = express();
 
-dotenv.config();
 app.use(express.json());
 
-const HOST: string = process.env.HOST || "localhost";
-const PORT: string = process.env.PORT || "5000";
+const HOST: string = settings.app.host || "localhost";
+const PORT: string = settings.app.port || "5000";
 
 async function startServer() {
     const con = await db();

@@ -1,7 +1,5 @@
 import settings from "../settings/settings";
 import createDatabase from "../database/createDatabase";
-import env from "dotenv";
-env.config();
 
 // get the client
 import mysql from 'mysql2/promise';
@@ -17,13 +15,13 @@ interface ConnectionInfo {
 }
 
 const mysqlConnection: ConnectionInfo = {
-    host: process.env.MYSQL_HOST!,
-    user: process.env.MYSQL_USER!,
-    password: process.env.MYSQL_PASSWORD!,
-    database: process.env.MYSQL_DATABASE!,
-    connectionLimit: 10,
-    waitForConnections: true,
-    queueLimit: 0
+    host: settings.mysql.host,
+    user: settings.mysql.user,
+    password: settings.mysql.password,
+    database: settings.mysql.database,
+    connectionLimit: settings.mysql.connectionLimit,
+    waitForConnections: settings.mysql.waitForConnections,
+    queueLimit: settings.mysql.queueLimit
 }
 
 export = () => {
