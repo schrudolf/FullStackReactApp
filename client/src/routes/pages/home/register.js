@@ -26,7 +26,7 @@ export default function Register() {
           }}
         >
           <Box>
-            <h1>Sign Up</h1>
+            <h1>Register</h1>
             <form>
               <TextField
                 variant="filled"
