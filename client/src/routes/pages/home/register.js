@@ -1,6 +1,7 @@
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
+import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
@@ -18,18 +19,19 @@ export default function Register() {
         <Container
           maxWidth="xs"
           sx={{
-            p: 5,
+            p: 1,
             display: {
               textAlign: "center",
-              marginTop: 50,
+              marginTop: 100,
               backgroundColor: "#dce1e3",
               borderRadius: 10,
-              border: "1px solid black",
             },
           }}
         >
           <Box>
-            <h1>Register</h1>
+          <Typography m={5} component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>
+            Register
+          </Typography>
             <form>
               <TextField
                 margin="normal"
