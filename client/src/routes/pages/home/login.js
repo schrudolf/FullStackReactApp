@@ -81,7 +81,7 @@ export default function Login() {
                 style={{ margin: 0, textAlign: "center" }}
                 id="passwordAnswer"
               ></p>
-              <Button type="submit" fullWidth variant="contained" color="info">
+              <Button type="submit" size="large" fullWidth variant="contained" color="info">
                 Sign in
               </Button>
               <div style={{ margin: 5 }}>

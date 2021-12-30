@@ -3,6 +3,9 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
+import IconButton from "@mui/material/IconButton";
+import EmailIcon from "@mui/icons-material/Email";
+import LockIcon from '@mui/icons-material/Lock';
 
 import Header from "../../components/home/header";
 import Footer from "../../components/home/footer";
@@ -29,19 +32,24 @@ export default function Register() {
             <h1>Register</h1>
             <form>
               <TextField
-                variant="filled"
                 margin="normal"
                 required
                 fullWidth
                 id="email"
-                label="Email address"
                 name="email"
                 autoComplete="email"
                 type="email"
                 autoFocus
+                placeholder="Email"
+                InputProps={{
+                  startAdornment: (
+                    <IconButton>
+                      <EmailIcon />
+                    </IconButton>
+                  ),
+                }}
                 sx={{
                   backgroundColor: "white",
-                  border: "1px solid black",
                   borderRadius: 1,
                 }}
               />
@@ -50,32 +58,42 @@ export default function Register() {
                 id="emailAnswer"
               ></p>
               <TextField
-                variant="filled"
                 margin="normal"
                 required
                 fullWidth
                 name="password"
-                label="Password"
                 id="password"
                 type="password"
+                placeholder="Password"
+                InputProps={{
+                    startAdornment: (
+                      <IconButton>
+                        <LockIcon />
+                      </IconButton>
+                    ),
+                  }}
                 sx={{
                   backgroundColor: "white",
-                  border: "1px solid black",
                   borderRadius: 1,
                 }}
               />
               <TextField
-                variant="filled"
                 margin="normal"
                 required
                 fullWidth
                 name="password2"
-                label="Password again"
                 id="password2"
                 type="password"
+                placeholder="Password again"
+                InputProps={{
+                    startAdornment: (
+                      <IconButton>
+                        <LockIcon />
+                      </IconButton>
+                    ),
+                  }}
                 sx={{
                   backgroundColor: "white",
-                  border: "1px solid black",
                   borderRadius: 1,
                 }}
               />
@@ -83,7 +101,7 @@ export default function Register() {
                 style={{ margin: 0, textAlign: "center" }}
                 id="passwordAnswer"
               ></p>
-              <Button type="submit" fullWidth variant="contained" color="info">
+              <Button type="submit" size="large" fullWidth variant="contained" color="info">
                 Sign up
               </Button>
               <div style={{ margin: 5 }}>
