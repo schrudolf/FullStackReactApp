@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./pages/home/home";
 import Register from "./pages/home/register";
 import Login from "./pages/home/login";
+import Forgot from "./pages/home/forgot";
 
 export default function Routing() {
   return (
@@ -12,6 +13,7 @@ export default function Routing() {
       <Route path="/" element={<Home />} exact />
       <Route path="/register" element={<Register />} exact />
       <Route path="/login" element={<Login />} exact />
+      <Route path="/forgot" element={<Forgot />} exact />
     </Routes>
   );
 }
