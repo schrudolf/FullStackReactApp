@@ -31,7 +31,7 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="absolute" sx={{
+    <AppBar position="relative" sx={{
         display: { backgroundColor: "black" },
       }}>
       <Container maxWidth="xl">

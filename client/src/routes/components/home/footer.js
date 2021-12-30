@@ -9,7 +9,7 @@ const date = new Date();
 
 export default function Footer() {
   return (
-    <AppBar position="absolute" sx={{display: {width: "100%", marginTop: "100vh", backgroundColor: "black"}}}>
+    <AppBar position="relative" sx={{display: {backgroundColor: "black", marginTop: "10%"}}}>
           <Container maxWidth="xl">
             <Toolbar>
               <Typography variant="body1" margin={"auto"} color="inherit">
