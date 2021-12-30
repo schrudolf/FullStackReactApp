@@ -32,7 +32,7 @@ export default function Header() {
 
   return (
     <AppBar position="relative" sx={{
-        display: { backgroundColor: "black" },
+        display: { backgroundColor: "black"}
       }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -100,8 +100,8 @@ export default function Header() {
               </Button>
             ))}
           </Box>
-            <Button sx={{ mr: 2, display: { xs: "none", md: "flex" } }} href="#" color="inherit">Sign in</Button>
-            <Button sx={{ mr: 2, display: { xs: "none", md: "flex" } }} href="#" color="inherit">Sign up</Button>
+            <Button variant="outlined" sx={{ mr: 2, display: { xs: "none", md: "flex" } }} href="#" color="warning">Sign in</Button>
+            <Button variant="outlined" sx={{ mr: 2, display: { xs: "none", md: "flex" } }} href="#" color="warning">Sign up</Button>
         </Toolbar>
       </Container>
     </AppBar>
