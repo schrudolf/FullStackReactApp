@@ -13,7 +13,7 @@ export default function Register() {
       <Header />
       <div style={{ padding: 3 }}>
         <Container
-          maxWidth="sm"
+          maxWidth="xs"
           sx={{
             p: 5,
             display: {
