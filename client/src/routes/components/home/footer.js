@@ -7,9 +7,10 @@ import Link from "@mui/material/Link";
 
 const date = new Date();
 
+
 export default function Footer() {
   return (
-    <AppBar position="relative" sx={{display: {backgroundColor: "black", marginTop: "10%"}}}>
+    <AppBar position="relative" sx={{display: {backgroundColor: "black"}, marginTop: "min(20%)"}}>
           <Container maxWidth="xl">
             <Toolbar>
               <Typography variant="body1" margin={"auto"} color="inherit">
