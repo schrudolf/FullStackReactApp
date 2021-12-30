@@ -3,7 +3,6 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
 
 import Header from "../../components/home/header";
 import Footer from "../../components/home/footer";
@@ -21,6 +20,7 @@ export default function Register() {
             marginTop: 50,
             backgroundColor: "#dce1e3",
             borderRadius: 10,
+            border: "1px solid black"
           },
         }}
       >
@@ -38,7 +38,7 @@ export default function Register() {
               autoComplete="email"
               type="email"
               autoFocus
-              sx={{ backgroundColor: "white" }}
+              sx={{ backgroundColor: "white", border: "1px solid black", borderRadius: 1 }}
             />
             <p style={{ margin: 0, textAlign: "center" }} id="emailAnswer"></p>
             <TextField
@@ -50,7 +50,7 @@ export default function Register() {
               label="Password"
               id="password"
               type="password"
-              sx={{ backgroundColor: "white" }}
+              sx={{ backgroundColor: "white", border: "1px solid black", borderRadius: 1 }}
             />
             <TextField
               variant="filled"
@@ -61,7 +61,7 @@ export default function Register() {
               label="Password again"
               id="password2"
               type="password"
-              sx={{ backgroundColor: "white" }}
+              sx={{ backgroundColor: "white", border: "1px solid black", borderRadius: 1 }}
             />
             <p
               style={{ margin: 0, textAlign: "center" }}
