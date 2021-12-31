@@ -100,8 +100,8 @@ export default function Header() {
               </Button>
             ))}
           </Box>
-            <Button variant="outlined" sx={{ mr: 2, display: { xs: "none", md: "flex" } }} href="#" color="warning">Sign in</Button>
-            <Button variant="outlined" sx={{ mr: 2, display: { xs: "none", md: "flex" } }} href="#" color="warning">Sign up</Button>
+            <Button variant="outlined" sx={{ mr: 2, display: { xs: "none", md: "flex" } }} href="/login" color="warning">Log in</Button>
+            <Button variant="outlined" sx={{ mr: 2, display: { xs: "none", md: "flex" } }} href="/register" color="warning">Sign up</Button>
         </Toolbar>
       </Container>
     </AppBar>

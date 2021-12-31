@@ -30,7 +30,7 @@ export default function Register() {
         >
           <Box>
           <Typography m={5} component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>
-            Register
+            Sign up
           </Typography>
             <form>
               <TextField

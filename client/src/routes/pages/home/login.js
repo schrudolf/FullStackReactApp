@@ -30,7 +30,7 @@ export default function Login() {
         >
           <Box>
           <Typography m={5} component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>
-            Login
+            Log in
           </Typography>
             <form>
               <TextField
@@ -84,7 +84,7 @@ export default function Login() {
                 id="passwordAnswer"
               ></p>
               <Button type="submit" size="large" fullWidth variant="contained" color="info">
-                Sign in
+                Log in
               </Button>
               <div style={{ margin: 5 }}>
                 <span>or </span>
