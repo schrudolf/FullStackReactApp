@@ -1,12 +1,10 @@
 import { IRouter } from "express";
+import userSession from "../middlewares/session/userSession";
 
-export = (app: IRouter, db: any) => {
-    app.get("/", (req, res, next) => {
-        res.status(200).send({msg: "all good"});
-    })
+export = (app: IRouter, db: any) => { 
+    app.get("/session", userSession())
 
     //  ***** plan routes ********
-    app.get("/session") // check user is logged
     app.get("/app/logout") // logout from the app
     app.get("/app/user/profile") // user profile
 
