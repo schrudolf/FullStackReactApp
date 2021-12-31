@@ -14,6 +14,10 @@ export = {
     },
     app: {
         host: process.env.HOST,
-        port: process.env.PORT
+        port: process.env.PORT,
+    },
+    cookie: {
+        name: process.env.COOKIE_NAME,
+        secret: process.env.COOKIE_SECRET!
     }
 };

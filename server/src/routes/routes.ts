@@ -1,8 +1,8 @@
 import { IRouter } from "express";
 
 export = (app: IRouter, db: any) => {
-    app.get("/", async (req, res, next) => {
-        res.send("Hello World");
+    app.get("/", (req, res, next) => {
+        res.status(200).send({msg: "all good"});
     })
 
     //  ***** plan routes ********
