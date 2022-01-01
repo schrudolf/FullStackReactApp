@@ -21,8 +21,7 @@ export default function Register() {
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     const password2 = document.getElementById("password2");
-    const email_msg = document.getElementById("email_msg");
-    const passwor_msg = document.getElementById("password_msg");
+    const response_msg = document.getElementById("response_msg");
 
     const response = await createNewAxios("/register", "post", {
       email: email.value,
@@ -30,10 +29,15 @@ export default function Register() {
       password2: password2.value,
     });
 
-    email_msg.innerHTML = "";
-    passwor_msg.innerHTML = "";
-
-    console.log(response)
+    response_msg.innerHTML = "";
+    if(response.status === 200 && response.data.success){
+      email.value = ""
+      password.value = ""
+      password2.value = ""
+      response_msg.innerHTML = response.data.msg;
+    }else{
+      response_msg.innerHTML = response.data.msg;
+    }
   };
 
   return (
@@ -80,10 +84,6 @@ export default function Register() {
                   borderRadius: 1,
                 }}
               />
-              <p
-                style={{ margin: 0, textAlign: "center" }}
-                id="email_msg"
-              ></p>
               <TextField
                 margin="normal"
                 required
@@ -125,8 +125,8 @@ export default function Register() {
                 }}
               />
               <p
-                style={{ margin: 0, textAlign: "center" }}
-                id="password_msg"
+                style={{ margin: 10, textAlign: "center" }}
+                id="response_msg"
               ></p>
               <Button type="submit" size="large" fullWidth variant="contained" color="info">
                 Sign up
