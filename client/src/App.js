@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { BrowserRouter } from "react-router-dom";
 import Routing from "./routes/routes";
 
+import PageLoading from "./components/ui/pageLoading";
+
 import createNewAxios from "./axios/axios";
 
 function App() {
@@ -25,7 +27,7 @@ function App() {
       </BrowserRouter>
     );
   } else {
-    return <p>Loading...</p>;
+    return <PageLoading />;
   }
 }
 

@@ -13,10 +13,10 @@ import MenuItem from "@mui/material/MenuItem";
 
 const logoName = "FullStackReactApp";
 const pages = [
-    <Link href="#" underline="none" color="inherit" sx={{ display: {marginLeft: "auto"}}}>Home</Link>,
+    <Link href="/" underline="none" color="inherit" sx={{ display: {marginLeft: "auto"}}}>Home</Link>,
     <Link href="#" underline="none" color="inherit">About</Link>,
-    <Link href="#" underline="none" color="inherit" sx={{ display: { md: 'none', lg: 'none', xl: 'none' } }}>Sign in</Link>,
-    <Link href="#" underline="none" color="inherit" sx={{ display: { md: 'none', lg: 'none', xl: 'none' } }}>Sign up</Link>,
+    <Link href="/login" underline="none" color="inherit" sx={{ display: { md: 'none', lg: 'none', xl: 'none' } }}>Sign in</Link>,
+    <Link href="/register" underline="none" color="inherit" sx={{ display: { md: 'none', lg: 'none', xl: 'none' } }}>Sign up</Link>,
 ];
 
 export default function Header() {
@@ -31,7 +31,7 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="relative" sx={{
+    <AppBar position="static" sx={{
         display: { backgroundColor: "black"}
       }}>
       <Container maxWidth="xl">

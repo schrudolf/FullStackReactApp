@@ -8,8 +8,8 @@ import IconButton from "@mui/material/IconButton";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from '@mui/icons-material/Lock';
 
-import Header from "../../components/home/header";
-import Footer from "../../components/home/footer";
+import Header from "../../../components/home/header";
+import Footer from "../../../components/home/footer";
 
 export default function Login() {
   return (
@@ -21,8 +21,9 @@ export default function Login() {
           sx={{
             p: 1,
             display: {
+              position: "relative",
+              top: "15vh",
               textAlign: "center",
-              marginTop: 100,
               backgroundColor: "#dce1e3",
               borderRadius: 10,
             },

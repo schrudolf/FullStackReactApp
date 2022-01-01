@@ -7,8 +7,8 @@ import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import EmailIcon from "@mui/icons-material/Email";
 
-import Header from "../../components/home/header";
-import Footer from "../../components/home/footer";
+import Header from "../../../components/home/header";
+import Footer from "../../../components/home/footer";
 
 export default function Forgot() {
   return (
@@ -20,8 +20,9 @@ export default function Forgot() {
           sx={{
             p: 1,
             display: {
+              position: "relative",
+              top: "10vh",
               textAlign: "center",
-              marginTop: 100,
               backgroundColor: "#dce1e3",
               borderRadius: 10,
             },

@@ -8,8 +8,8 @@ import IconButton from "@mui/material/IconButton";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from '@mui/icons-material/Lock';
 
-import Header from "../../components/home/header";
-import Footer from "../../components/home/footer";
+import Header from "../../../components/home/header";
+import Footer from "../../../components/home/footer";
 
 export default function Register() {
   return (
@@ -21,8 +21,9 @@ export default function Register() {
           sx={{
             p: 1,
             display: {
+              position: "relative",
+              top: "10vh",
               textAlign: "center",
-              marginTop: 100,
               backgroundColor: "#dce1e3",
               borderRadius: 10,
             },
