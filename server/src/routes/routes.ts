@@ -1,14 +1,19 @@
 import { IRouter } from "express";
-import userSession from "../middlewares/session/userSession";
+
+/* Middlewares */
+import userSession from "../middlewares/session/userSession"; // session check
+import checkIncomingRegisterData from "../middlewares/register/checkIncomingRegisterData"; // user register handling
 
 export = (app: IRouter, db: any) => { 
     app.get("/session", userSession())
+    
+    app.post("/register", checkIncomingRegisterData(db))  // user register
+
 
     //  ***** plan routes ********
     app.get("/app/logout") // logout from the app
     app.get("/app/user/profile") // user profile
 
-    app.post("/register")  // user register
     app.post("/login") // user Login
     app.post("/forgot") // forgot pw
     app.post("/forgot/:tokenid") // check forgot token is exists

@@ -11,7 +11,31 @@ import LockIcon from '@mui/icons-material/Lock';
 import Header from "../../../components/home/header";
 import Footer from "../../../components/home/footer";
 
+import createNewAxios from "../../../axios/axios";
+
 export default function Register() {
+
+  async function userRegister(e){
+    e.preventDefault();
+
+    const email = document.getElementById("email");
+    const password = document.getElementById("password");
+    const password2 = document.getElementById("password2");
+    const email_msg = document.getElementById("email_msg");
+    const passwor_msg = document.getElementById("password_msg");
+
+    const response = await createNewAxios("/register", "post", {
+      email: email.value,
+      password: password.value,
+      password2: password2.value,
+    });
+
+    email_msg.innerHTML = "";
+    passwor_msg.innerHTML = "";
+
+    console.log(response)
+  };
+
   return (
     <div>
       <Header />
@@ -33,7 +57,7 @@ export default function Register() {
           <Typography m={5} component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>
             Sign up
           </Typography>
-            <form>
+            <form onSubmit={userRegister}>
               <TextField
                 margin="normal"
                 required
@@ -58,7 +82,7 @@ export default function Register() {
               />
               <p
                 style={{ margin: 0, textAlign: "center" }}
-                id="emailAnswer"
+                id="email_msg"
               ></p>
               <TextField
                 margin="normal"
@@ -102,7 +126,7 @@ export default function Register() {
               />
               <p
                 style={{ margin: 0, textAlign: "center" }}
-                id="passwordAnswer"
+                id="password_msg"
               ></p>
               <Button type="submit" size="large" fullWidth variant="contained" color="info">
                 Sign up
