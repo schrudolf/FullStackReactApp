@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import messages from '../../settings/messages';
 import bcrypt from "bcryptjs";
 
 export default function registeringUser(db: any){
@@ -10,7 +11,7 @@ export default function registeringUser(db: any){
             newUser.password = await hash;
             await db.query("INSERT INTO users SET ?", newUser);
 
-            res.status(200).send({success: true, msg: "Success Registration"})
+            res.status(200).send({success: true, msg: messages.register.success})
         }
         catch(err){
             next(err)
