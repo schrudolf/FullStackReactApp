@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -10,13 +12,16 @@ import LockIcon from '@mui/icons-material/Lock';
 
 import Header from "../../../components/home/header";
 import Footer from "../../../components/home/footer";
+import LoadingButton from "../../../components/ui/loadingButton";
 
 import createNewAxios from "../../../axios/axios";
 
 export default function Register() {
+  const [loadingButton, setLoadingButton] = useState(false)
 
   async function userRegister(e){
     e.preventDefault();
+    setLoadingButton(true)
 
     const email = document.getElementById("email");
     const password = document.getElementById("password");
@@ -30,12 +35,15 @@ export default function Register() {
     });
 
     response_msg.innerHTML = "";
+    setLoadingButton(false)
     if(response.status === 200 && response.data.success){
       email.value = ""
       password.value = ""
       password2.value = ""
+      response_msg.style.color = "green"
       response_msg.innerHTML = response.data.msg;
     }else{
+      response_msg.style.color = "red"
       response_msg.innerHTML = response.data.msg;
     }
   };
@@ -128,9 +136,11 @@ export default function Register() {
                 style={{ margin: 10, textAlign: "center" }}
                 id="response_msg"
               ></p>
+              {loadingButton ? <LoadingButton/> : 
               <Button type="submit" size="large" fullWidth variant="contained" color="info">
                 Sign up
               </Button>
+              }
               <div style={{ margin: 5 }}>
                 <Link href="/forgot" variant="body2">
                   Forgot password
