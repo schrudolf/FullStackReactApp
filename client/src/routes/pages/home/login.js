@@ -46,7 +46,7 @@ export default function Login() {
                 placeholder="Email"
                 InputProps={{
                   startAdornment: (
-                    <IconButton>
+                    <IconButton tabIndex={-1}>
                       <EmailIcon />
                     </IconButton>
                   ),
@@ -70,7 +70,7 @@ export default function Login() {
                 placeholder="Password"
                 InputProps={{
                     startAdornment: (
-                      <IconButton>
+                      <IconButton tabIndex={-1}>
                         <LockIcon />
                       </IconButton>
                     ),
