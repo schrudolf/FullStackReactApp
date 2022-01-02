@@ -13,7 +13,7 @@ export default function Routing({ isLogged }) {
     return (
       <Routes>
         <Route path="/app" element={<Home />} exact />
-        <Route exact path="/app*" element={<Navigate to="/app" />}/>
+        <Route exact path="*" element={<Navigate to="/app" />}/>
       </Routes>
     );
   } else { // Not protected routes

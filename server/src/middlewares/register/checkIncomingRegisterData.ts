@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import messages from '../../settings/messages';
 
+// check {email, password, password2} from client. If valid data go next middleware
 export default function checkIncomingRegisterData(db: any) {
     return async function (req: Request, res: Response, next: NextFunction) {
         const { email, password, password2 } = req.body;
@@ -25,6 +26,7 @@ export default function checkIncomingRegisterData(db: any) {
         }
         try {
             const checkEmail = await db.query("SELECT * FROM users WHERE email=?", [email]);
+            // return if the email already exists
             if(checkEmail[0].length > 0){
                 return res.status(200).send({success: false, msg: messages.register.emailExists })
             }else{

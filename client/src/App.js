@@ -19,11 +19,10 @@ function App() {
   const getSession = async () => {
     const response = await createNewAxios("/session", "GET");
     if (response.status === 200) {
-      setSessionData(response.data.sessionData);
+      setSessionData(response.data.user);
       setIsSessionActive(true);
     }
   };
-  
   useEffect(() => {
     getSession();
   }, []);
