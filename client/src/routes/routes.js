@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 
 // Route pages
 import Home from "./pages/home/home";
@@ -13,15 +13,17 @@ export default function Routing({ isLogged }) {
     return (
       <Routes>
         <Route path="/app" element={<Home />} exact />
+        <Route exact path="/app*" element={<Navigate to="/app" />}/>
       </Routes>
     );
   } else { // Not protected routes
     return (
       <Routes>
-        <Route path="/" element={<Home />} exact />
-        <Route path="/register" element={<Register />} exact />
-        <Route path="/login" element={<Login />} exact />
-        <Route path="/forgot" element={<Forgot />} exact />
+        <Route exact path="/" element={<Home />}/>
+        <Route exact path="/register" element={<Register />}/>
+        <Route exact path="/login" element={<Login />}/>
+        <Route exact path="/forgot" element={<Forgot />}/>
+        <Route exact path="/*" element={<Navigate to="/login" />}/> 
       </Routes>
     );
   }
