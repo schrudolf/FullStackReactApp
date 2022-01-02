@@ -36,7 +36,7 @@ function App() {
   if (isSessionActive && sessionData.isLogged === isLogged) {
     return (
       <BrowserRouter>
-        <Routing />
+        <Routing  isLogged={isLogged} />
       </BrowserRouter>
     );
   } else {
