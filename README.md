@@ -3,7 +3,7 @@
 
 ## User Features:
 - [x] Sign up:
-- [ ] Sign in:
+- [x] Sign in:
 - [ ] Forgot Password:
 - [ ] User Profile:
 - [ ] User Settings (Password change, etc..):
