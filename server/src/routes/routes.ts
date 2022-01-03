@@ -1,12 +1,14 @@
 import { IRouter } from "express";
 
-/* Middlewares */
-
-import userSession from "../middlewares/session/userSession"; // session check
-
-// user registering
+                                /* Middlewares start */
+ // Check Session
+import userSession from "../middlewares/session/userSession"; 
+// User register
 import checkIncomingRegisterData from "../middlewares/register/checkIncomingRegisterData";
 import registeringUser from "../middlewares/register/registeringUser";
+// User Login
+
+                                /* Middlewares end */
 
 export = (app: IRouter, db: any) => { 
     app.get("/session", userSession())

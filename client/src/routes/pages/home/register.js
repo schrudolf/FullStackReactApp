@@ -47,7 +47,6 @@ export default function Register() {
       response_msg.innerHTML = response.data.msg;
     }
   };
-
   return (
     <div>
       <Header />
