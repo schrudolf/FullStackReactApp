@@ -4,6 +4,7 @@ import messages from '../../settings/messages';
 // check {email, password, password2} from client. If valid data go next middleware
 export default function checkIncomingRegisterData(db: any) {
     return async function (req: Request, res: Response, next: NextFunction) {
+        try {
         const { email, password, password2 } = req.body;
 
         if (typeof email === "undefined" || typeof password === "undefined" || typeof password2 === "undefined") {
@@ -24,7 +25,6 @@ export default function checkIncomingRegisterData(db: any) {
         if (password.length > 15) {
             return res.status(200).send({success: false, msg: messages.register.tooLong })
         }
-        try {
             const checkEmail = await db.query("SELECT * FROM users WHERE email=?", [email]);
             // return if the email already exists
             if(checkEmail[0].length > 0){
