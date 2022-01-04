@@ -8,18 +8,22 @@ import checkIncomingRegisterData from "../middlewares/register/checkIncomingRegi
 import registeringUser from "../middlewares/register/registeringUser";
 // User Login
 import checkIncomingLoginData from "../middlewares/login/checkIncomingLoginData";
+// User Logout
+import logout from "../middlewares/logout/logout";
 
                                 /* Middlewares end */
 
 export = (app: IRouter, db: any) => { 
-    app.get("/session", userSession())
+
+
+    app.get("/session", userSession()) // every client page load get session
+    app.get("/app/logout", logout()) // logout from the app
     
     app.post("/register", checkIncomingRegisterData(db), registeringUser(db))  // user register
     app.post("/login", checkIncomingLoginData(db)) // user Login
 
 
     //  ***** plan routes ********
-    app.get("/app/logout") // logout from the app
     app.get("/app/user/profile") // user profile
 
     app.post("/forgot") // forgot pw

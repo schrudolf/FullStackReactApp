@@ -29,6 +29,7 @@ export default function Routing({ isLogged }) {
         <Route exact path="/register" element={<Register />} />
         <Route exact path="/login" element={<Login />} />
         <Route exact path="/forgot" element={<Forgot />} />
+        <Route exact path="/app/logout" element={<AppLogout />} />
         <Route exact path="/*" element={<Navigate to="/login" />} />
       </Routes>
     );
