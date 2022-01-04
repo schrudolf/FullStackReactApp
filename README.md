@@ -9,7 +9,7 @@
 - [ ] User Settings (Password change, etc..):
 - [ ] User register with ref link:
 - [ ] Friend invite:
-- [ ] Logout:
+- [x] Logout:
 
 ## Email Features:
 - [ ] Sending email after success registration:
