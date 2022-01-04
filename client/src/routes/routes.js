@@ -9,6 +9,7 @@ import Forgot from "./pages/home/forgot";
 
 // Route pages after login
 import AppIndex from "./pages/app";
+import AppLogout from "./pages/app/logout";
 
 export default function Routing({ isLogged }) {
   // Protected routes (if user logged)
@@ -16,6 +17,7 @@ export default function Routing({ isLogged }) {
     return (
       <Routes>
         <Route exact path="/app" element={<AppIndex />} />
+        <Route exact path="/app/logout" element={<AppLogout />} />
         <Route exact path="*" element={<Navigate to="/app" />} />
       </Routes>
     );
