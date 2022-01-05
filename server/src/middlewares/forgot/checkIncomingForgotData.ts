@@ -15,7 +15,7 @@ export default function checkIncomingForgotData(db: any) {
             }
             else{
                 res.locals.user_token = {
-                    user: user[0],
+                    user: user[0][0],
                     email
                 }
                 next();

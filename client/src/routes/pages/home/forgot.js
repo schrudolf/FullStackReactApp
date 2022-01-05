@@ -1,3 +1,4 @@
+import {useState} from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -10,7 +11,36 @@ import EmailIcon from "@mui/icons-material/Email";
 import Header from "../../../components/home/header";
 import Footer from "../../../components/home/footer";
 
+import LoadingButton from "../../../components/ui/loadingButton";
+import createNewAxios from "../../../axios/axios";
+
 export default function Forgot() {
+  const [loadingButton, setLoadingButton] = useState(false);
+
+  async function userForgot(e) {
+    e.preventDefault();
+    setLoadingButton(true);
+
+    const email = document.getElementById("email");
+    const response_msg = document.getElementById("response_msg");
+
+    const response = await createNewAxios("/forgot", "post", {
+      email: email.value,
+    });
+
+    response_msg.innerHTML = "";
+    setLoadingButton(false);
+    if (response.status === 200 && response.data.success) {
+      email.value = "";
+      response_msg.style.color = "green";
+      response_msg.innerHTML = response.data.msg;
+      // set isLogged value === true and redirect to protected route
+    } else {
+      response_msg.style.color = "red";
+      response_msg.innerHTML = response.data.msg;
+    }
+  }
+
   return (
     <div>
       <Header />
@@ -32,7 +62,7 @@ export default function Forgot() {
           <Typography m={5} component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>
               Forgot Password
             </Typography>
-            <form>
+            <form onSubmit={userForgot}>
               <TextField
                 margin="normal"
                 required
@@ -56,18 +86,22 @@ export default function Forgot() {
                 }}
               />
               <p
-                style={{ margin: 0, textAlign: "center" }}
-                id="emailAnswer"
+                style={{ margin: 10, textAlign: "center" }}
+                id="response_msg"
               ></p>
-              <Button
-                type="submit"
-                size="large"
-                fullWidth
-                variant="contained"
-                color="info"
-              >
-                Reset Password
-              </Button>
+              {loadingButton ? (
+                <LoadingButton />
+              ) : (
+                <Button
+                  type="submit"
+                  size="large"
+                  fullWidth
+                  variant="contained"
+                  color="info"
+                >
+                  Sign up
+                </Button>
+              )}
               <div style={{ margin: 5 }}>
                 <span>or </span>
                 <Link href="/login" variant="body2">
