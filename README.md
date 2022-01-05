@@ -13,5 +13,5 @@
 
 ## Email Features:
 - [ ] Sending email after success registration:
-- [ ] Forgot password email with token:
+- [x] Forgot password email with token:
 - [ ] Friend invite:
