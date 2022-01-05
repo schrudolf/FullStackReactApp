@@ -10,5 +10,8 @@ export = {
         notExists: "Wrong email or not exists",
         wrongPassword: "Wrong password",
         success: "Success login"
+    },
+    forgot: {
+        notExists: "Wrong email or not exists",
     }
 }
