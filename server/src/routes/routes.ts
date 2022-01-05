@@ -13,6 +13,7 @@ import logout from "../middlewares/logout/logout";
 // User Forgot password
 import checkIncomingForgotData from "../middlewares/forgot/checkIncomingForgotData";
 import createNewToken from "../middlewares/forgot/createNewToken";
+import sendEmailWithToken from "../middlewares/forgot/sendEmailWithToken";
 
                                 /* Middlewares end */
 
@@ -24,7 +25,7 @@ export = (app: IRouter, db: any) => {
     
     app.post("/register", checkIncomingRegisterData(db), registeringUser(db))  // user register
     app.post("/login", checkIncomingLoginData(db)) // user Login
-    app.post("/forgot", checkIncomingForgotData(db), createNewToken(db)) // forgot pw
+    app.post("/forgot", checkIncomingForgotData(db), createNewToken(db), sendEmailWithToken()) // forgot pw
 
 
     //  ***** plan routes ********

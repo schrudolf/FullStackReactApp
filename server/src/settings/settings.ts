@@ -19,5 +19,14 @@ export = {
     cookie: {
         name: process.env.COOKIE_NAME,
         secret: process.env.COOKIE_SECRET!
+    },
+    email: {
+        host: process.env.EMAIL_HOST,
+        port: process.env.EMAIL_PORT,
+        secure: process.env.EMAIL_SECURE,
+        auth: {
+            user: process.env.EMAIL_ADDRESS,
+            password: process.env.EMAIL_PASSWORD,
+        }
     }
 };
