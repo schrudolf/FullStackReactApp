@@ -7,7 +7,7 @@ const token = require("random-web-token");
 export default function createNewToken(db: any) {
     return async function (req: Request, res: Response, next: NextFunction) {
         try {
-            const {user, email} = res.locals.user_token;
+            const { user, email } = res.locals.user_token;
             const getNewToken = await token.promiseGenerate(settings.email.tokenType, settings.email.tokenLength);
             const dateNow = Date.now() + settings.email.tokenExpireTime;
             const createNewUserToken = {
@@ -16,13 +16,12 @@ export default function createNewToken(db: any) {
                 expire: dateNow
             }
             await db.query("INSERT INTO user_token SET ?", createNewUserToken);
-            res.status(200).send({ success: true, msg: messages.forgot.emailSent})
+            res.status(200).send({ success: true, msg: messages.forgot.emailSent })
             res.locals.user_token = {
                 token: getNewToken,
-                email 
+                email
             }
             next();
-
         }
         catch (err) {
             next(err)
