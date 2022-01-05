@@ -27,6 +27,9 @@ export = {
         auth: {
             user: process.env.EMAIL_ADDRESS,
             password: process.env.EMAIL_PASSWORD,
-        }
+        },
+        tokenType: "extra", // check random-web-token npm package for more info
+        tokenLength: 50, // token with 50 character
+        tokenExpireTime: 3600000, // 3600000 = 1hour
     }
 };

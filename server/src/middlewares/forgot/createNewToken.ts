@@ -1,4 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
+import settings from '../../settings/settings';
 import messages from '../../settings/messages';
 const token = require("random-web-token");
 
@@ -7,8 +8,8 @@ export default function createNewToken(db: any) {
     return async function (req: Request, res: Response, next: NextFunction) {
         try {
             const {user, email} = res.locals.user_token;
-            const getNewToken = await token.promiseGenerate("extra", 50);
-            const dateNow = Date.now() + 3600000; // 3600000 = 1hour
+            const getNewToken = await token.promiseGenerate(settings.email.tokenType, settings.email.tokenLength);
+            const dateNow = Date.now() + settings.email.tokenExpireTime;
             const createNewUserToken = {
                 user_id: user.id,
                 token: getNewToken,

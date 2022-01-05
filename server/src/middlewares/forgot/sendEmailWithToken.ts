@@ -3,6 +3,7 @@ import settings from '../../settings/settings';
 import nodemailer from "nodemailer";
 import SMTPTransport from 'nodemailer/lib/smtp-transport';
 
+// sending an email with this generated token.
 export default function sendEmailWithToken() {
     return function (req: Request, res: Response, next: NextFunction) {
         try {
