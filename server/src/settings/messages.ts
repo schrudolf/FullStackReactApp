@@ -13,5 +13,6 @@ export = {
     },
     forgot: {
         notExists: "Wrong email or not exists",
+        emailSent: "The email has been sent"
     }
 }
