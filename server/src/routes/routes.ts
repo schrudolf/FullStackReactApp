@@ -16,6 +16,8 @@ import checkOldForgotToken from "../middlewares/forgot/checkOldForgotToken";
 import deletingOldUserToken from "../middlewares/forgot/deletingOldUserToken";
 import createNewToken from "../middlewares/forgot/createNewToken";
 import sendEmailWithToken from "../middlewares/forgot/sendEmailWithToken";
+// User Forgot Token check
+import tokenUrlCheck from "../middlewares/forgot/tokenUrlCheck";
 
                                 /* Middlewares end */
 
@@ -24,6 +26,7 @@ export = (app: IRouter, db: any) => {
 
     app.get("/session", userSession()) // every client page load get session
     app.get("/app/logout", logout()) // logout from the app
+    app.get("/forgot/:tokenid", tokenUrlCheck(db)) // verifies that the token url is valid
     
     app.post("/register", checkIncomingRegisterData(db), registeringUser(db))  // user register
     app.post("/login", checkIncomingLoginData(db)) // user Login
@@ -33,7 +36,6 @@ export = (app: IRouter, db: any) => {
     //  ***** plan routes ********
     app.get("/app/user/profile") // user profile
 
-    app.get("/forgot/:tokenid") // check forgot token is exists
     app.post("/forgot/:tokenid/newpassword") // create a new password
 
     // extra plan routes
