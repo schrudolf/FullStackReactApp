@@ -16,7 +16,7 @@ import checkOldForgotToken from "../middlewares/forgot/checkOldForgotToken";
 import deletingOldUserToken from "../middlewares/forgot/deletingOldUserToken";
 import createNewToken from "../middlewares/forgot/createNewToken";
 import sendEmailWithToken from "../middlewares/forgot/sendEmailWithToken";
-// User Forgot Token check
+// User Forgot Url Token check
 import tokenUrlCheck from "../middlewares/forgot/tokenUrlCheck";
 
                                 /* Middlewares end */
