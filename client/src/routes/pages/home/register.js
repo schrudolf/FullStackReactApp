@@ -75,6 +75,7 @@ export default function Register() {
           </Typography>
             <form onSubmit={userRegister}>
               <TextField
+                inputProps={{style: {WebkitBoxShadow: "0 0 0 200px white inset"}}}
                 margin="normal"
                 required
                 fullWidth
@@ -97,6 +98,7 @@ export default function Register() {
                 }}
               />
               <TextField
+                inputProps={{style: {WebkitBoxShadow: "0 0 0 200px white inset"}}}
                 margin="normal"
                 required
                 fullWidth
@@ -117,6 +119,7 @@ export default function Register() {
                 }}
               />
               <TextField
+                inputProps={{style: {WebkitBoxShadow: "0 0 0 200px white inset"}}}
                 margin="normal"
                 required
                 fullWidth
