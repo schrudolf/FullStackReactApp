@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import messages from '../../settings/messages';
+import settings from '../../settings/settings';
 
 // check {email, password, password2} from client. If valid data go next middleware
 export default function checkIncomingRegisterData(db: any) {
@@ -19,10 +20,10 @@ export default function checkIncomingRegisterData(db: any) {
         if (password !== password2) {
             return res.status(200).send({success: false, msg: messages.register.noMatch })
         }
-        if (password.length < 5) {
+        if (password.length < settings.app.register.minPasswordLength) {
             return res.status(200).send({success: false, msg: messages.register.tooShort })
         }
-        if (password.length > 15) {
+        if (password.length > settings.app.register.maxPasswordLength) {
             return res.status(200).send({success: false, msg: messages.register.tooLong })
         }
             const checkEmail = await db.query("SELECT * FROM users WHERE email=?", [email]);
