@@ -16,6 +16,7 @@ import checkOldForgotToken from "../middlewares/forgot/checkOldForgotToken";
 import deletingOldUserToken from "../middlewares/forgot/deletingOldUserToken";
 import createNewToken from "../middlewares/forgot/createNewToken";
 import sendEmailWithToken from "../middlewares/forgot/sendEmailWithToken";
+import checkIncomingNewPasswordData from "../middlewares/forgot/checkIncomingNewPasswordData";
 // User Forgot Url Token check
 import tokenUrlCheck from "../middlewares/forgot/tokenUrlCheck";
 
@@ -31,12 +32,12 @@ export = (app: IRouter, db: any) => {
     app.post("/register", checkIncomingRegisterData(db), registeringUser(db))  // user register
     app.post("/login", checkIncomingLoginData(db)) // user Login
     app.post("/forgot", checkIncomingForgotData(db), checkOldForgotToken(db), deletingOldUserToken(db),  createNewToken(db), sendEmailWithToken()) // forgot pw
+    app.post("/forgot/:tokenid/newpassword", checkIncomingNewPasswordData()) // save new password
 
 
     //  ***** plan routes ********
     app.get("/app/user/profile") // user profile
 
-    app.post("/forgot/:tokenid/newpassword") // create a new password
 
     // extra plan routes
     app.get("/ref/:refid") // check valid user ref link
