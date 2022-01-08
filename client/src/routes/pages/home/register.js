@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
@@ -18,6 +19,7 @@ import createNewAxios from "../../../axios/axios";
 
 export default function Register() {
   const [loadingButton, setLoadingButton] = useState(false)
+  const redirect = useNavigate()
 
   async function userRegister(e){
     e.preventDefault();
@@ -42,6 +44,9 @@ export default function Register() {
       password2.value = ""
       response_msg.style.color = "green"
       response_msg.innerHTML = response.data.msg;
+      setTimeout(() => {
+        redirect("/login")
+      }, 3000);
     }else{
       response_msg.style.color = "red"
       response_msg.innerHTML = response.data.msg;

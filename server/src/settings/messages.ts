@@ -4,7 +4,7 @@ export = {
         tooShort: "Password is too short",
         tooLong: "Password is too long",
         emailExists: "This email already exists",
-        success: "Success registration"
+        success: "Success registration. Redirecting to login in progress"
     },
     login: {
         notExists: "Wrong email or not exists",
