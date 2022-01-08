@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, useNavigate } from "react-router-dom";
 import {Container, Box, Typography, TextField, IconButton, Button} from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 
@@ -15,6 +15,7 @@ import Footer from "../../../components/home/footer";
 export default function NewPassword() {
   const [loadingButton, setLoadingButton] = useState(false);
   const [responseStatus, setResponseStatus] = useState();
+  const redirect = useNavigate()
   // get the tokenid from route params
   const { tokenid } = useParams();
 
@@ -48,7 +49,9 @@ export default function NewPassword() {
       password2.value = "";
       response_msg.style.color = "green";
       response_msg.innerHTML = response.data.msg;
-      // set isLogged value === true and redirect to protected route
+      setTimeout(() => {
+        redirect("/login")
+      }, 3000);
     } else {
       response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;

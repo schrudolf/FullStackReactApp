@@ -19,6 +19,6 @@ export = {
         noMatch: "Passwords do not match",
         tooShort: "Password is too short",
         tooLong: "Password is too long",
-        successPasswordChange: "Password Changed"
+        successPasswordChange: "Password Changed. Redirecting to login in progress"
     }
 }

@@ -99,7 +99,7 @@ export default function Forgot() {
                   variant="contained"
                   color="info"
                 >
-                  Sign up
+                  Reset Password
                 </Button>
               )}
               <div style={{ margin: 5 }}>
