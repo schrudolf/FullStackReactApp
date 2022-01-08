@@ -75,6 +75,7 @@ export default function Login() {
             </Typography>
             <form onSubmit={userLogin}>
               <TextField
+                inputProps={{style: {WebkitBoxShadow: "0 0 0 200px white inset"}}}
                 margin="normal"
                 required
                 fullWidth
@@ -97,6 +98,7 @@ export default function Login() {
                 }}
               />
               <TextField
+                inputProps={{style: {WebkitBoxShadow: "0 0 0 200px white inset"}}}
                 margin="normal"
                 required
                 fullWidth
