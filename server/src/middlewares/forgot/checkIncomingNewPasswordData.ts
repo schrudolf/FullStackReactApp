@@ -7,7 +7,7 @@ export default function checkIncomingNewPasswordData() {
     return async function (req: Request, res: Response, next: NextFunction) {
         try {
             const { password, password2 } = req.body;
-
+            const token_id = req.params.tokenid
             if (typeof password === "undefined" || typeof password2 === "undefined") {
                 return res.status(204).end();
             }
@@ -29,7 +29,7 @@ export default function checkIncomingNewPasswordData() {
             else {
                 res.locals.newPassword = {
                     password,
-                    password2
+                    token_id
                 }
                 next()
             }

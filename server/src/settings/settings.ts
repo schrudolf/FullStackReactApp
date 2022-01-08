@@ -17,7 +17,8 @@ export = {
         port: process.env.PORT,
         register: { //user Register settings
             minPasswordLength: 5, // Minimum length of password (in registering and password Change)
-            maxPasswordLength: 15 // Maximum length of password (in registering and password Change)
+            maxPasswordLength: 15, // Maximum length of password (in registering and password Change)
+            salt: 10, // salting rounds
         }
     },
     cookie: {
