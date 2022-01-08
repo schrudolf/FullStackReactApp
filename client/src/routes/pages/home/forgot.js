@@ -75,7 +75,7 @@ export default function Forgot() {
                 placeholder="Email"
                 InputProps={{
                   startAdornment: (
-                    <IconButton tabIndex={-1}>
+                    <IconButton disabled tabIndex={-1}>
                       <EmailIcon />
                     </IconButton>
                   ),

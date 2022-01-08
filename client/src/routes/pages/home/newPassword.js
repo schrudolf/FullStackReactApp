@@ -101,7 +101,7 @@ export default function NewPassword() {
                     placeholder="Password"
                     InputProps={{
                       startAdornment: (
-                        <IconButton tabIndex={-1}>
+                        <IconButton disabled tabIndex={-1}>
                           <LockIcon />
                         </IconButton>
                       ),
@@ -121,7 +121,7 @@ export default function NewPassword() {
                     placeholder="Password again"
                     InputProps={{
                       startAdornment: (
-                        <IconButton tabIndex={-1}>
+                        <IconButton disabled tabIndex={-1}>
                           <LockIcon />
                         </IconButton>
                       ),

@@ -86,7 +86,7 @@ export default function Login() {
                 placeholder="Email"
                 InputProps={{
                   startAdornment: (
-                    <IconButton tabIndex={-1}>
+                    <IconButton disabled tabIndex={-1}>
                       <EmailIcon />
                     </IconButton>
                   ),
@@ -106,7 +106,7 @@ export default function Login() {
                 placeholder="Password"
                 InputProps={{
                   startAdornment: (
-                    <IconButton tabIndex={-1}>
+                    <IconButton disabled tabIndex={-1}>
                       <LockIcon />
                     </IconButton>
                   ),
@@ -130,7 +130,7 @@ export default function Login() {
                   variant="contained"
                   color="info"
                 >
-                  Sign up
+                  Sign in
                 </Button>
               )}
               <div style={{ margin: 5 }}>

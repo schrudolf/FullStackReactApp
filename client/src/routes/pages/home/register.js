@@ -86,7 +86,7 @@ export default function Register() {
                 placeholder="Email"
                 InputProps={{
                   startAdornment: (
-                    <IconButton tabIndex={-1}>
+                    <IconButton disabled tabIndex={-1}>
                       <EmailIcon />
                     </IconButton>
                   ),
@@ -106,7 +106,7 @@ export default function Register() {
                 placeholder="Password"
                 InputProps={{
                     startAdornment: (
-                      <IconButton tabIndex={-1}>
+                      <IconButton disabled tabIndex={-1}>
                         <LockIcon />
                       </IconButton>
                     ),
@@ -126,7 +126,7 @@ export default function Register() {
                 placeholder="Password again"
                 InputProps={{
                     startAdornment: (
-                      <IconButton tabIndex={-1}>
+                      <IconButton disabled tabIndex={-1}>
                         <LockIcon />
                       </IconButton>
                     ),
