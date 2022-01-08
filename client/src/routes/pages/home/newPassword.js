@@ -14,7 +14,7 @@ import Footer from "../../../components/home/footer";
 // if valid link and token not expired render the newPassword component (status 204 not valid or expired. status 200 volid token)
 export default function NewPassword() {
   const [loadingButton, setLoadingButton] = useState(false);
-  const [responseStatus, setResponseStatus] = useState({});
+  const [responseStatus, setResponseStatus] = useState();
   // get the tokenid from route params
   const { tokenid } = useParams();
 
@@ -54,9 +54,12 @@ export default function NewPassword() {
       response_msg.innerHTML = response.data.msg;
     }
   }
+  // status ok from server 200+
   if (responseStatus >= 200) {
+    // if invalid token or expired 204 status
     if (responseStatus > 200) {
       return <Navigate to="/forgot" />;
+    // if valid and not expired -> token status 200. Rendering newPassword component
     } else {
       return (
         <div>
