@@ -18,13 +18,13 @@ export default function checkIncomingNewPasswordData() {
                 return res.status(204).end()
             }
             if (password !== password2) {
-                return res.status(200).send({ success: false, msg: messages.register.noMatch })
+                return res.status(200).send({ success: false, msg: messages.newPassword.noMatch })
             }
             if (password.length < settings.app.register.minPasswordLength) {
-                return res.status(200).send({ success: false, msg: messages.register.tooShort })
+                return res.status(200).send({ success: false, msg: messages.newPassword.tooShort })
             }
             if (password.length > settings.app.register.maxPasswordLength) {
-                return res.status(200).send({ success: false, msg: messages.register.tooLong })
+                return res.status(200).send({ success: false, msg: messages.newPassword.tooLong })
             }
             else {
                 res.locals.newPassword = {

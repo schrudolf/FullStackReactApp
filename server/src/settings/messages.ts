@@ -14,6 +14,11 @@ export = {
     forgot: {
         notExists: "Wrong email or not exists",
         emailSent: "The email has been sent",
+    },
+    newPassword: {
+        noMatch: "Passwords do not match",
+        tooShort: "Password is too short",
+        tooLong: "Password is too long",
         successPasswordChange: "Password Changed"
     }
 }

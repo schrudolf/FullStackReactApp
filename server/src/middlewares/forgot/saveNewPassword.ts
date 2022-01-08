@@ -18,7 +18,7 @@ export default function saveNewPassword(db: any) {
             await db.query("DELETE FROM user_token WHERE token = ?", [token_id]);
             res.status(200).send({
                 success: true,
-                msg: messages.forgot.successPasswordChange,
+                msg: messages.newPassword.successPasswordChange,
             })
         }
         catch (err) {
