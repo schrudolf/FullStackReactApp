@@ -2,10 +2,10 @@
 
 
 ## User Features:
-- [x] Sign up:
-- [x] Sign in:
+- [x] Registration:
+- [x] Login:
 - [x] Forgot Password:
-    - [x] Send email with token:
+    - [x] Send an email with token (default expire time one hour):
     - [x] Token check (valid and not expired):
     - [x] Deleting used token after success password change:
 - [ ] User Profile:
@@ -15,7 +15,8 @@
 - [x] Logout:
 
 ## Email Features:
-- [ ] Send an email after success registration:
+- [x] Send an email after success registration:
 - [ ] Send an email after password changed:
+- [ ] Activation link after registration:
 - [x] Forgot password email with token:
 - [ ] Friend invite email with ref link:

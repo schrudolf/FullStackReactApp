@@ -15,6 +15,7 @@ export = {
     app: {
         host: process.env.HOST,
         port: process.env.PORT,
+        name: "FullStackReactApp",
         register: { //user Register settings
             minPasswordLength: 5, // Minimum length of password (in registering and password Change)
             maxPasswordLength: 15, // Maximum length of password (in registering and password Change)
@@ -35,6 +36,7 @@ export = {
         },
         tokenType: "extra", // check random-web-token npm package for more info
         tokenLength: 50, // token with 50 character
-        tokenExpireTime: 3600000, // 3600000 = 1hour
+        tokenExpireTime: 3600000, // 3600000 = 1hour,
+        successRegistration: true, // Sending email after success registration
     }
 };

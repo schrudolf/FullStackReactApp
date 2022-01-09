@@ -12,7 +12,12 @@ export default function registeringUser(db: any){
             const hash = await bcrypt.hash(newUser.password, salt);
             newUser.password = await hash;
             await db.query("INSERT INTO users SET ?", newUser);
-            res.status(200).send({success: true, msg: messages.register.success})
+            if(settings.email.successRegistration){
+                res.status(200).send({success: true, msg: messages.register.success})
+                next();
+            }else {
+                res.status(200).send({success: true, msg: messages.register.success})
+            }
         }
         catch(err){
             next(err)
