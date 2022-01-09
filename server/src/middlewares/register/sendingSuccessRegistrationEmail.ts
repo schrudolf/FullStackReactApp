@@ -22,7 +22,7 @@ export default function sendingSuccessRegistrationEmail() {
                 to: email,
                 subject: 'Success registration',
                 html: `<h1>Success registration on the ${settings.app.name}</h1>` + `<p>with the next email: ${email} </p>` +
-                    `<p>Login page: http://${settings.app.host}:${settings.app.port}/login </p>`
+                    `<p>Login page: ${settings.client.information}/login </p>`
             };
             transporter.sendMail(mailOptions, function (err, info) {
                 if (err) {

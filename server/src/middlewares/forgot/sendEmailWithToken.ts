@@ -22,7 +22,7 @@ export default function sendEmailWithToken() {
                 to: email,
                 subject: 'Password Change',
                 html: '<h1>New password</h1>' + `<p>for the next email: ${email} </p>` +
-                    "<p>using this link for new password: </p>" + '<span>http://' + settings.app.host + "/forgot/" + token +
+                    "<p>using this link for new password: </p>" + '<span>' + settings.client.information + "/forgot/" + token +
                     "</span><p>This link is working for the next one hour</p>"
             };
             transporter.sendMail(mailOptions, function (err, info) {
