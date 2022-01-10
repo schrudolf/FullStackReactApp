@@ -11,8 +11,12 @@
 - [ ] User Profile:
 - [ ] User Settings (Password change, etc..):
 - [ ] Friend invite with ref link:
-- [ ] Friend invite with email:
+- [ ] Send message to support
 - [x] Logout:
+
+## Admin Features:
+- [ ] App settings:
+- [ ] Read users messages:
 
 ## Email Features:
 - [x] Send an email after success registration:
