@@ -20,7 +20,7 @@
 
 ## Email Features:
 - [x] Send an email after success registration:
-- [ ] Send an email after password changed:
+- [x] Send an email after password changed:
 - [ ] Activation link after registration:
 - [x] Forgot password email with token:
 - [ ] Friend invite email with ref link:
