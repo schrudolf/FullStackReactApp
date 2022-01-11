@@ -38,6 +38,7 @@ export = {
         tokenLength: 50, // token with 50 character
         tokenExpireTime: 3600000, // 3600000 = 1hour,
         successRegistration: true, // Sending email after success registration
+        successPasswordChange: true, // Sending email after success password change
     },
     client: {
         information: "http://localhost:3000" // it is only information which host and port used in the client
