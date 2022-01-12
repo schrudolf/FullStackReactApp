@@ -41,6 +41,6 @@ export = {
         successPasswordChange: true, // Sending email after success password change
     },
     client: {
-        information: "http://localhost:3000" // it is only information which host and port used in the client
+        information: "http://localhost" // it is only information which host and port used in the client
     }
 };

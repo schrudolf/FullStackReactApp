@@ -14,7 +14,7 @@ const HOST: string = settings.app.host || "localhost";
 const PORT: string = settings.app.port || "5000";
 
 async function startServer() {
-    app.use(cors({ origin: 'http://localhost:3000', credentials: true, methods: ["GET", "POST"] }));
+    app.use(cors({ origin: 'http://localhost', credentials: true, methods: ["GET", "POST"] }));
     // app.set('trust proxy', 1) // trust first proxy
     app.use(session({
         name: settings.cookie.name,
