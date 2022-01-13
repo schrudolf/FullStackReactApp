@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import messages from '../../settings/messages';
 import settings from '../../settings/settings';
+const token = require("random-web-token");
 
 // check {email, password, password2} from client. If valid data go next middleware
 export default function checkIncomingRegisterData(db: any) {
@@ -27,13 +28,16 @@ export default function checkIncomingRegisterData(db: any) {
             return res.status(200).send({success: false, msg: messages.register.tooLong })
         }
             const checkEmail = await db.query("SELECT * FROM users WHERE email=?", [email]);
+            //generate ref id for activation email
+            const ref_id = await await token.promiseGenerate("extra", 50)
             // return if the email already exists
             if(checkEmail[0].length > 0){
                 return res.status(200).send({success: false, msg: messages.register.emailExists })
             }else{
                 res.locals.newUser = {
                     email,
-                    password
+                    password,
+                    ref_id
                 }
                 next()
             }
