@@ -37,7 +37,8 @@ export default function checkIncomingRegisterData(db: any) {
                 res.locals.newUser = {
                     email,
                     password,
-                    ref_id
+                    ref_id,
+                    activated: settings.email.needActivation ? 0 : 1
                 }
                 next()
             }
