@@ -10,6 +10,7 @@ import sendingSuccessRegistrationEmail from "../middlewares/register/sendingSucc
 import sendingUserActivationEmail from "../middlewares/register/sendingUserActivationEmail";
 // User Login
 import checkIncomingLoginData from "../middlewares/login/checkIncomingLoginData";
+import loginHandler from "../middlewares/login/loginHandler";
 // User Logout
 import logout from "../middlewares/logout/logout";
 // User Forgot password
@@ -34,7 +35,7 @@ export = (app: IRouter, db: any) => {
     app.get("/forgot/:tokenid", tokenUrlCheck(db)) // verifies that the token url is valid
     
     app.post("/register", checkIncomingRegisterData(db), registeringUser(db), sendingSuccessRegistrationEmail(), sendingUserActivationEmail())  // user register
-    app.post("/login", checkIncomingLoginData(db)) // user Login
+    app.post("/login", checkIncomingLoginData(), loginHandler(db)) // user Login
     app.post("/forgot", checkIncomingForgotData(db), checkOldForgotToken(db), deletingOldUserToken(db),  createNewToken(db), sendEmailWithToken()) // forgot pw
     app.post("/forgot/:tokenid/newpassword", checkIncomingNewPasswordData(), saveNewPassword(db), sendingSuccessPasswordChangeEmail()) // save new password
 
