@@ -29,7 +29,7 @@ export default function checkIncomingRegisterData(db: any) {
         }
             const checkEmail = await db.query("SELECT * FROM users WHERE email=?", [email]);
             //generate ref id for activation email
-            const ref_id = await await token.promiseGenerate("extra", 50)
+            const ref_id = await await token.promiseGenerate(settings.email.tokenType, settings.email.tokenLength)
             // return if the email already exists
             if(checkEmail[0].length > 0){
                 return res.status(200).send({success: false, msg: messages.register.emailExists })
