@@ -7,6 +7,7 @@ import Register from "./pages/home/register";
 import Login from "./pages/home/login";
 import Forgot from "./pages/home/forgot";
 import NewPassword from "./pages/home/newPassword";
+import UserActivation from "./pages/home/userActivation";
 
 // Route pages after login
 import AppIndex from "./pages/app";
@@ -32,6 +33,7 @@ export default function Routing({ isLogged }) {
         <Route exact path="/forgot" element={<Forgot />} />
         <Route exact path="/forgot/:tokenid" element={<NewPassword />} />
         <Route exact path="/app/logout" element={<AppLogout />} />
+        <Route exact path="/user/activate/:ref_id" element={<UserActivation />} />
         <Route exact path="/*" element={<Navigate to="/login" />} />
       </Routes>
     );
