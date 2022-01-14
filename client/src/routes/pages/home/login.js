@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -19,6 +19,7 @@ import AC from "../../../redux/action-creators/bindActionCreators";
 export default function Login() {
   const [loadingButton, setLoadingButton] = useState(false);
   const actionCreators = AC();
+  const activationMsg = JSON.parse(localStorage.getItem("response"));
 
   async function userLogin(e) {
     e.preventDefault();
@@ -26,7 +27,7 @@ export default function Login() {
 
     const email = document.getElementById("email");
     const password = document.getElementById("password");
-    const response_msg = document.getElementById("response_msg");
+    let response_msg = document.getElementById("response_msg");
 
     const response = await createNewAxios("/login", "post", {
       email: email.value,
@@ -47,6 +48,24 @@ export default function Login() {
       response_msg.innerHTML = response.data.msg;
     }
   }
+  // if the user click activation link in the email. This will show response messages after redirect from activation route
+  const checkActivationMessage = () => {
+    let response_msg = document.getElementById("response_msg");
+    if (!(typeof activationMsg.msg === "undefined") && activationMsg.success) {
+      response_msg.innerHTML = activationMsg.msg;
+      response_msg.style.color = "green";
+    }
+    if (!(typeof activationMsg.msg === "undefined") && !activationMsg.success) {
+      response_msg.innerHTML = activationMsg.msg;
+      response_msg.style.color = "red";
+    }
+    localStorage.setItem("response", JSON.stringify({}));
+  };
+
+  useEffect(() => {
+    checkActivationMessage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
   return (
     <div>
       <Header />
@@ -75,7 +94,9 @@ export default function Login() {
             </Typography>
             <form onSubmit={userLogin}>
               <TextField
-                inputProps={{style: {WebkitBoxShadow: "0 0 0 200px white inset"}}}
+                inputProps={{
+                  style: { WebkitBoxShadow: "0 0 0 200px white inset" },
+                }}
                 margin="normal"
                 required
                 fullWidth
@@ -98,7 +119,9 @@ export default function Login() {
                 }}
               />
               <TextField
-                inputProps={{style: {WebkitBoxShadow: "0 0 0 200px white inset"}}}
+                inputProps={{
+                  style: { WebkitBoxShadow: "0 0 0 200px white inset" },
+                }}
                 margin="normal"
                 required
                 fullWidth
