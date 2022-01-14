@@ -9,6 +9,7 @@ export = {
     login: {
         notExists: "Wrong email or not exists",
         wrongPassword: "Wrong password",
+        notActivated: "Account is not activated. Please check your emails and activate it with the link",
         success: "Success login"
     },
     forgot: {

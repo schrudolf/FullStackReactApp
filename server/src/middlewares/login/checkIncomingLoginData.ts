@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from 'express';
 import bcrypt from "bcryptjs";
 import messages from '../../settings/messages';
+import settings from '../../settings/settings';
 
 // check {email, password} from client. If valid data login the user
 export default function checkIncomingRegisterData(db: any) {
@@ -17,20 +18,41 @@ export default function checkIncomingRegisterData(db: any) {
             if (!email || !password) {
                 return res.status(204).end()
             }
-            const getEmails = await db.query("SELECT * FROM users WHERE email=? LIMIT 1", [email]);
-            if (getEmails[0].length === 0) {
+            const getUser = await db.query("SELECT * FROM users WHERE email=? LIMIT 1", [email]);
+            const user = getUser[0][0];
+            // if user not exists
+            if (getUser[0].length === 0) {
                 return res.status(200).send({
                     success: false,
                     msg: messages.login.notExists
                 })
             }
-            if (await bcrypt.compare(password, getEmails[0][0].password)) {
+            // if the password is good and not need user activation
+            if (await bcrypt.compare(password, user.password) && !settings.email.needActivation) {
                 req.session.isLogged = true;
                 res.status(200).send({
                     success: true,
                     msg: messages.login.success
                 })
-            } else {
+
+            }
+            // if the password is good and need user activation and user is activated 
+            else if (await bcrypt.compare(password, user.password) && settings.email.needActivation && user.activated) {
+                req.session.isLogged = true;
+                res.status(200).send({
+                    success: true,
+                    msg: messages.login.success
+                })
+            }
+            // if the password is good and need user activation but user account is not activated
+            else if (await bcrypt.compare(password, user.password) && settings.email.needActivation && !user.activated) {
+                res.status(200).send({
+                    success: false,
+                    msg: messages.login.notActivated
+                })
+            }
+            // user is exist but wrong password
+            else {
                 res.status(200).send({
                     success: false,
                     msg: messages.login.wrongPassword,
