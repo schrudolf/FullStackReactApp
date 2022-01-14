@@ -18,9 +18,10 @@
 - [ ] App settings:
 - [ ] Read users messages:
 
-## Email Features:
+## Options Features:
+###### Emails (enable/disable in settings/settings.ts server side)
 - [x] Send an email after success registration:
-- [x] Send an email after password changed:
-- [ ] Activation link after registration:
+- [x] Send an email after success password change:
+- [x] Activation link after registration:
 - [x] Forgot password email with token:
 - [ ] Friend invite email with ref link:
