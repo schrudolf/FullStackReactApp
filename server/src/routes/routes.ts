@@ -26,6 +26,7 @@ import sendingSuccessPasswordChangeEmail from "../middlewares/forgot/sendingSucc
 import tokenUrlCheck from "../middlewares/forgot/tokenUrlCheck";
 // User activation handler
 import checkActivationLink from "../middlewares/activate/checkActivationLink";
+import activationHandler from "../middlewares/activate/activationHandler";
 
                                 /* Middlewares end */
 
@@ -35,7 +36,7 @@ export = (app: IRouter, db: any) => {
     app.get("/session", userSession()) // every client page load get session
     app.get("/app/logout", logout()) // logout from the app
     app.get("/forgot/:tokenid", tokenUrlCheck(db)) // verifies that the token url is valid
-    app.get("/user/activate/:ref_id", checkActivationLink(db)) // handling user activation
+    app.get("/user/activate/:ref_id", checkActivationLink(), activationHandler(db)) // handling user activation
     
     app.post("/register", checkIncomingRegisterData(db), registeringUser(db), sendingSuccessRegistrationEmail(), sendingUserActivationEmail())  // user register
     app.post("/login", checkIncomingLoginData(), loginHandler(db)) // user Login

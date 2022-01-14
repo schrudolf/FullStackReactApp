@@ -3,7 +3,7 @@ import settings from '../../settings/settings';
 import validator from "validator";
 
 // check the activation link is valid  
-export default function checkActivationLink(db: any) {
+export default function checkActivationLink() {
     return async function(req: Request, res: Response, next: NextFunction) {
         try {
             const ref_id = req.params.ref_id;

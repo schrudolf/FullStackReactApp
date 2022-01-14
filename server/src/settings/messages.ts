@@ -21,5 +21,9 @@ export = {
         tooShort: "Password is too short",
         tooLong: "Password is too long",
         successPasswordChange: "Password Changed. Redirecting to login in progress"
+    },
+    activation: {
+        successActivation: "You have successfully activated. You can now log in",
+        wrongLinkOrActivated: "This link is wrong or user is already activated"
     }
 }
