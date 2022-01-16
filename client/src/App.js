@@ -20,10 +20,10 @@ function App() {
     const getSession = async () => {
       const response = await createNewAxios("/session", "GET");
       if (response.status === 200) {
-        setSessionReady(true);
         //Every page load -> if user logged but isLogged false (default false) set it to true
         if (isLogged !== response.data.user.isLogged) {
           actionCreators.setLoggedStatus(response.data.user.isLogged);
+          setSessionReady(true);
         }
       }
     };
