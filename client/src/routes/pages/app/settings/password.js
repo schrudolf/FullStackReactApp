@@ -5,14 +5,14 @@ import NavLinks from "./navLinks";
 import AppHeader from "../../../../components/app/appHeader";
 import Footer from "../../../../components/home/footer";
 
-export default function AccountSettings() {
+export default function PasswordSettings() {
   return (
     <div>
       <AppHeader />
       <Container maxWidth="lg">
         <Grid container>
           <Grid item textAlign={"left"} xs={8}>
-            <h1>Account</h1>
+            <h1>Change Password</h1>
           </Grid>
           <Grid
             item

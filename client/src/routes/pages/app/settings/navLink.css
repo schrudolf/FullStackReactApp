@@ -1,0 +1,15 @@
+.link-list {
+    padding-top: 3px !important;
+    padding-bottom: 1px !important;
+    margin-bottom: 2px; 
+    margin-top: 2px;
+}
+.link {
+    margin-top: 0px !important;
+    margin-bottom: 0px !important;
+}
+.link:hover {
+    background-color: #DADADA !important;
+    border-radius: 10px !important;
+    
+}
