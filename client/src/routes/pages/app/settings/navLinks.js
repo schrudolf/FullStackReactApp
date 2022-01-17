@@ -30,7 +30,7 @@ const links = [
     Password
   </NavLink>,
   <NavLink className={"link"} to="/#" style={activeStyle}>
-    Link 1
+    Notifications
   </NavLink>,
   <NavLink className={"link"} to="/#" style={activeStyle}>
     Link 2

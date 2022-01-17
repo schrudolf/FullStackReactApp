@@ -21,9 +21,6 @@ const pages = [
 ];
 const settings = [
   <Link href="/app/settings/account" underline="none" color="inherit">
-    Profile
-  </Link>,
-  <Link href="/app/settings/password" underline="none" color="inherit">
     Settings
   </Link>,
   <Link href="/app/logout" underline="none" color="inherit">

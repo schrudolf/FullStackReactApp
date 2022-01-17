@@ -12,7 +12,7 @@ export default function AccountSettings() {
       <Container maxWidth="lg">
         <Grid container>
           <Grid item textAlign={"left"} xs={12} sm={8}>
-            <h1>Account</h1>
+            <h1>Profil settings</h1>
           </Grid>
           <NavLinks />
         </Grid>
