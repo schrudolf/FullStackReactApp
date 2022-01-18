@@ -14,7 +14,6 @@ function App() {
   useEffect(() => {
     const getSession = async () => {
       const response = await createNewAxios("/session", "GET");
-      console.log("lefutok")
       if (response.status === 200) {
         setSession({
           isLogged: response.data.user.isLogged,
