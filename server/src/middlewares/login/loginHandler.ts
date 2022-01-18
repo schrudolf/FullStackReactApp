@@ -23,6 +23,8 @@ export default function loginHandler(db: any) {
                     success: true,
                     msg: messages.login.success
                 })
+                res.locals.user = user;
+                next();
 
             }
             // if the password is good and need user activation and user is activated 
@@ -32,6 +34,8 @@ export default function loginHandler(db: any) {
                     success: true,
                     msg: messages.login.success
                 })
+                res.locals.user = user;
+                next();
             }
             // if the password is good and need user activation but user account is not activated
             else if (await bcrypt.compare(password, user.password) && settings.email.needActivation && !user.activated) {

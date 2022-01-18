@@ -11,6 +11,7 @@ import sendingUserActivationEmail from "../middlewares/register/sendingUserActiv
 // User Login
 import checkIncomingLoginData from "../middlewares/login/checkIncomingLoginData";
 import loginHandler from "../middlewares/login/loginHandler";
+import userDetailsHandler from "../middlewares/login/userDetailsHandler";
 // User Logout
 import logout from "../middlewares/logout/logout";
 // User Forgot password
@@ -39,7 +40,7 @@ export = (app: IRouter, db: any) => {
     app.get("/user/activate/:ref_id", checkActivationLink(), activationHandler(db)) // handling user activation
     
     app.post("/register", checkIncomingRegisterData(db), registeringUser(db), sendingSuccessRegistrationEmail(), sendingUserActivationEmail())  // user register
-    app.post("/login", checkIncomingLoginData(), loginHandler(db)) // user Login
+    app.post("/login", checkIncomingLoginData(), loginHandler(db), userDetailsHandler(db)) // user Login
     app.post("/forgot", checkIncomingForgotData(db), checkOldForgotToken(db), deletingOldUserToken(db),  createNewToken(db), sendEmailWithToken()) // forgot pw
     app.post("/forgot/:tokenid/newpassword", checkIncomingNewPasswordData(), saveNewPassword(db), sendingSuccessPasswordChangeEmail()) // save new password
 
