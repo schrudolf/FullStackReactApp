@@ -26,10 +26,10 @@ export default function userDetailsHandler(db: any) {
                     last_name: "",
                 }
                 await db.query("INSERT INTO user_details set ?;", [userDetails]);
-                res.end();
+                next();
             }
             else{
-                res.end();
+                next();
             }
         }
         catch (err) {
