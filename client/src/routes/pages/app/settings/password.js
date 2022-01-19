@@ -5,7 +5,7 @@ import NavLinks from "./navLinks";
 import AppHeader from "../../../../components/app/appHeader";
 import Footer from "../../../../components/home/footer";
 
-export default function PasswordSettings() {
+export default function AccountPassword() {
   return (
     <div>
       <AppHeader />

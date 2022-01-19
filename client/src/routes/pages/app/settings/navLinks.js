@@ -24,6 +24,9 @@ const activeStyle = ({ isActive }) =>
       };
 
 const links = [
+  <NavLink className={"link"} to="/app/settings/profile" style={activeStyle}>
+    User Profile
+  </NavLink>,
   <NavLink className={"link"} to="/app/settings/details" style={activeStyle}>
     User Details
   </NavLink>,
