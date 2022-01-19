@@ -1,17 +1,7 @@
-.link-list {
-    padding-top: 5px !important;
-    padding-left: 25px !important;
-    padding-right: 25px !important;
-    padding-bottom: 1px !important;
-    margin-bottom: 2px; 
-    margin-top: 2px;
-}
-.link {
-    margin-top: 2px !important;
-    margin-bottom: 0px !important;
-}
 .link:hover {
-    background-color: #DADADA !important;
-    border-radius: 15px !important;
+    background-color: black !important;
+    color: white !important;
+    font-weight: 600;
+    border-radius: 10px !important;
     
 }
