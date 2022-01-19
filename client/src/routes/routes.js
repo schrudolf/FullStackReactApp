@@ -9,7 +9,7 @@ import Forgot from "./pages/home/forgot";
 import NewPassword from "./pages/home/newPassword";
 import UserActivation from "./pages/home/userActivation";
 //settings
-import AccountSettings from "./pages/app/settings/account";
+import AccountDetails from "./pages/app/settings/details";
 import PasswordSettings from "./pages/app/settings/password";
 
 // Route pages after login
@@ -22,7 +22,7 @@ export default function Routing({ isLogged }) {
     return (
       <Routes>
         <Route exact path="/app" element={<AppIndex />} />
-        <Route exact path="/app/settings/account" element={<AccountSettings />} />
+        <Route exact path="/app/settings/details" element={<AccountDetails />} />
         <Route exact path="/app/settings/password" element={<PasswordSettings />} />
         <Route exact path="/app/logout" element={<AppLogout />} />
         <Route exact path="*" element={<Navigate to="/app" />} />
