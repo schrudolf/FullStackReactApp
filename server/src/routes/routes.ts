@@ -32,6 +32,7 @@ import activationHandler from "../middlewares/activate/activationHandler";
 // Settings
 import sendUserDetailsData from "../middlewares/settings/details/sendUserDetailsData";
 import checkIncomingUserDetailsData from "../middlewares/settings/details/checkIncomingUserDetailsData";
+import saveNewUserDetails from "../middlewares/settings/details/saveNewUserDetails";
 
                                 /* Middlewares end */
 
@@ -48,7 +49,7 @@ export = (app: IRouter, db: any) => {
     app.post("/login", checkIncomingLoginData(), loginHandler(db), userDetailsHandler(db), saveUserIpAddress(db)) // user Login
     app.post("/forgot", checkIncomingForgotData(db), checkOldForgotToken(db), deletingOldUserToken(db),  createNewToken(db), sendEmailWithToken()) // forgot pw
     app.post("/forgot/:tokenid/newpassword", checkIncomingNewPasswordData(), saveNewPassword(db), sendingSuccessPasswordChangeEmail()) // save new password
-    app.post("/app/settings/details", checkIncomingUserDetailsData(db)) // user details settings
+    app.post("/app/settings/details", checkIncomingUserDetailsData(db), saveNewUserDetails(db)) // user details settings
 
 
     //  ***** plan routes ********
