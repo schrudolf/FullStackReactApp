@@ -78,6 +78,10 @@ export default function AccountDetails() {
       });
     }
   };
+  async function sendDataToserver(e){
+    e.preventDefault();
+    const response = await createNewAxios("/app/settings/details", "POST");
+  }
   useEffect(() => {
     getUserDetails();
   }, []);
@@ -98,6 +102,7 @@ export default function AccountDetails() {
             <Grid item textAlign={"left"} xs={12} sm={8}>
               <Container>
                 <h1>User Details</h1>
+                <form onSubmit={sendDataToserver}>
                 <TextField
                   fullWidth
                   onChange={checkInputData}
@@ -186,6 +191,7 @@ export default function AccountDetails() {
                     Save Changes
                   </Button>
                 )}
+                </form>
               </Container>
             </Grid>
             <NavLinks />
