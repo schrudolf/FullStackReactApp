@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Grid, Container, Button, TextField } from "@mui/material/";
+import createNewAxios from "../../../../axios/axios";
 
 import NavLinks from "./navLinks";
 
@@ -8,6 +9,15 @@ import Footer from "../../../../components/home/footer";
 
 export default function AccountDetails() {
   const [detailsChanged, setdetailsChanged] = useState(false);
+
+  const getUserDetails = async () => {
+    const response = await createNewAxios("/app/settings/details", "GET")
+    console.log(response);
+  }
+  useEffect(() => {
+    getUserDetails();
+  }, []);
+   
   return (
     <div>
       <AppHeader />
