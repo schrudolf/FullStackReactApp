@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Grid, Container, Button, TextField } from "@mui/material/";
+import PageLoading from "../../../../components/ui/pageLoading";
 import createNewAxios from "../../../../axios/axios";
 
 import NavLinks from "./navLinks";
@@ -8,23 +9,50 @@ import AppHeader from "../../../../components/app/appHeader";
 import Footer from "../../../../components/home/footer";
 
 export default function AccountDetails() {
+  const [userDetails, setUserDetails] = useState({
+    details: null,
+    isReady: false,
+  });
   const [detailsChanged, setdetailsChanged] = useState(false);
 
   const getUserDetails = async () => {
-    const response = await createNewAxios("/app/settings/details", "GET")
-    console.log(response);
-  }
+    const response = await createNewAxios("/app/settings/details", "GET");
+    if (response.status === 200) {
+      setUserDetails({
+        details: response.data,
+        isReady: true,
+      });
+      const [first_name, last_name, country, city, zip_code, address] =
+        document.querySelectorAll(
+          "#first_name, #last_name, #country, #city, #zip_code, #address"
+        );
+      first_name.value = response.data.first_name;
+      last_name.value = response.data.last_name;
+      country.value = response.data.country;
+      city.value = response.data.city;
+      zip_code.value = response.data.zip_code;
+      address.value = response.data.address;
+    }
+  };
   useEffect(() => {
     getUserDetails();
   }, []);
-   
-  return (
-    <div>
-      <AppHeader />
-      <Container maxWidth="lg">
-        <Grid container>
-          <Grid item textAlign={"left"} xs={12} sm={8}>
-            <Container>
+  if (!userDetails.isReady) {
+    return (
+      <div>
+        <AppHeader />
+        <PageLoading />;
+        <Footer />
+      </div>
+    );
+  } else {
+    return (
+      <div>
+        <AppHeader />
+        <Container maxWidth="lg">
+          <Grid container>
+            <Grid item textAlign={"left"} xs={12} sm={8}>
+              <Container>
                 <h1>User Details</h1>
                 <TextField
                   fullWidth
@@ -108,12 +136,13 @@ export default function AccountDetails() {
                     Save Changes
                   </Button>
                 )}
-            </Container>
+              </Container>
+            </Grid>
+            <NavLinks />
           </Grid>
-          <NavLinks />
-        </Grid>
-      </Container>
-      <Footer />
-    </div>
-  );
+        </Container>
+        <Footer />
+      </div>
+    );
+  }
 }
