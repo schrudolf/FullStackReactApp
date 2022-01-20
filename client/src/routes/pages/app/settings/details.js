@@ -9,12 +9,48 @@ import AppHeader from "../../../../components/app/appHeader";
 import Footer from "../../../../components/home/footer";
 
 export default function AccountDetails() {
+  const [defaultUserDetails, setDefaultUserDetails] = useState({});
   const [userDetails, setUserDetails] = useState({
     details: null,
     isReady: false,
   });
   const [detailsChanged, setdetailsChanged] = useState(false);
-
+  // check default userDetails is equal or not with modified userDetails
+  function checkInputData() {
+    const [first_name, last_name, country, city, zip_code, address] =
+      document.querySelectorAll(
+        "#first_name, #last_name, #country, #city, #zip_code, #address"
+      );
+    // get all input value
+    let changedUserDetails = {
+      first_name: first_name.value,
+      last_name: last_name.value,
+      country: country.value,
+      city: city.value,
+      zip_code: zip_code.value,
+      address: address.value,
+    };
+    const keys1 = Object.keys(defaultUserDetails);
+    const keys2 = Object.keys(changedUserDetails);
+    if (keys1.length !== keys2.length) {
+      return false;
+    }
+    // if default user details !== actual input value return false
+    const buttonStatus = function checkDifferentData() {
+      for (let key of keys1) {
+        if (defaultUserDetails[key] !== changedUserDetails[key]) {
+          return false;
+        }
+      }
+      return true;
+    };
+    // if true (default user details === actual input values button disabled)
+    if (buttonStatus()) {
+      setdetailsChanged(false);
+    } else {
+      setdetailsChanged(true);
+    }
+  }
   const getUserDetails = async () => {
     const response = await createNewAxios("/app/settings/details", "GET");
     if (response.status === 200) {
@@ -32,6 +68,14 @@ export default function AccountDetails() {
       city.value = response.data.city;
       zip_code.value = response.data.zip_code;
       address.value = response.data.address;
+      setDefaultUserDetails({
+        first_name: response.data.first_name,
+        last_name: response.data.last_name,
+        country: response.data.country,
+        city: response.data.city,
+        zip_code: response.data.zip_code.toString(),
+        address: response.data.address,
+      });
     }
   };
   useEffect(() => {
@@ -56,6 +100,7 @@ export default function AccountDetails() {
                 <h1>User Details</h1>
                 <TextField
                   fullWidth
+                  onChange={checkInputData}
                   margin="dense"
                   label="First name"
                   placeholder="First name"
@@ -66,6 +111,7 @@ export default function AccountDetails() {
                 />
                 <TextField
                   fullWidth
+                  onChange={checkInputData}
                   margin="dense"
                   label="Last name"
                   placeholder="Last name"
@@ -76,6 +122,7 @@ export default function AccountDetails() {
                 />
                 <TextField
                   fullWidth
+                  onChange={checkInputData}
                   margin="dense"
                   label="Country"
                   placeholder="Country"
@@ -86,6 +133,7 @@ export default function AccountDetails() {
                 />
                 <TextField
                   fullWidth
+                  onChange={checkInputData}
                   margin="dense"
                   label="City"
                   placeholder="City"
@@ -96,6 +144,7 @@ export default function AccountDetails() {
                 />
                 <TextField
                   fullWidth
+                  onChange={checkInputData}
                   margin="dense"
                   label="Zip code"
                   placeholder="Zip code"
@@ -106,6 +155,7 @@ export default function AccountDetails() {
                 />
                 <TextField
                   fullWidth
+                  onChange={checkInputData}
                   margin="dense"
                   label="Address"
                   placeholder="Address"
