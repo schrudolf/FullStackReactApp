@@ -16,7 +16,7 @@ function App() {
       const response = await createNewAxios("/session", "GET");
       if (response.status === 200) {
         setSession({
-          isLogged: response.data.user.isLogged,
+          isLogged: response.data.isLogged,
           isReady: true,
         });
       }

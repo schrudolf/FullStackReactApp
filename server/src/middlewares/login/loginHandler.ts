@@ -18,7 +18,11 @@ export default function loginHandler(db: any) {
             }
             // if the password is good and not need user activation
             if (await bcrypt.compare(password, user.password) && !settings.email.needActivation) {
-                req.session.isLogged = true;
+                req.session.user = {
+                    id: user.id,
+                    email: user.email,
+                    isLogged: true,
+                }
                 res.status(200).send({
                     success: true,
                     msg: messages.login.success
@@ -29,7 +33,11 @@ export default function loginHandler(db: any) {
             }
             // if the password is good and need user activation and user is activated 
             else if (await bcrypt.compare(password, user.password) && settings.email.needActivation && user.activated) {
-                req.session.isLogged = true;
+                req.session.user = {
+                    id: user.id,
+                    email: user.email,
+                    isLogged: true,
+                }
                 res.status(200).send({
                     success: true,
                     msg: messages.login.success
