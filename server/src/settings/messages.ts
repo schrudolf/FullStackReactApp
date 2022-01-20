@@ -25,5 +25,8 @@ export = {
     activation: {
         successActivation: "You have successfully activated. You can now log in",
         wrongLinkOrActivated: "This link is wrong or user is already activated"
+    },
+    userDetails: {
+        success: "Modification successful"
     }
 }
