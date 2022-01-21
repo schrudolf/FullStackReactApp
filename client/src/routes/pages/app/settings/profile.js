@@ -27,8 +27,8 @@ export default function AccountProfile() {
       password: current_password.value,
     });
     setLoadingButton(false);
+    let response_msg = document.getElementById("response_msg");
     if (response.status === 200 && response.data.success) {
-      let response_msg = document.getElementById("response_msg");
       response_msg.style.color = "green";
       response_msg.innerHTML = response.data.msg;
       // set button to disabled
@@ -36,16 +36,26 @@ export default function AccountProfile() {
       // update default user details data with new saved
       setUserProfile({
         data: {
+          registered: userProfile.data.registered,
+          activated: userProfile.data.activated,
+          ip_address: userProfile.data.ip_address,
           email: new_email,
         },
         isReady: true,
       });
+      current_password.value = "";
+    }else {
+      response_msg.style.color = "red";
+      response_msg.innerHTML = response.data.msg;
     }
   }
   function checkUserEmailField() {
-    const [new_email, current_password] = document.querySelectorAll(
-      "#email_address, #current_password"
+    const [new_email, current_password, response_msg] = document.querySelectorAll(
+      "#email_address, #current_password, #response_msg"
     );
+    if(response_msg.innerHTML !== ""){
+      response_msg.innerHTML = "";
+    } 
     if (
       new_email.value !== userProfile.data.email &&
       current_password.value.length > 0

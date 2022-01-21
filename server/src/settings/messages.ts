@@ -28,5 +28,8 @@ export = {
     },
     userDetails: {
         success: "Modification successful"
+    },
+    userProfile: {
+        success: "Modification successful"
     }
 }
