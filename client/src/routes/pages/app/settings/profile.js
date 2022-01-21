@@ -16,12 +16,43 @@ export default function AccountProfile() {
     data: null,
     isReady: false,
   });
-  function checkUserEmailField(){
-    const userEmailField = document.getElementById("email_address");
-    if(userEmailField.value !== userProfile.data.email){
-      setdetailsChanged(true)
-    }else{
-      setdetailsChanged(false)
+  async function sendNewEmailToServer(e) {
+    e.preventDefault();
+    setLoadingButton(true);
+    const [new_email, current_password] = document.querySelectorAll(
+      "#email_address, #current_password"
+    );
+    const response = await createNewAxios("/app/settings/profile", "POST", {
+      email: new_email.value,
+      password: current_password.value,
+    });
+    setLoadingButton(false);
+    if (response.status === 200 && response.data.success) {
+      let response_msg = document.getElementById("response_msg");
+      response_msg.style.color = "green";
+      response_msg.innerHTML = response.data.msg;
+      // set button to disabled
+      setdetailsChanged(false);
+      // update default user details data with new saved
+      setUserProfile({
+        data: {
+          email: new_email,
+        },
+        isReady: true,
+      });
+    }
+  }
+  function checkUserEmailField() {
+    const [new_email, current_password] = document.querySelectorAll(
+      "#email_address, #current_password"
+    );
+    if (
+      new_email.value !== userProfile.data.email &&
+      current_password.value.length > 0
+    ) {
+      setdetailsChanged(true);
+    } else {
+      setdetailsChanged(false);
     }
   }
   const getUserProfileData = async () => {
@@ -66,52 +97,65 @@ export default function AccountProfile() {
                       {userProfile.data.registered}
                     </Typography>
                     <Typography textAlign={"right"} variant="h6">
-                    {userProfile.data.ip_address}
+                      {userProfile.data.ip_address}
                     </Typography>
                     <Typography textAlign={"right"} variant="h6">
                       {userProfile.data.activated === 1 ? "Yes" : "No"}
                     </Typography>
                   </Grid>
                 </Grid>
-                <TextField
-                  fullWidth
-                  onChange={checkUserEmailField}
-                  margin="dense"
-                  label="Email address"
-                  placeholder="Email address"
-                  name="email_address"
-                  id="email_address"
-                  type="email"
-                  required
-                />
-                <p
-                  style={{ margin: 10, textAlign: "center" }}
-                  id="response_msg"
-                ></p>
-                {loadingButton ? (
-                  <LoadingButton />
-                ) : detailsChanged ? (
-                  <Button
-                    type="submit"
-                    size="large"
+                <form onSubmit={sendNewEmailToServer}>
+                  <TextField
                     fullWidth
-                    variant="contained"
-                    color="info"
-                  >
-                    Save Changes
-                  </Button>
-                ) : (
-                  <Button
-                    type="submit"
-                    size="large"
+                    onChange={checkUserEmailField}
+                    margin="dense"
+                    label="Email address"
+                    placeholder="Email address"
+                    name="email_address"
+                    id="email_address"
+                    type="email"
+                    required
+                  />
+                  <TextField
                     fullWidth
-                    variant="contained"
-                    color="info"
-                    disabled
-                  >
-                    Save changes
-                  </Button>
-                )}
+                    onChange={checkUserEmailField}
+                    margin="dense"
+                    label="Current password"
+                    placeholder="Current password"
+                    name="current_password"
+                    id="current_password"
+                    type="password"
+                    required
+                  />
+                  <p
+                    style={{ margin: 10, textAlign: "center" }}
+                    id="response_msg"
+                  ></p>
+                  {loadingButton ? (
+                    <LoadingButton />
+                  ) : detailsChanged ? (
+                    <Button
+                      type="submit"
+                      size="large"
+                      fullWidth
+                      variant="contained"
+                      color="info"
+                    >
+                      Save new email address
+                    </Button>
+                  ) : (
+                    <Button
+                      type="submit"
+                      size="large"
+                      fullWidth
+                      variant="contained"
+                      color="info"
+                      disabled
+                    >
+                      Save new email address
+                    </Button>
+                  )}
+                </form>
               </Container>
             </Grid>
             <NavLinks />
