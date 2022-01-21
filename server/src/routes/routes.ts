@@ -29,11 +29,12 @@ import tokenUrlCheck from "../middlewares/forgot/tokenUrlCheck";
 // User activation handler
 import checkActivationLink from "../middlewares/activate/checkActivationLink";
 import activationHandler from "../middlewares/activate/activationHandler";
-// Settings
+// Details Settings
 import sendUserDetailsData from "../middlewares/settings/details/sendUserDetailsData";
 import checkIncomingUserDetailsData from "../middlewares/settings/details/checkIncomingUserDetailsData";
 import saveNewUserDetails from "../middlewares/settings/details/saveNewUserDetails";
-
+// Profile Settings
+import sendUserProfileData from "../middlewares/settings/profile/sendUserProfileData";
                                 /* Middlewares end */
 
 export = (app: IRouter, db: any) => { 
@@ -43,6 +44,7 @@ export = (app: IRouter, db: any) => {
     app.get("/app/logout", logout()) // logout from the app
     app.get("/forgot/:tokenid", tokenUrlCheck(db)) // verifies that the token url is valid
     app.get("/user/activate/:ref_id", checkActivationLink(), activationHandler(db)) // handling user activation
+    app.get("/app/settings/profile", sendUserProfileData(db)) // user profile settings
     app.get("/app/settings/details", sendUserDetailsData(db)) // user details settings
     
     app.post("/register", checkIncomingRegisterData(db), registeringUser(db), sendingSuccessRegistrationEmail(), sendingUserActivationEmail())  // user register
