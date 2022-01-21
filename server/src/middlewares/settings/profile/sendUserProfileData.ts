@@ -8,8 +8,13 @@ export default function sendUserProfileData(db: any) {
                 res.status(200).send();
             } else {
                 const user_id = req.session.user.id;
-                const getDetails = await db.query("SELECT email,ip_address FROM users WHERE id = ?;", [user_id]);
-                const user_details = getDetails[0][0];
+                const getDetails = await db.query("SELECT email, activated, registered, INET_NTOA(ip_address) as ip FROM users WHERE id = ?;", [user_id]);
+                const user_details = {
+                    activated: getDetails[0][0].activated,
+                    email: getDetails[0][0].email,
+                    ip_address: getDetails[0][0].ip,
+                    registered: getDetails[0][0].registered.toLocaleString()
+                };
                 res.status(200).send(user_details);
             }
         }
