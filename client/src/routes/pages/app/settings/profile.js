@@ -16,6 +16,14 @@ export default function AccountProfile() {
     data: null,
     isReady: false,
   });
+  function checkUserEmailField(){
+    const userEmailField = document.getElementById("email_address");
+    if(userEmailField.value !== userProfile.data.email){
+      setdetailsChanged(true)
+    }else{
+      setdetailsChanged(false)
+    }
+  }
   const getUserProfileData = async () => {
     const response = await createNewAxios("/app/settings/profile", "GET");
     if (response.status === 200) {
@@ -67,6 +75,7 @@ export default function AccountProfile() {
                 </Grid>
                 <TextField
                   fullWidth
+                  onChange={checkUserEmailField}
                   margin="dense"
                   label="Email address"
                   placeholder="Email address"
