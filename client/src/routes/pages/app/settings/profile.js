@@ -11,6 +11,7 @@ import Footer from "../../../../components/home/footer";
 
 export default function AccountProfile() {
   const [detailsChanged, setdetailsChanged] = useState(false);
+  const [getData, setGetData] = useState(false);
   const [loadingButton, setLoadingButton] = useState(false);
   const [userProfile, setUserProfile] = useState({
     data: null,
@@ -34,16 +35,9 @@ export default function AccountProfile() {
       // set button to disabled
       setdetailsChanged(false);
       // update default user details data with new saved
-      setUserProfile({
-        data: {
-          registered: userProfile.data.registered,
-          activated: userProfile.data.activated,
-          ip_address: userProfile.data.ip_address,
-          email: new_email,
-        },
-        isReady: true,
-      });
       current_password.value = "";
+      //Get fresh data
+      setGetData(true)
     }else {
       response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;
@@ -78,7 +72,7 @@ export default function AccountProfile() {
   };
   useEffect(() => {
     getUserProfileData();
-  }, []);
+  }, [getData]);
   if (!userProfile.isReady) {
     return (
       <div>
@@ -110,7 +104,10 @@ export default function AccountProfile() {
                       {userProfile.data.ip_address}
                     </Typography>
                     <Typography textAlign={"right"} variant="h6">
-                      {userProfile.data.activated === 1 ? "Yes" : "No"}
+                      {userProfile.data.activated === 1 ? 
+                      <span style={{color: "green"}}>Yes</span>
+                      : 
+                      <span style={{color: "red"}}>No</span>}
                     </Typography>
                   </Grid>
                 </Grid>

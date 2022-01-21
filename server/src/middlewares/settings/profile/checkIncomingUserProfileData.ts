@@ -27,7 +27,7 @@ export default function checkIncomingUserProfileData(db: any) {
             if(!await bcrypt.compare(password, getUserPassword[0][0].password)){
                 res.status(200).send({
                     success: false,
-                    msg: messages.login.wrongPassword,
+                    msg: messages.userProfile.wrongCurrentPassword,
                 });
             }
             else {

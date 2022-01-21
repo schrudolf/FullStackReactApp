@@ -20,7 +20,7 @@ const pages = [
   </Link>,
 ];
 const settings = [
-  <Link href="/app/settings/details" underline="none" color="inherit">
+  <Link href="/app/settings/profile" underline="none" color="inherit">
     Settings
   </Link>,
   <Link href="/app/logout" underline="none" color="inherit">
