@@ -17,39 +17,42 @@ export default function AccountProfile() {
     data: null,
     isReady: false,
   });
+
   async function sendNewEmailToServer(e) {
     e.preventDefault();
     setLoadingButton(true);
-    const [new_email, current_password] = document.querySelectorAll(
-      "#email_address, #current_password"
-    );
+    const [new_email, current_password, response_msg] =
+      document.querySelectorAll(
+        "#email_address, #current_password #response_msg"
+      );
     const response = await createNewAxios("/app/settings/profile", "POST", {
       email: new_email.value,
       password: current_password.value,
     });
     setLoadingButton(false);
-    let response_msg = document.getElementById("response_msg");
     if (response.status === 200 && response.data.success) {
       response_msg.style.color = "green";
       response_msg.innerHTML = response.data.msg;
       // set button to disabled
       setdetailsChanged(false);
-      // update default user details data with new saved
       current_password.value = "";
       //Get fresh data
-      setGetData(true)
-    }else {
+      setGetData(true);
+    } else {
       response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;
     }
   }
+
   function checkUserEmailField() {
-    const [new_email, current_password, response_msg] = document.querySelectorAll(
-      "#email_address, #current_password, #response_msg"
-    );
-    if(response_msg.innerHTML !== ""){
+    const [new_email, current_password, response_msg] =
+      document.querySelectorAll(
+        "#email_address, #current_password, #response_msg"
+      );
+    if (response_msg.innerHTML !== "") {
       response_msg.innerHTML = "";
-    } 
+    }
+    //if input value default and no password disable button
     if (
       new_email.value !== userProfile.data.email &&
       current_password.value.length > 0
@@ -59,6 +62,7 @@ export default function AccountProfile() {
       setdetailsChanged(false);
     }
   }
+
   const getUserProfileData = async () => {
     const response = await createNewAxios("/app/settings/profile", "GET");
     if (response.status === 200) {
@@ -70,9 +74,11 @@ export default function AccountProfile() {
     const userEmailField = document.getElementById("email_address");
     userEmailField.value = response.data.email;
   };
+
   useEffect(() => {
     getUserProfileData();
   }, [getData]);
+
   if (!userProfile.isReady) {
     return (
       <div>
@@ -104,10 +110,11 @@ export default function AccountProfile() {
                       {userProfile.data.ip_address}
                     </Typography>
                     <Typography textAlign={"right"} variant="h6">
-                      {userProfile.data.activated === 1 ? 
-                      <span style={{color: "green"}}>Yes</span>
-                      : 
-                      <span style={{color: "red"}}>No</span>}
+                      {userProfile.data.activated === 1 ? (
+                        <span style={{ color: "green" }}>Yes</span>
+                      ) : (
+                        <span style={{ color: "red" }}>No</span>
+                      )}
                     </Typography>
                   </Grid>
                 </Grid>
@@ -148,7 +155,7 @@ export default function AccountProfile() {
                       variant="contained"
                       color="info"
                     >
-                      Save new email address
+                      Save change
                     </Button>
                   ) : (
                     <Button
@@ -159,7 +166,7 @@ export default function AccountProfile() {
                       color="info"
                       disabled
                     >
-                      Save new email address
+                      Save change
                     </Button>
                   )}
                 </form>
