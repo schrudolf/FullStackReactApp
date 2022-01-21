@@ -52,11 +52,5 @@ export = (app: IRouter, db: any) => {
     app.post("/app/settings/details", checkIncomingUserDetailsData(db), saveNewUserDetails(db)) // user details settings
 
     // extra plan routes
-    app.get("/ref/:refid") // check valid user ref link
-    app.get("/app/user/ref") // get all user ref
-
-    app.post("/ref/:refid") // registering with a user ref link
-    app.post("/app/user/ref/new") // invite friend 
-    app.post("/app/user/ref/getreward") // reward if invited friend registered
     app.post("/app/user/newpassword") // change password within the app
 }
