@@ -23,7 +23,7 @@ export default function AccountProfile() {
     setLoadingButton(true);
     const [new_email, current_password, response_msg] =
       document.querySelectorAll(
-        "#email_address, #current_password #response_msg"
+        "#email_address, #current_password, #response_msg"
       );
     const response = await createNewAxios("/app/settings/profile", "POST", {
       email: new_email.value,
