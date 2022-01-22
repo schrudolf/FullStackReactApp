@@ -38,9 +38,9 @@ export default function AccountProfile() {
       current_password.value = "";
       //Get fresh data
       setGetData(true);
-      (setTimeout(() => {
+      setTimeout(() => {
         window.location.replace("/app/logout");
-      }, 5000))();
+      }, 5000);
     } else {
       response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;
