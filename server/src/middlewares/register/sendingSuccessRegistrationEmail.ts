@@ -1,7 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
 import settings from '../../settings/settings';
-import nodemailer from "nodemailer";
-import SMTPTransport from 'nodemailer/lib/smtp-transport';
 
 // send an email after registration success.
 export default function sendingSuccessRegistrationEmail() {
@@ -11,15 +9,6 @@ export default function sendingSuccessRegistrationEmail() {
                 next();
             } else {
                 const { email } = res.locals.newUser
-                const transporter = nodemailer.createTransport({
-                    host: settings.email.host,
-                    port: settings.email.port,
-                    secure: settings.email.secure,
-                    auth: {
-                        user: settings.email.auth.user,
-                        pass: settings.email.auth.password
-                    }
-                } as SMTPTransport.MailOptions);
                 let mailOptions = {
                     from: settings.email.auth.user,
                     to: email,
@@ -27,7 +16,7 @@ export default function sendingSuccessRegistrationEmail() {
                     html: `<h1>Success registration on the ${settings.app.name}</h1>` + `<p>with the next email: ${email} </p>` +
                         `<p>Login page: ${settings.client.information}/login </p>`
                 };
-                transporter.sendMail(mailOptions, function (err, info) {
+                settings.email.transporter.sendMail(mailOptions, function (err, info) {
                     if (err) {
                         next(err);
                     } res.end();

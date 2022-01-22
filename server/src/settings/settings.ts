@@ -1,4 +1,6 @@
 import dotenv from "dotenv";
+import nodemailer from "nodemailer";
+import SMTPTransport from 'nodemailer/lib/smtp-transport';
 dotenv.config();
 
 export = {
@@ -27,19 +29,25 @@ export = {
         secret: process.env.COOKIE_SECRET!
     },
     email: {
-        host: process.env.EMAIL_HOST,
-        port: process.env.EMAIL_PORT,
-        secure: process.env.EMAIL_SECURE,
+        transporter: nodemailer.createTransport({
+            host: process.env.EMAIL_HOST,
+            port: process.env.EMAIL_PORT,
+            secure: process.env.EMAIL_SECURE,
+            auth: {
+                user: process.env.EMAIL_ADDRESS,
+                pass: process.env.EMAIL_PASSWORD,
+            },
+        } as SMTPTransport.MailOptions),
         auth: {
             user: process.env.EMAIL_ADDRESS,
-            password: process.env.EMAIL_PASSWORD,
+            pass: process.env.EMAIL_PASSWORD,
         },
         tokenType: "extra", // check random-web-token npm package for more info
         tokenLength: 50, // token with 50 character
         tokenExpireTime: 3600000, // 3600000 = 1hour,
         successRegistration: true, // Sending email after success registration
         successPasswordChange: true, // Sending email after success password change,
-        needActivation: true, // if true, send an email with activation link and user not activated
+        needActivation: false, // if true, send an email with activation link and user not activated
     },
     client: {
         information: "http://localhost" // it is only information which host and port used in the client
