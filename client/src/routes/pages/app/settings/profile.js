@@ -38,6 +38,9 @@ export default function AccountProfile() {
       current_password.value = "";
       //Get fresh data
       setGetData(true);
+      (setTimeout(() => {
+        window.location.replace("/app/logout");
+      }, 5000))();
     } else {
       response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;
@@ -141,6 +144,12 @@ export default function AccountProfile() {
                     type="password"
                     required
                   />
+                  {detailsChanged && (
+                    <p style={{ color: "red" }}>
+                      You will be logged out after successfully changing your
+                      email address. And you need to reactivate it via email
+                    </p>
+                  )}
                   <p
                     style={{ margin: 10, textAlign: "center" }}
                     id="response_msg"

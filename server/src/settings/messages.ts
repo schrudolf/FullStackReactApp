@@ -30,7 +30,7 @@ export = {
         success: "Modification successful"
     },
     userProfile: {
-        success: "New email is successfully saved. Please check your email and activate it",
+        success: "New email is successfully saved. Please check your email and activate it with the link. Logout in progress",
         wrongCurrentPassword: "Current password is not valid"
     }
 }

@@ -1,7 +1,7 @@
 # FullStackReactApp
 
 
-## User Features:
+## App Features:
 - [x] Registration:
 - [x] Login:
 - [x] Forgot Password:

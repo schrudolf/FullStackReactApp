@@ -10,6 +10,8 @@ export default function saveNewUserProfileData(db: any) {
             // update session user email with new
             req.session.user.email = email;
             res.status(200).send({ msg: messages.userProfile.success, success: true });
+            // logged out user after success change and need to reactivate email
+            req.session.user.isLogged = false;
             next();
         }
         catch (err) {
