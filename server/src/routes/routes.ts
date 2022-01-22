@@ -37,6 +37,7 @@ import saveNewUserDetails from "../middlewares/settings/details/saveNewUserDetai
 import sendUserProfileData from "../middlewares/settings/profile/sendUserProfileData";
 import checkIncomingUserProfileData from "../middlewares/settings/profile/checkIncomingUserProfileData";
 import saveNewUserProfileData from "../middlewares/settings/profile/saveNewUserProfileData";
+import sendNewActivationEmailAfterSuccessChange from "../middlewares/settings/profile/sendNewActivationEmailAfterSuccessChange";
                                 /* Middlewares end */
 
 export = (app: IRouter, db: any) => { 
@@ -54,7 +55,7 @@ export = (app: IRouter, db: any) => {
     app.post("/forgot", checkIncomingForgotData(db), checkOldForgotToken(db), deletingOldUserToken(db),  createNewToken(db), sendEmailWithToken()) // forgot pw
     app.post("/forgot/:tokenid/newpassword", checkIncomingNewPasswordData(), saveNewPassword(db), sendingSuccessPasswordChangeEmail()) // save new password
     app.post("/app/settings/details", checkIncomingUserDetailsData(db), saveNewUserDetails(db)) // save new user details
-    app.post("/app/settings/profile", checkIncomingUserProfileData(db), saveNewUserProfileData(db)) // save new user Email
+    app.post("/app/settings/profile", checkIncomingUserProfileData(db), saveNewUserProfileData(db), sendNewActivationEmailAfterSuccessChange()) // save new user Email
 
     // extra plan routes
     app.post("/app/user/newpassword") // change password within the app
