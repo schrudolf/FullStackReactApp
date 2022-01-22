@@ -7,12 +7,15 @@
 - [x] Forgot Password:
     - [x] Send an email with token (default expire time one hour):
     - [x] Token check (valid and not expired):
+    - [x] Render new password page after Token is valid:
     - [x] Deleting used token after success password change:
 - [x] User Settings:
-    - [ ] User Profile
+    - [x] User Profile
     - [x] User Details
-    - [ ] Password Change
-    - [ ] User email change:
+    - [ ] Password Change in profile
+    - [x] Email change:
+        - [x] Required current password before email change:
+        - [x] Send an email with activation link after success change:
 - [ ] Send message to support
 - [x] Logout:
 
