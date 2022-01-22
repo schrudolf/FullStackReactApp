@@ -21,6 +21,7 @@ export default function loginHandler(db: any) {
                 req.session.user = {
                     id: user.id,
                     email: user.email,
+                    ref_id: user.ref_id,
                     isLogged: true,
                 }
                 res.status(200).send({
@@ -36,6 +37,7 @@ export default function loginHandler(db: any) {
                 req.session.user = {
                     id: user.id,
                     email: user.email,
+                    ref_id: user.ref_id,
                     isLogged: true,
                 }
                 res.status(200).send({

@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction } from 'express';
 import settings from '../../settings/settings';
+import emailsData from '../../settings/emailsData';
 
 // send an email after registration success.
 export default function sendingSuccessRegistrationEmail() {
@@ -8,15 +9,9 @@ export default function sendingSuccessRegistrationEmail() {
             if (settings.email.needActivation) {
                 next();
             } else {
-                const { email } = res.locals.newUser
-                let mailOptions = {
-                    from: settings.email.auth.user,
-                    to: email,
-                    subject: 'Success registration',
-                    html: `<h1>Success registration on the ${settings.app.name}</h1>` + `<p>with the next email: ${email} </p>` +
-                        `<p>Login page: ${settings.client.information}/login </p>`
-                };
-                settings.email.transporter.sendMail(mailOptions, function (err, info) {
+                const { email, ref_id } = res.locals.newUser
+                const { successRegistrationOptions } = emailsData(email, ref_id);
+                settings.email.transporter.sendMail(successRegistrationOptions, function (err, info) {
                     if (err) {
                         next(err);
                     } res.end();
