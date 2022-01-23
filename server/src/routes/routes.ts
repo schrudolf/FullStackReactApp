@@ -56,7 +56,5 @@ export = (app: IRouter, db: any) => {
     app.post("/forgot/:tokenid/newpassword", checkIncomingNewPasswordData(), saveNewPassword(db), sendingSuccessPasswordChangeEmail()) // save new password
     app.post("/app/settings/details", checkIncomingUserDetailsData(db), saveNewUserDetails(db)) // save new user details
     app.post("/app/settings/profile", checkIncomingUserProfileData(db), saveNewUserProfileData(db), sendNewActivationEmailAfterSuccessChange()) // save new user Email
-
-    // extra plan routes
-    app.post("/app/user/newpassword") // change password within the app
+    app.post("/app/settings/password") // change password within the app
 }
