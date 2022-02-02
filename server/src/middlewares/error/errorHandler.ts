@@ -10,6 +10,7 @@ export default function errorHandler() {
             const date = new Date().toLocaleString();
             await fs.appendFile(dir + "/error.log", `\r\n \r\n>>>> ${err.name}: ${date} <<<<<< \r\n \r\n ${err.message} \r\n ${err.stack} `)
             console.log("An ERROR -->> saved to src/logs/error.log file")
+            res.status(500).send("Something Broken")
             next();
         }
         catch (err) {
