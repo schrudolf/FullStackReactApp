@@ -22,6 +22,7 @@ export = (db: any) => {
         }
         catch (err) {
             console.log(err)
+            reject(false)
         }
     })
 }

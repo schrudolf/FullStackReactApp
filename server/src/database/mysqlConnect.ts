@@ -24,21 +24,23 @@ const mysqlConnection: ConnectionInfo = {
     queueLimit: settings.mysql.queueLimit
 }
 
-export = () => {
+export = () : Promise < any[] > => {
     return new Promise(async (resolve, reject) => {
         try {
             const db = await mysql.createPool(mysqlConnection);
-            console.log("Connected to database")
+            // create a test connection
+            await db.getConnection()
+            console.log("Connected to the database")
             // if true, create database
             if (settings.mysql.createDatabaseTables && await createDatabase(db)) {
-                resolve(db);
+                resolve([true, db]);
             // else already created Mysql Ready
             } else {
-                resolve(db);
+                resolve([true, db]);
             }
         }
         catch (err) {
-            console.log(err)
+            resolve([false, null])
         }
     })
 };
