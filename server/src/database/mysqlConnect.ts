@@ -28,8 +28,11 @@ export = () : Promise < any[] > => {
     return new Promise(async (resolve, reject) => {
         try {
             const db = await mysql.createPool(mysqlConnection);
-            // create a test connection
-            await db.getConnection()
+            //make a test connection
+            await db.getConnection().then((test) => {
+                //close the test connection
+                test.release()
+            });
             console.log("Connected to the database")
             // if true, create database
             if (settings.mysql.createDatabaseTables && await createDatabase(db)) {
