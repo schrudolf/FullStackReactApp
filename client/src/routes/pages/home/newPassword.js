@@ -73,8 +73,7 @@ export default function NewPassword() {
               sx={{
                 p: 1,
                 display: {
-                  position: "relative",
-                  top: "15vh",
+                  marginTop: "5%",
                   textAlign: "center",
                   backgroundColor: "#dce1e3",
                   borderRadius: 10,

@@ -53,11 +53,19 @@ export default function Login() {
   // if the user click activation link in the email. This will show response messages after redirect from activation route
   const checkActivationMessage = () => {
     let response_msg = document.getElementById("response_msg");
-    if (activationMsg !== null && !(typeof activationMsg.msg === "undefined") && activationMsg.success) {
+    if (
+      activationMsg !== null &&
+      !(typeof activationMsg.msg === "undefined") &&
+      activationMsg.success
+    ) {
       response_msg.innerHTML = activationMsg.msg;
       response_msg.style.color = "green";
     }
-    if (activationMsg !== null && !(typeof activationMsg.msg === "undefined") && !activationMsg.success) {
+    if (
+      activationMsg !== null &&
+      !(typeof activationMsg.msg === "undefined") &&
+      !activationMsg.success
+    ) {
       response_msg.innerHTML = activationMsg.msg;
       response_msg.style.color = "red";
     }
@@ -71,15 +79,14 @@ export default function Login() {
   return (
     <div>
       <Header />
-      <div style={{ padding: 10 }}>
+      <div style={{ padding: 3 }}>
         <Container
           maxWidth="xs"
           sx={{
             p: 1,
             display: {
-              position: "flex",
+              marginTop: "5%",
               textAlign: "center",
-              alignItems: "center",
               backgroundColor: "#dce1e3",
               borderRadius: 10,
             },

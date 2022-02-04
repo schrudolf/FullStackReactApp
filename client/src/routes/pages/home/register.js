@@ -61,8 +61,7 @@ export default function Register() {
           sx={{
             p: 1,
             display: {
-              position: "relative",
-              top: "10vh",
+              marginTop: "5%",
               textAlign: "center",
               backgroundColor: "#dce1e3",
               borderRadius: 10,

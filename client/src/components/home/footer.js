@@ -9,10 +9,10 @@ const date = new Date();
 
 export default function Footer() {
   return (
-    <footer>
+    <footer style={{marginTop: "10%"}}>
       <Box
-        pt={20}
-        sx={{display: {backgroundColor: "black", color: "white"}}}
+        pt={3}
+        sx={{display: { backgroundColor: "black", color: "white"}}}
       >
         <Container maxWidth="lg">
           <Grid container spacing={5}>
