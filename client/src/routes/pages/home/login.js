@@ -71,15 +71,15 @@ export default function Login() {
   return (
     <div>
       <Header />
-      <div style={{ padding: 3 }}>
+      <div style={{ padding: 10 }}>
         <Container
           maxWidth="xs"
           sx={{
             p: 1,
             display: {
-              position: "relative",
-              top: "15vh",
+              position: "flex",
               textAlign: "center",
+              alignItems: "center",
               backgroundColor: "#dce1e3",
               borderRadius: 10,
             },
