@@ -6,8 +6,6 @@ import LoadingButton from "../../../../components/ui/loadingButton";
 import PageLoading from "../../../../components/ui/pageLoading";
 import createNewAxios from "../../../../axios/axios";
 
-import AppHeader from "../../../../components/app/appHeader";
-
 export default function AccountProfile() {
   const [detailsChanged, setdetailsChanged] = useState(false);
   const [getData, setGetData] = useState(false);
@@ -84,14 +82,12 @@ export default function AccountProfile() {
   if (!userProfile.isReady) {
     return (
       <div>
-        <AppHeader />
         <PageLoading />;
       </div>
     );
   } else {
     return (
       <div>
-        <AppHeader />
         <Container maxWidth="lg">
           <Grid container>
             <Grid item textAlign={"left"} xs={12} sm={8}>

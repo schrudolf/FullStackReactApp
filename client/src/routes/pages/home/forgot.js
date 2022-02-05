@@ -8,8 +8,6 @@ import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import EmailIcon from "@mui/icons-material/Email";
 
-import Header from "../../../components/home/header";
-
 import LoadingButton from "../../../components/ui/loadingButton";
 import createNewAxios from "../../../axios/axios";
 
@@ -42,7 +40,6 @@ export default function Forgot() {
 
   return (
     <div>
-      <Header />
       <div style={{ padding: 3 }}>
         <Container
           maxWidth="xs"

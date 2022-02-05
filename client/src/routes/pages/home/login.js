@@ -9,8 +9,6 @@ import IconButton from "@mui/material/IconButton";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 
-import Header from "../../../components/home/header";
-
 import LoadingButton from "../../../components/ui/loadingButton";
 import createNewAxios from "../../../axios/axios";
 import AC from "../../../redux/action-creators/bindActionCreators";
@@ -77,7 +75,6 @@ export default function Login() {
   }, []);
   return (
     <div>
-      <Header />
       <div style={{ padding: 3 }}>
         <Container
           maxWidth="xs"

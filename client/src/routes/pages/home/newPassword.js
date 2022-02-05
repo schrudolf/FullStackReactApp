@@ -8,8 +8,6 @@ import LoadingButton from "../../../components/ui/loadingButton";
 
 import createNewAxios from "../../../axios/axios";
 
-import Header from "../../../components/home/header";
-
 // if valid link and token not expired render the newPassword component (status 204 not valid or expired. status 200 volid token)
 export default function NewPassword() {
   const [loadingButton, setLoadingButton] = useState(false);
@@ -65,7 +63,6 @@ export default function NewPassword() {
     } else {
       return (
         <div>
-          <Header />
           <div style={{ padding: 3 }}>
             <Container
               maxWidth="xs"

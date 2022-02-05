@@ -6,8 +6,6 @@ import createNewAxios from "../../../../axios/axios";
 
 import NavLinks from "./navLinks";
 
-import AppHeader from "../../../../components/app/appHeader";
-
 export default function AccountDetails() {
   const [defaultUserDetails, setDefaultUserDetails] = useState({});
   const [userDetails, setUserDetails] = useState({
@@ -116,14 +114,12 @@ export default function AccountDetails() {
   if (!userDetails.isReady) {
     return (
       <div>
-        <AppHeader />
         <PageLoading />;
       </div>
     );
   } else {
     return (
       <div>
-        <AppHeader />
         <Container maxWidth="lg">
           <Grid container>
             <Grid item textAlign={"left"} xs={12} sm={8}>

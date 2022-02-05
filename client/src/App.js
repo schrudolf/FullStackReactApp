@@ -5,6 +5,7 @@ import PageLoading from "./components/ui/pageLoading";
 import createNewAxios from "./axios/axios";
 import { useSelector } from "react-redux";
 
+import Header from "./components/home/header";
 import Footer from "./components/home/footer";
 
 function App() {
@@ -29,6 +30,7 @@ function App() {
   if (session.isReady) {
     return (
       <BrowserRouter>
+        <Header />
         <Routing isLogged={session.isLogged} />
         <Footer />
       </BrowserRouter>

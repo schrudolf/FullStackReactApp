@@ -2,13 +2,10 @@ import { useState } from "react";
 import { Grid, Container, TextField, Button } from "@mui/material/";
 import NavLinks from "./navLinks";
 
-import AppHeader from "../../../../components/app/appHeader";
-
 export default function AccountPassword() {
   const [detailsChanged, setdetailsChanged] = useState(false);
   return (
     <div>
-      <AppHeader />
       <Container maxWidth="lg">
         <Grid container>
           <Grid item textAlign={"left"} xs={12} sm={8}>
