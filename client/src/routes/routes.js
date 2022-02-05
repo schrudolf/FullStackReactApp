@@ -17,7 +17,7 @@ import AccountProfile from "./pages/app/settings/profile";
 import AppIndex from "./pages/app";
 import AppLogout from "./pages/app/logout";
 
-export default function Routing({ isLogged }) {
+export default function Routing({ isLogged, setIsLogged }) {
   // Protected routes (if user logged)
   if (isLogged) {
     return (
@@ -26,7 +26,7 @@ export default function Routing({ isLogged }) {
         <Route exact path="/app/settings/profile" element={<AccountProfile />} />
         <Route exact path="/app/settings/details" element={<AccountDetails />} />
         <Route exact path="/app/settings/password" element={<AccountPassword />} />
-        <Route exact path="/app/logout" element={<AppLogout />} />
+        <Route exact path="/app/logout" element={<AppLogout isLogged={isLogged} setIsLogged={setIsLogged}/>} />
         {/* <Route exact path="/user/activate/:ref_id" element={<UserActivation />} />  */} 
         <Route exact path="*" element={<Navigate to="/app" />} />
       </Routes>
@@ -37,10 +37,10 @@ export default function Routing({ isLogged }) {
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="/register" element={<Register />} />
-        <Route exact path="/login" element={<Login />} />
+        <Route exact path="/login" element={<Login  isLogged={isLogged} setIsLogged={setIsLogged}/>} />
         <Route exact path="/forgot" element={<Forgot />} />
         <Route exact path="/forgot/:tokenid" element={<NewPassword />} />
-        <Route exact path="/app/logout" element={<AppLogout />} />
+        <Route exact path="/app/logout" element={<AppLogout  isLogged={isLogged} setIsLogged={setIsLogged}/>} />
         <Route exact path="/user/activate/:ref_id" element={<UserActivation />} />
         <Route exact path="/*" element={<Navigate to="/login" />} />
       </Routes>

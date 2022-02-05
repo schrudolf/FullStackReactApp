@@ -11,14 +11,10 @@ import LockIcon from "@mui/icons-material/Lock";
 
 import LoadingButton from "../../../components/ui/loadingButton";
 import createNewAxios from "../../../axios/axios";
-import AC from "../../../redux/action-creators/bindActionCreators";
-import { useSelector } from "react-redux";
 
-export default function Login() {
+export default function Login({ isLogged, setIsLogged }) {
   const [loadingButton, setLoadingButton] = useState(false);
-  const actionCreators = AC();
   const activationMsg = JSON.parse(localStorage.getItem("response"));
-  const isLogged = useSelector((state) => state.isLogged);
 
   async function userLogin(e) {
     e.preventDefault();
@@ -41,7 +37,7 @@ export default function Login() {
       response_msg.style.color = "green";
       response_msg.innerHTML = response.data.msg;
       // set isLogged value === true and redirect to protected route
-      actionCreators.setLoggedStatus(!isLogged);
+      setIsLogged(!isLogged);
     } else {
       response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;

@@ -3,35 +3,31 @@ import { BrowserRouter } from "react-router-dom";
 import Routing from "./routes/routes";
 import PageLoading from "./components/ui/pageLoading";
 import createNewAxios from "./axios/axios";
-import { useSelector } from "react-redux";
 
 import Header from "./components/home/header";
 import Footer from "./components/home/footer";
 
 function App() {
   // if sessionReady rendering route
-  const [session, setSession] = useState({ isLogged: null, isReady: false });
-  // get isLogged from reducer (default : false)
-  const isLogged = useSelector((state) => state.isLogged);
+  const [sessionReady, setSessionReady] = useState(false);
+  const [isLogged, setIsLogged] = useState(false);
 
   useEffect(() => {
     const getSession = async () => {
       const response = await createNewAxios("/session", "GET");
       if (response.status === 200) {
-        setSession({
-          isLogged: response.data.isLogged,
-          isReady: true,
-        });
+        setIsLogged(response.data.isLogged);
+        setSessionReady(true);
       }
     };
     getSession();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLogged]);
-  if (session.isReady) {
+  if (sessionReady) {
     return (
       <BrowserRouter>
         <Header />
-        <Routing isLogged={session.isLogged} />
+        <Routing isLogged={isLogged} setIsLogged={setIsLogged} />
         <Footer />
       </BrowserRouter>
     );
