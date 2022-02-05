@@ -9,7 +9,7 @@ import Header from "./components/home/header";
 import Footer from "./components/home/footer";
 
 function App() {
-  // if sessionReady rendering route
+  // if session is ready start rendering the routes
   const [sessionReady, setSessionReady] = useState(false);
   const [isLogged, setIsLogged] = useState(false);
 
