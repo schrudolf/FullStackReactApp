@@ -12,7 +12,6 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from '@mui/icons-material/Lock';
 
 import Header from "../../../components/home/header";
-import Footer from "../../../components/home/footer";
 import LoadingButton from "../../../components/ui/loadingButton";
 
 import createNewAxios from "../../../axios/axios";
@@ -160,7 +159,6 @@ export default function Register() {
           </Box>
         </Container>
       </div>
-      <Footer />
     </div>
   );
 }

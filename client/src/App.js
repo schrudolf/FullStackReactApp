@@ -5,6 +5,8 @@ import PageLoading from "./components/ui/pageLoading";
 import createNewAxios from "./axios/axios";
 import { useSelector } from "react-redux";
 
+import Footer from "./components/home/footer";
+
 function App() {
   // if sessionReady rendering route
   const [session, setSession] = useState({ isLogged: null, isReady: false });
@@ -28,6 +30,7 @@ function App() {
     return (
       <BrowserRouter>
         <Routing isLogged={session.isLogged} />
+        <Footer />
       </BrowserRouter>
     );
   } else {

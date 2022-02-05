@@ -3,7 +3,6 @@ import { Grid, Container, TextField, Button } from "@mui/material/";
 import NavLinks from "./navLinks";
 
 import AppHeader from "../../../../components/app/appHeader";
-import Footer from "../../../../components/home/footer";
 
 export default function AccountPassword() {
   const [detailsChanged, setdetailsChanged] = useState(false);
@@ -72,7 +71,6 @@ export default function AccountPassword() {
           <NavLinks />
         </Grid>
       </Container>
-      <Footer />
     </div>
   );
 }

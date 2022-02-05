@@ -7,7 +7,6 @@ import PageLoading from "../../../../components/ui/pageLoading";
 import createNewAxios from "../../../../axios/axios";
 
 import AppHeader from "../../../../components/app/appHeader";
-import Footer from "../../../../components/home/footer";
 
 export default function AccountProfile() {
   const [detailsChanged, setdetailsChanged] = useState(false);
@@ -87,7 +86,6 @@ export default function AccountProfile() {
       <div>
         <AppHeader />
         <PageLoading />;
-        <Footer />
       </div>
     );
   } else {
@@ -184,7 +182,6 @@ export default function AccountProfile() {
             <NavLinks />
           </Grid>
         </Container>
-        <Footer />
       </div>
     );
   }

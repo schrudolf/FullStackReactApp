@@ -9,7 +9,6 @@ import IconButton from "@mui/material/IconButton";
 import EmailIcon from "@mui/icons-material/Email";
 
 import Header from "../../../components/home/header";
-import Footer from "../../../components/home/footer";
 
 import LoadingButton from "../../../components/ui/loadingButton";
 import createNewAxios from "../../../axios/axios";
@@ -115,7 +114,6 @@ export default function Forgot() {
           </Box>
         </Container>
       </div>
-      <Footer />
     </div>
   );
 }
