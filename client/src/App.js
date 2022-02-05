@@ -4,6 +4,7 @@ import Routing from "./routes/routes";
 import PageLoading from "./components/ui/pageLoading";
 import createNewAxios from "./axios/axios";
 
+import LoggedHeader from "./components/home/loggedHeader";
 import Header from "./components/home/header";
 import Footer from "./components/home/footer";
 
@@ -26,7 +27,7 @@ function App() {
   if (sessionReady) {
     return (
       <BrowserRouter>
-        <Header />
+        {isLogged ? <LoggedHeader /> : <Header />}
         <Routing isLogged={isLogged} setIsLogged={setIsLogged} />
         <Footer />
       </BrowserRouter>
