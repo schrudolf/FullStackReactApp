@@ -66,12 +66,12 @@ export default function Footer() {
               </Box>
             </Grid>
           </Grid>
-          <Box textAlign="center" pt={{ xs: 3, sm: 5 }} pb={{ xs: 5, sm: 0 }}>
+          <Box textAlign="center" pt={{ xs: 1, sm: 3 }} pb={{ xs: 3, sm: 0 }}>
           <Typography variant="body1" margin={"auto"} color="inherit">
               FullStackReactApp
            </Typography>
           </Box>
-          <Box textAlign="center" pt={{ xs: 3, sm: 5 }} pb={{ xs: 5, sm: 0 }}>
+          <Box textAlign="center" pt={{ xs: 1, sm: 2 }} pb={{ xs: 2, sm: 0 }}>
           © {date.getUTCFullYear()} <Link href="https://github.com/schrudolf" color="inherit">schrudolf</Link>
           </Box>
         </Container>

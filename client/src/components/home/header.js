@@ -13,10 +13,28 @@ import MenuItem from "@mui/material/MenuItem";
 
 const logoName = "FullStackReactApp";
 const pages = [
-    <Link href="/" underline="none" color="inherit">Home</Link>,
-    <Link href="#" underline="none" color="inherit">About</Link>,
-    <Link href="/login" underline="none" color="inherit" sx={{ display: { md: 'none', lg: 'none', xl: 'none' } }}>Sign in</Link>,
-    <Link href="/register" underline="none" color="inherit" sx={{ display: { md: 'none', lg: 'none', xl: 'none' } }}>Sign up</Link>,
+  <Link href="/" underline="none" color="inherit">
+    Home
+  </Link>,
+  <Link href="#" underline="none" color="inherit">
+    About
+  </Link>,
+  <Link
+    href="/login"
+    underline="none"
+    color="inherit"
+    sx={{ display: { md: "none", lg: "none", xl: "none" } }}
+  >
+    Sign in
+  </Link>,
+  <Link
+    href="/register"
+    underline="none"
+    color="inherit"
+    sx={{ display: { md: "none", lg: "none", xl: "none" } }}
+  >
+    Sign up
+  </Link>,
 ];
 
 export default function Header() {
@@ -31,9 +49,12 @@ export default function Header() {
   };
 
   return (
-    <AppBar position="static" sx={{
-        display: { backgroundColor: "black"}
-      }}>
+    <AppBar
+      position="static"
+      sx={{
+        display: { backgroundColor: "black" },
+      }}
+    >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -104,8 +125,22 @@ export default function Header() {
               </Button>
             ))}
           </Box>
-            <Button variant="outlined" sx={{ mr: 2, display: { xs: "none", md: "flex" } }} href="/login" color="warning">Log in</Button>
-            <Button variant="outlined" sx={{ mr: 2, display: { xs: "none", md: "flex" } }} href="/register" color="warning">Sign up</Button>
+          <Button
+            variant="outlined"
+            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            href="/login"
+            color="warning"
+          >
+            Log in
+          </Button>
+          <Button
+            variant="outlined"
+            sx={{ mr: 2, display: { xs: "none", md: "flex" } }}
+            href="/register"
+            color="warning"
+          >
+            Sign up
+          </Button>
         </Toolbar>
       </Container>
     </AppBar>
