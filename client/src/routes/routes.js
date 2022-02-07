@@ -27,7 +27,7 @@ export default function Routing({ isLogged, setIsLogged }) {
         <Route exact path="/app/settings/details" element={<AccountDetails />} />
         <Route exact path="/app/settings/password" element={<AccountPassword />} />
         <Route exact path="/app/logout" element={<AppLogout isLogged={isLogged} setIsLogged={setIsLogged}/>} />
-        {/* <Route exact path="/user/activate/:ref_id" element={<UserActivation />} />  */} 
+        {/* <Route exact path="/user/activate/:ref_id" element={<UserActivation />} /> // Need to handle user activation if user is logged */} 
         <Route exact path="*" element={<Navigate to="/app" />} />
       </Routes>
     );

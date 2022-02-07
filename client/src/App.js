@@ -8,6 +8,8 @@ import LoggedHeader from "./components/home/loggedHeader";
 import Header from "./components/home/header";
 import Footer from "./components/home/footer";
 
+import "./app.css"
+
 function App() {
   // if session is ready start rendering the routes
   const [sessionReady, setSessionReady] = useState(false);
@@ -27,9 +29,9 @@ function App() {
   if (sessionReady) {
     return (
       <BrowserRouter>
-        {isLogged ? <LoggedHeader /> : <Header />}
-        <Routing isLogged={isLogged} setIsLogged={setIsLogged} />
-        <Footer />
+          {isLogged ? <LoggedHeader /> : <Header />}
+          <Routing isLogged={isLogged} setIsLogged={setIsLogged} />
+          <Footer />
       </BrowserRouter>
     );
   } else {

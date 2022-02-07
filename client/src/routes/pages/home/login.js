@@ -71,7 +71,7 @@ export default function Login({ isLogged, setIsLogged }) {
   }, []);
   return (
     <div>
-      <div style={{ padding: 3 }}>
+      <div style={{ padding: 3}}>
         <Container
           maxWidth="xs"
           sx={{
