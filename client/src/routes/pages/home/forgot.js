@@ -39,7 +39,6 @@ export default function Forgot() {
   }
 
   return (
-    <div>
       <div style={{ padding: 3 }}>
         <Container
           maxWidth="xs"
@@ -111,6 +110,5 @@ export default function Forgot() {
           </Box>
         </Container>
       </div>
-    </div>
   );
 }

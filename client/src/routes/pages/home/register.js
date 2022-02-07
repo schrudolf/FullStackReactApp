@@ -51,7 +51,6 @@ export default function Register() {
     }
   };
   return (
-    <div>
       <div style={{ padding: 3 }}>
         <Container
           maxWidth="xs"
@@ -157,6 +156,5 @@ export default function Register() {
           </Box>
         </Container>
       </div>
-    </div>
   );
 }

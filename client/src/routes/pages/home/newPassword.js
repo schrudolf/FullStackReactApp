@@ -62,7 +62,6 @@ export default function NewPassword() {
     // if valid and not expired -> token status 200. Rendering newPassword component
     } else {
       return (
-        <div>
           <div style={{ padding: 3 }}>
             <Container
               maxWidth="xs"
@@ -147,7 +146,6 @@ export default function NewPassword() {
               </Box>
             </Container>
           </div>
-        </div>
       );
     }
   } else {
