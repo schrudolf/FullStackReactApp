@@ -1,6 +1,13 @@
 import { useState, useEffect } from "react";
 import { useParams, Navigate, useNavigate } from "react-router-dom";
-import {Container, Box, Typography, TextField, IconButton, Button} from "@mui/material";
+import {
+  Container,
+  Box,
+  Typography,
+  TextField,
+  IconButton,
+  Button,
+} from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
 
 import PageLoading from "../../../components/ui/pageLoading";
@@ -12,7 +19,7 @@ import createNewAxios from "../../../axios/axios";
 export default function NewPassword() {
   const [loadingButton, setLoadingButton] = useState(false);
   const [responseStatus, setResponseStatus] = useState();
-  const redirect = useNavigate()
+  const redirect = useNavigate();
   // get the tokenid from route params
   const { tokenid } = useParams();
 
@@ -34,10 +41,14 @@ export default function NewPassword() {
     const password2 = document.getElementById("password2");
     const response_msg = document.getElementById("response_msg");
 
-    const response = await createNewAxios(`/forgot/${tokenid}/newpassword`, "post", {
-      password: password.value,
-      password2: password2.value,
-    });
+    const response = await createNewAxios(
+      `/forgot/${tokenid}/newpassword`,
+      "post",
+      {
+        password: password.value,
+        password2: password2.value,
+      }
+    );
 
     response_msg.innerHTML = "";
     setLoadingButton(false);
@@ -47,7 +58,7 @@ export default function NewPassword() {
       response_msg.style.color = "green";
       response_msg.innerHTML = response.data.msg;
       setTimeout(() => {
-        redirect("/login")
+        redirect("/login");
       }, 3000);
     } else {
       response_msg.style.color = "red";
@@ -59,93 +70,93 @@ export default function NewPassword() {
     // if invalid token or expired 204 status
     if (responseStatus > 200) {
       return <Navigate to="/forgot" />;
-    // if valid and not expired -> token status 200. Rendering newPassword component
+      // if valid and not expired -> token status 200. Rendering newPassword component
     } else {
       return (
-          <div style={{ padding: 3 }}>
-            <Container
-              maxWidth="xs"
-              sx={{
-                p: 1,
-                display: {
-                  marginTop: "5%",
-                  textAlign: "center",
-                  backgroundColor: "#dce1e3",
-                  borderRadius: 10,
-                },
-              }}
-            >
-              <Box>
-                <Typography
-                  m={5}
-                  component="h1"
-                  variant="h5"
-                  sx={{ fontWeight: "bold" }}
-                >
-                  New Password
-                </Typography>
-                <form onSubmit={sendNewPassword}>
-                  <TextField
-                    margin="normal"
-                    required
+        <div style={{ padding: 3 }}>
+          <Container
+            maxWidth="xs"
+            sx={{
+              p: 1,
+              display: {
+                marginTop: "5%",
+                textAlign: "center",
+                backgroundColor: "#dce1e3",
+                borderRadius: 10,
+              },
+            }}
+          >
+            <Box>
+              <Typography
+                m={5}
+                component="h1"
+                variant="h5"
+                sx={{ fontWeight: "bold" }}
+              >
+                New Password
+              </Typography>
+              <form onSubmit={sendNewPassword}>
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password"
+                  id="password"
+                  type="password"
+                  placeholder="Password"
+                  InputProps={{
+                    startAdornment: (
+                      <IconButton disabled tabIndex={-1}>
+                        <LockIcon />
+                      </IconButton>
+                    ),
+                  }}
+                  sx={{
+                    backgroundColor: "white",
+                    borderRadius: 1,
+                  }}
+                />
+                <TextField
+                  margin="normal"
+                  required
+                  fullWidth
+                  name="password2"
+                  id="password2"
+                  type="password"
+                  placeholder="Password again"
+                  InputProps={{
+                    startAdornment: (
+                      <IconButton disabled tabIndex={-1}>
+                        <LockIcon />
+                      </IconButton>
+                    ),
+                  }}
+                  sx={{
+                    backgroundColor: "white",
+                    borderRadius: 1,
+                  }}
+                />
+                <p
+                  style={{ margin: 10, textAlign: "center" }}
+                  id="response_msg"
+                ></p>
+                {loadingButton ? (
+                  <LoadingButton />
+                ) : (
+                  <Button
+                    type="submit"
+                    size="large"
                     fullWidth
-                    name="password"
-                    id="password"
-                    type="password"
-                    placeholder="Password"
-                    InputProps={{
-                      startAdornment: (
-                        <IconButton disabled tabIndex={-1}>
-                          <LockIcon />
-                        </IconButton>
-                      ),
-                    }}
-                    sx={{
-                      backgroundColor: "white",
-                      borderRadius: 1,
-                    }}
-                  />
-                  <TextField
-                    margin="normal"
-                    required
-                    fullWidth
-                    name="password2"
-                    id="password2"
-                    type="password"
-                    placeholder="Password again"
-                    InputProps={{
-                      startAdornment: (
-                        <IconButton disabled tabIndex={-1}>
-                          <LockIcon />
-                        </IconButton>
-                      ),
-                    }}
-                    sx={{
-                      backgroundColor: "white",
-                      borderRadius: 1,
-                    }}
-                  />
-                  <p
-                    style={{ margin: 10, textAlign: "center" }}
-                    id="response_msg"
-                  ></p>
-                  {loadingButton ? (
-                    <LoadingButton />
-                  ) : (
-                    <Button
-                      type="submit"
-                      size="large"
-                      fullWidth
-                      variant="contained"
-                      color="info"
-                    >
-                      Confirm
-                    </Button>
-                  )}
-                </form>
-              </Box>
-            </Container>
-          </div>
+                    variant="contained"
+                    color="info"
+                  >
+                    Confirm
+                  </Button>
+                )}
+              </form>
+            </Box>
+          </Container>
+        </div>
       );
     }
   } else {

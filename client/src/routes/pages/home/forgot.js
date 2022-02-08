@@ -1,4 +1,4 @@
-import {useState} from "react";
+import { useState } from "react";
 import Container from "@mui/material/Container";
 import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
@@ -39,76 +39,81 @@ export default function Forgot() {
   }
 
   return (
-      <div style={{ padding: 3 }}>
-        <Container
-          maxWidth="xs"
-          sx={{
-            p: 1,
-            display: {
-              marginTop: "5%",
-              textAlign: "center",
-              backgroundColor: "#dce1e3",
-              borderRadius: 10,
-            },
-          }}
-        >
-          <Box>
-          <Typography m={5} component="h1" variant="h5" sx={{ fontWeight: 'bold' }}>
-              Forgot Password
-            </Typography>
-            <form onSubmit={userForgot}>
-              <TextField
-                margin="normal"
-                required
+    <div style={{ padding: 3 }}>
+      <Container
+        maxWidth="xs"
+        sx={{
+          p: 1,
+          display: {
+            marginTop: "5%",
+            textAlign: "center",
+            backgroundColor: "#dce1e3",
+            borderRadius: 10,
+          },
+        }}
+      >
+        <Box>
+          <Typography
+            m={5}
+            component="h1"
+            variant="h5"
+            sx={{ fontWeight: "bold" }}
+          >
+            Forgot Password
+          </Typography>
+          <form onSubmit={userForgot}>
+            <TextField
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              name="email"
+              autoComplete="email"
+              type="email"
+              autoFocus
+              placeholder="Email"
+              InputProps={{
+                startAdornment: (
+                  <IconButton disabled tabIndex={-1}>
+                    <EmailIcon />
+                  </IconButton>
+                ),
+              }}
+              sx={{
+                backgroundColor: "white",
+                borderRadius: 1,
+              }}
+            />
+            <p
+              style={{ margin: 10, textAlign: "center" }}
+              id="response_msg"
+            ></p>
+            {loadingButton ? (
+              <LoadingButton />
+            ) : (
+              <Button
+                type="submit"
+                size="large"
                 fullWidth
-                id="email"
-                name="email"
-                autoComplete="email"
-                type="email"
-                autoFocus
-                placeholder="Email"
-                InputProps={{
-                  startAdornment: (
-                    <IconButton disabled tabIndex={-1}>
-                      <EmailIcon />
-                    </IconButton>
-                  ),
-                }}
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: 1,
-                }}
-              />
-              <p
-                style={{ margin: 10, textAlign: "center" }}
-                id="response_msg"
-              ></p>
-              {loadingButton ? (
-                <LoadingButton />
-              ) : (
-                <Button
-                  type="submit"
-                  size="large"
-                  fullWidth
-                  variant="contained"
-                  color="info"
-                >
-                  Reset Password
-                </Button>
-              )}
-              <div style={{ margin: 5 }}>
-                <span>or </span>
-                <Link href="/login" variant="body2">
-                  Log in
-                </Link>
-              </div>
-              <span>Don't have an account? </span>
-              <Link href="/register" variant="body2">
-                Sign up
+                variant="contained"
+                color="info"
+              >
+                Reset Password
+              </Button>
+            )}
+            <div style={{ margin: 5 }}>
+              <span>or </span>
+              <Link href="/login" variant="body2">
+                Log in
               </Link>
-            </form>
-          </Box>
-        </Container>
-      </div>
+            </div>
+            <span>Don't have an account? </span>
+            <Link href="/register" variant="body2">
+              Sign up
+            </Link>
+          </form>
+        </Box>
+      </Container>
+    </div>
   );
 }

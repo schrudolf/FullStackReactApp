@@ -70,107 +70,107 @@ export default function Login({ isLogged, setIsLogged }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-      <div style={{ padding: 3}}>
-        <Container
-          maxWidth="xs"
-          sx={{
-            p: 1,
-            display: {
-              marginTop: "5%",
-              textAlign: "center",
-              backgroundColor: "#dce1e3",
-              borderRadius: 10,
-            },
-          }}
-        >
-          <Box>
-            <Typography
-              m={5}
-              component="h1"
-              variant="h5"
-              sx={{ fontWeight: "bold" }}
-            >
-              Log in
-            </Typography>
-            <form onSubmit={userLogin}>
-              <TextField
-                inputProps={{
-                  style: { WebkitBoxShadow: "0 0 0 200px white inset" },
-                }}
-                margin="normal"
-                required
+    <div style={{ padding: 3 }}>
+      <Container
+        maxWidth="xs"
+        sx={{
+          p: 1,
+          display: {
+            marginTop: "5%",
+            textAlign: "center",
+            backgroundColor: "#dce1e3",
+            borderRadius: 10,
+          },
+        }}
+      >
+        <Box>
+          <Typography
+            m={5}
+            component="h1"
+            variant="h5"
+            sx={{ fontWeight: "bold" }}
+          >
+            Log in
+          </Typography>
+          <form onSubmit={userLogin}>
+            <TextField
+              inputProps={{
+                style: { WebkitBoxShadow: "0 0 0 200px white inset" },
+              }}
+              margin="normal"
+              required
+              fullWidth
+              id="email"
+              name="email"
+              autoComplete="email"
+              type="email"
+              autoFocus
+              placeholder="Email"
+              InputProps={{
+                startAdornment: (
+                  <IconButton disabled tabIndex={-1}>
+                    <EmailIcon />
+                  </IconButton>
+                ),
+              }}
+              sx={{
+                backgroundColor: "white",
+                borderRadius: 1,
+              }}
+            />
+            <TextField
+              inputProps={{
+                style: { WebkitBoxShadow: "0 0 0 200px white inset" },
+              }}
+              margin="normal"
+              required
+              fullWidth
+              name="password"
+              id="password"
+              type="password"
+              placeholder="Password"
+              InputProps={{
+                startAdornment: (
+                  <IconButton disabled tabIndex={-1}>
+                    <LockIcon />
+                  </IconButton>
+                ),
+              }}
+              sx={{
+                backgroundColor: "white",
+                borderRadius: 1,
+              }}
+            />
+            <p
+              style={{ margin: 10, textAlign: "center" }}
+              id="response_msg"
+            ></p>
+            {loadingButton ? (
+              <LoadingButton />
+            ) : (
+              <Button
+                type="submit"
+                size="large"
                 fullWidth
-                id="email"
-                name="email"
-                autoComplete="email"
-                type="email"
-                autoFocus
-                placeholder="Email"
-                InputProps={{
-                  startAdornment: (
-                    <IconButton disabled tabIndex={-1}>
-                      <EmailIcon />
-                    </IconButton>
-                  ),
-                }}
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: 1,
-                }}
-              />
-              <TextField
-                inputProps={{
-                  style: { WebkitBoxShadow: "0 0 0 200px white inset" },
-                }}
-                margin="normal"
-                required
-                fullWidth
-                name="password"
-                id="password"
-                type="password"
-                placeholder="Password"
-                InputProps={{
-                  startAdornment: (
-                    <IconButton disabled tabIndex={-1}>
-                      <LockIcon />
-                    </IconButton>
-                  ),
-                }}
-                sx={{
-                  backgroundColor: "white",
-                  borderRadius: 1,
-                }}
-              />
-              <p
-                style={{ margin: 10, textAlign: "center" }}
-                id="response_msg"
-              ></p>
-              {loadingButton ? (
-                <LoadingButton />
-              ) : (
-                <Button
-                  type="submit"
-                  size="large"
-                  fullWidth
-                  variant="contained"
-                  color="info"
-                >
-                  Sign in
-                </Button>
-              )}
-              <div style={{ margin: 5 }}>
-                <span>or </span>
-                <Link href="/forgot" variant="body2">
-                  Forgot password
-                </Link>
-              </div>
-              <span>Don't have an account? </span>
-              <Link href="/register" variant="body2">
-                Sign up
+                variant="contained"
+                color="info"
+              >
+                Sign in
+              </Button>
+            )}
+            <div style={{ margin: 5 }}>
+              <span>or </span>
+              <Link href="/forgot" variant="body2">
+                Forgot password
               </Link>
-            </form>
-          </Box>
-        </Container>
-      </div>
+            </div>
+            <span>Don't have an account? </span>
+            <Link href="/register" variant="body2">
+              Sign up
+            </Link>
+          </form>
+        </Box>
+      </Container>
+    </div>
   );
 }

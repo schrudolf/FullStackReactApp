@@ -16,14 +16,21 @@ export default function AccountDetails() {
   const [detailsChanged, setdetailsChanged] = useState(false);
   // check default userDetails is equal or not with modified userDetails
   function checkInputData() {
-    const [first_name, last_name, country, city, zip_code, address, response_msg] =
-      document.querySelectorAll(
-        "#first_name, #last_name, #country, #city, #zip_code, #address, #response_msg"
-      );
-    //Delete response msg from html if no empty  
-    if(response_msg.innerHTML !== ""){
+    const [
+      first_name,
+      last_name,
+      country,
+      city,
+      zip_code,
+      address,
+      response_msg,
+    ] = document.querySelectorAll(
+      "#first_name, #last_name, #country, #city, #zip_code, #address, #response_msg"
+    );
+    //Delete response msg from html if no empty
+    if (response_msg.innerHTML !== "") {
       response_msg.innerHTML = "";
-    }  
+    }
     // get all input value
     let changedUserDetails = {
       first_name: first_name.value,
@@ -95,18 +102,22 @@ export default function AccountDetails() {
       city: city.value,
       zip_code: zip_code.value,
       address: address.value,
-    }
-    const response = await createNewAxios("/app/settings/details", "POST", newUserDetails);
+    };
+    const response = await createNewAxios(
+      "/app/settings/details",
+      "POST",
+      newUserDetails
+    );
     let response_msg = document.getElementById("response_msg");
     setLoadingButton(false);
     if (response.status === 200 && response.data.success) {
       response_msg.style.color = "green";
       response_msg.innerHTML = response.data.msg;
       // set button to disabled
-      setdetailsChanged(false)
+      setdetailsChanged(false);
       // update default user details data with new saved
       setDefaultUserDetails(newUserDetails);
-    } 
+    }
   }
   useEffect(() => {
     getUserDetails();
