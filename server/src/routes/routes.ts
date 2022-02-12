@@ -40,6 +40,7 @@ import saveNewUserProfileData from "../middlewares/settings/profile/saveNewUserP
 import sendNewActivationEmailAfterSuccessChange from "../middlewares/settings/profile/sendNewActivationEmailAfterSuccessChange";
 // Change password after login
 import checkIncomingUserNewPasswordata from "../middlewares/passwordChange/checkIncomingUserNewPasswordData";
+import updateUserNewPassword from "../middlewares/passwordChange/updateUserNewPassword";
 // Error handler
 import errorHandler from "../middlewares/error/errorHandler";
                                 /* Middlewares end */
@@ -60,7 +61,7 @@ export = (app: IRouter, db: any) => {
     app.post("/forgot/:tokenid/newpassword", checkIncomingNewPasswordData(), saveNewPassword(db), sendingSuccessPasswordChangeEmail()) // save new password
     app.post("/app/settings/details", checkIncomingUserDetailsData(db), saveNewUserDetails(db)) // save new user details
     app.post("/app/settings/profile", checkIncomingUserProfileData(db), saveNewUserProfileData(db), sendNewActivationEmailAfterSuccessChange()) // save new user Email
-    app.post("/app/settings/password", checkIncomingUserNewPasswordata(db)) // change password within the app
+    app.post("/app/settings/password", checkIncomingUserNewPasswordata(db), updateUserNewPassword(db)) // change password within the app
 
     app.use(errorHandler())  // Error handler
 }
