@@ -46,8 +46,6 @@ import errorHandler from "../middlewares/error/errorHandler";
                                 /* Middlewares end */
 
 export = (app: IRouter, db: any) => { 
-
-
     app.get("/session", userSession()) // every client page load get session
     app.get("/app/logout", logout()) // logout from the app
     app.get("/forgot/:tokenid", tokenUrlCheck(db)) // verifies that the token url is valid
