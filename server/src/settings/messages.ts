@@ -32,5 +32,12 @@ export = {
     userProfile: {
         success: "New email is successfully saved. Please check your email and activate it with the link. Logout in progress",
         wrongCurrentPassword: "Current password is not valid"
+    },
+    userPassword: {
+        newPasswordDoNotMatch: "'New password' and 'New password again' do not match",
+        newPasswordIsTooShort: "New password is too short",
+        newPasswordIstooLong: "New password is too long",
+        successPasswordChange: "Success password change!",
+        currentPasswordWrong: "Current password wrong"
     }
 }
