@@ -60,7 +60,7 @@ export default function AccountPassword() {
                   color="info"
                   disabled
                 >
-                  Confirm
+                  Update Password
                 </Button>
               )}
             </Container>

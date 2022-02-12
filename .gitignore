@@ -1,4 +1,5 @@
 build
+tasks.txt
 # Logs
 logs
 *.log
