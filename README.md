@@ -4,18 +4,19 @@
 ## App Features:
 - [x] Registration:
 - [x] Login:
-- [x] Forgot Password:
-    - [x] Send an email with token (default expire time one hour):
+- [x] Forgot password:
+    - [x] Send email with token (default expire time one hour):
     - [x] Token check (valid and not expired):
-    - [x] Render new password page after Token is valid:
+    - [x] Render new password page after Token was valid:
     - [x] Deleting used token after success password change:
-- [x] User Settings:
-    - [x] User Profile
-    - [x] User Details
-    - [ ] Password Change in profile
+- [x] User Settings(after login):
+    - [x] Profile
+    - [x] Details
+    - [x] Password change
+        - [x] Required current password before new password change:
     - [x] Email change:
         - [x] Required current password before email change:
-        - [x] Send an email with activation link after success change:
+        - [x] Send reactivation email:
 - [ ] Send message to support
 - [x] Logout:
 
@@ -25,8 +26,8 @@
 
 ## Options Features:
 ###### Emails (enable/disable in settings/settings.ts server side)
-- [x] Send an email after success registration:
-- [x] Send an email after success password change:
+- [x] Send email after success registration:
+- [x] Send email after success password change:
 - [x] Activation link after registration:
 - [x] Forgot password email with token:
 
