@@ -28,6 +28,8 @@ export default function AccountPassword() {
       // set button to disabled
       setdetailsChanged(false);
       current_password.value = "";
+      new_password.value = "";
+      new_password2.value = "";
     } else {
       response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;
