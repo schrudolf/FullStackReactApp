@@ -94,26 +94,29 @@ export default function AccountProfile() {
               <Container>
                 <h1>Profile</h1>
                 <Grid container>
-                  <Grid item xs={6}>
-                    <Typography variant="h6">Registered</Typography>
-                    <Typography variant="h6">Current IP Address</Typography>
-                    <Typography variant="h6">Email active</Typography>
+                  <Grid item xs={12} mb={2}>
+                    <Grid item xs={12}>
+                      <Typography variant="h6">
+                        Registered: {userProfile.data.registered}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Typography variant="h6">
+                        Current IP Address: {userProfile.data.ip_address}
+                      </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Typography variant="h6">
+                        Email active:{" "}
+                        {userProfile.data.activated === 1 ? (
+                          <span style={{ color: "green" }}>Yes</span>
+                        ) : (
+                          <span style={{ color: "red" }}>No</span>
+                        )}
+                      </Typography>
+                    </Grid>
                   </Grid>
-                  <Grid item xs={6}>
-                    <Typography textAlign={"right"} variant="h6">
-                      {userProfile.data.registered}
-                    </Typography>
-                    <Typography textAlign={"right"} variant="h6">
-                      {userProfile.data.ip_address}
-                    </Typography>
-                    <Typography textAlign={"right"} variant="h6">
-                      {userProfile.data.activated === 1 ? (
-                        <span style={{ color: "green" }}>Yes</span>
-                      ) : (
-                        <span style={{ color: "red" }}>No</span>
-                      )}
-                    </Typography>
-                  </Grid>
+                  <Grid item xs={12}></Grid>
                 </Grid>
                 <form onSubmit={sendNewEmailToServer}>
                   <TextField
