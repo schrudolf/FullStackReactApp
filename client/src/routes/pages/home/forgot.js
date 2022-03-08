@@ -17,41 +17,27 @@ export default function Forgot() {
   async function userForgot(e) {
     e.preventDefault();
     setLoadingButton(true);
-
     const email = document.getElementById("email");
     const response_msg = document.getElementById("response_msg");
-
     const response = await createNewAxios("/forgot", "post", {
       email: email.value,
     });
-
     response_msg.innerHTML = "";
+    response_msg.classList.remove("response_msg_success");
     setLoadingButton(false);
     if (response.status === 200 && response.data.success) {
       email.value = "";
-      response_msg.style.color = "green";
+      response_msg.classList.add("response_msg_success");
       response_msg.innerHTML = response.data.msg;
       // set isLogged value === true and redirect to protected route
     } else {
-      response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;
     }
   }
 
   return (
-    <div style={{ padding: 3 }}>
-      <Container
-        maxWidth="xs"
-        sx={{
-          p: 1,
-          display: {
-            marginTop: "5%",
-            textAlign: "center",
-            backgroundColor: "#dce1e3",
-            borderRadius: 10,
-          },
-        }}
-      >
+    <div className="content">
+      <Container className="form_body" maxWidth="xs">
         <Box>
           <Typography
             m={5}
@@ -63,6 +49,7 @@ export default function Forgot() {
           </Typography>
           <form onSubmit={userForgot}>
             <TextField
+              className="input_icon_settings"
               margin="normal"
               required
               fullWidth
@@ -79,15 +66,8 @@ export default function Forgot() {
                   </IconButton>
                 ),
               }}
-              sx={{
-                backgroundColor: "white",
-                borderRadius: 1,
-              }}
             />
-            <p
-              style={{ margin: 10, textAlign: "center" }}
-              id="response_msg"
-            ></p>
+            <p id="response_msg"></p>
             {loadingButton ? (
               <LoadingButton />
             ) : (
@@ -101,7 +81,7 @@ export default function Forgot() {
                 Reset Password
               </Button>
             )}
-            <div style={{ margin: 5 }}>
+            <div className="form_links">
               <span>or </span>
               <Link href="/login" variant="body2">
                 Log in
