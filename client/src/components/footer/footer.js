@@ -5,63 +5,66 @@ import Typography from "@mui/material/Typography"
 import Link from "@mui/material/Link";
 import { Box } from "@mui/system";
 
+import "./footer.css"
+
 const date = new Date();
 
 export default function Footer() {
   return (
-    <footer style={{ position: "absolute", bottom: 0, width: "100%", height: "60px"}}>
-      <Box
-        pt={3}
-        sx={{display: { backgroundColor: "black", color: "white"}}}
-      >
+    <footer className="footer">
         <Container maxWidth="lg">
-          <Grid container spacing={5}>
+          <Grid container spacing={3}>
             <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>Help</Box>
+              <Box borderBottom={1}>Content One</Box>
               <Box>
                 <Link href="/" color="inherit">
-                  Contact
+                  Link One
                 </Link>
               </Box>
               <Box>
                 <Link href="/" color="inherit">
-                  Support
+                Link Two
                 </Link>
               </Box>
               <Box>
                 <Link href="/" color="inherit">
-                  Privacy
+                Link Three
                 </Link>
               </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>Account</Box>
+              <Box borderBottom={1}>Content Two</Box>
               <Box>
-                <Link href="/login" color="inherit">
-                  Login
+                <Link href="/" color="inherit">
+                  Link One
                 </Link>
               </Box>
               <Box>
-                <Link href="/register" color="inherit">
-                  Register
+                <Link href="/" color="inherit">
+                Link Two
+                </Link>
+              </Box>
+              <Box>
+                <Link href="/" color="inherit">
+                Link Three
                 </Link>
               </Box>
             </Grid>
             <Grid item xs={12} sm={4}>
-              <Box borderBottom={1}>Messages</Box>
+              <Box borderBottom={1}>Content Three</Box>
               <Box>
                 <Link href="/" color="inherit">
-                  Backup
+                  Link One
                 </Link>
               </Box>
               <Box>
                 <Link href="/" color="inherit">
-                  History
+                Link Two
                 </Link>
               </Box>
               <Box>
                 <Link href="/" color="inherit">
-                  Roll
+                Link Three
                 </Link>
               </Box>
             </Grid>
@@ -75,7 +78,6 @@ export default function Footer() {
           © {date.getUTCFullYear()} <Link href="https://github.com/schrudolf" color="inherit">schrudolf</Link>
           </Box>
         </Container>
-      </Box>
     </footer>
   );
 }

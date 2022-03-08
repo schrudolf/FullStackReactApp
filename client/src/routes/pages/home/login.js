@@ -70,7 +70,7 @@ export default function Login({ isLogged, setIsLogged }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div style={{ padding: 3 }}>
+    <div style={{ padding: 3, position: "relative", minHeight: "80vh" }}>
       <Container
         maxWidth="xs"
         sx={{
