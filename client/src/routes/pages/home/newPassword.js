@@ -9,10 +9,8 @@ import {
   Button,
 } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
-
 import PageLoading from "../../../components/ui/pageLoading";
 import LoadingButton from "../../../components/ui/loadingButton";
-
 import createNewAxios from "../../../axios/axios";
 
 // if valid link and token not expired render the newPassword component (status 204 not valid or expired. status 200 volid token)
@@ -36,11 +34,9 @@ export default function NewPassword() {
   async function sendNewPassword(e) {
     e.preventDefault();
     setLoadingButton(true);
-
     const password = document.getElementById("password");
     const password2 = document.getElementById("password2");
     const response_msg = document.getElementById("response_msg");
-
     const response = await createNewAxios(
       `/forgot/${tokenid}/newpassword`,
       "post",
@@ -51,17 +47,17 @@ export default function NewPassword() {
     );
 
     response_msg.innerHTML = "";
+    response_msg.classList.remove("response_msg_success");
     setLoadingButton(false);
     if (response.status === 200 && response.data.success) {
       password.value = "";
       password2.value = "";
-      response_msg.style.color = "green";
+      response_msg.classList.add("response_msg_success");
       response_msg.innerHTML = response.data.msg;
       setTimeout(() => {
         redirect("/login");
       }, 3000);
     } else {
-      response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;
     }
   }
@@ -73,19 +69,8 @@ export default function NewPassword() {
       // if valid and not expired -> token status 200. Rendering newPassword component
     } else {
       return (
-        <div style={{ padding: 3 }}>
-          <Container
-            maxWidth="xs"
-            sx={{
-              p: 1,
-              display: {
-                marginTop: "5%",
-                textAlign: "center",
-                backgroundColor: "#dce1e3",
-                borderRadius: 10,
-              },
-            }}
-          >
+        <div className="content">
+          <Container className="form_body" maxWidth="xs">
             <Box>
               <Typography
                 m={5}
@@ -97,6 +82,7 @@ export default function NewPassword() {
               </Typography>
               <form onSubmit={sendNewPassword}>
                 <TextField
+                  className="input_icon_settings"
                   margin="normal"
                   required
                   fullWidth
@@ -111,12 +97,9 @@ export default function NewPassword() {
                       </IconButton>
                     ),
                   }}
-                  sx={{
-                    backgroundColor: "white",
-                    borderRadius: 1,
-                  }}
                 />
                 <TextField
+                  className="input_icon_settings"
                   margin="normal"
                   required
                   fullWidth
@@ -131,15 +114,8 @@ export default function NewPassword() {
                       </IconButton>
                     ),
                   }}
-                  sx={{
-                    backgroundColor: "white",
-                    borderRadius: 1,
-                  }}
                 />
-                <p
-                  style={{ margin: 10, textAlign: "center" }}
-                  id="response_msg"
-                ></p>
+                <p id="response_msg"></p>
                 {loadingButton ? (
                   <LoadingButton />
                 ) : (
