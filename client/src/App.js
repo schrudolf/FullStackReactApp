@@ -4,9 +4,9 @@ import Routing from "./routes/routes";
 import PageLoading from "./components/ui/pageLoading";
 import createNewAxios from "./axios/axios";
 
-import LoggedHeader from "./components/home/loggedHeader";
-import Header from "./components/home/header";
-import Footer from "./components/home/footer";
+import LoggedHeader from "./components/loggedHeader/loggedHeader";
+import Header from "./components/header/header";
+import Footer from "./components/footer/footer";
 
 import "./app.css"
 
