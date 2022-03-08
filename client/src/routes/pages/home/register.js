@@ -12,8 +12,9 @@ import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 
 import LoadingButton from "../../../components/ui/loadingButton";
-
 import createNewAxios from "../../../axios/axios";
+
+import "./content.css"
 
 export default function Register() {
   const [loadingButton, setLoadingButton] = useState(false);
@@ -22,47 +23,36 @@ export default function Register() {
   async function userRegister(e) {
     e.preventDefault();
     setLoadingButton(true);
-
     const email = document.getElementById("email");
     const password = document.getElementById("password");
     const password2 = document.getElementById("password2");
     const response_msg = document.getElementById("response_msg");
-
     const response = await createNewAxios("/register", "post", {
       email: email.value,
       password: password.value,
       password2: password2.value,
     });
-
     response_msg.innerHTML = "";
+    response_msg.classList.remove("response_msg_success")
     setLoadingButton(false);
     if (response.status === 200 && response.data.success) {
       email.value = "";
       password.value = "";
       password2.value = "";
-      response_msg.style.color = "green";
+      response_msg.classList.add("response_msg_success")
       response_msg.innerHTML = response.data.msg;
       setTimeout(() => {
         redirect("/login");
       }, 3000);
     } else {
-      response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;
     }
   }
   return (
-    <div style={{ padding: 3 }}>
+    <div className="content">
       <Container
+        className="form_body"
         maxWidth="xs"
-        sx={{
-          p: 1,
-          display: {
-            marginTop: "5%",
-            textAlign: "center",
-            backgroundColor: "#dce1e3",
-            borderRadius: 10,
-          },
-        }}
       >
         <Box>
           <Typography
@@ -75,9 +65,7 @@ export default function Register() {
           </Typography>
           <form onSubmit={userRegister}>
             <TextField
-              inputProps={{
-                style: { WebkitBoxShadow: "0 0 0 200px white inset" },
-              }}
+            className="input_icon_settings"
               margin="normal"
               required
               fullWidth
@@ -94,15 +82,9 @@ export default function Register() {
                   </IconButton>
                 ),
               }}
-              sx={{
-                backgroundColor: "white",
-                borderRadius: 1,
-              }}
             />
             <TextField
-              inputProps={{
-                style: { WebkitBoxShadow: "0 0 0 200px white inset" },
-              }}
+              className="input_icon_settings"
               margin="normal"
               required
               fullWidth
@@ -117,15 +99,9 @@ export default function Register() {
                   </IconButton>
                 ),
               }}
-              sx={{
-                backgroundColor: "white",
-                borderRadius: 1,
-              }}
             />
             <TextField
-              inputProps={{
-                style: { WebkitBoxShadow: "0 0 0 200px white inset" },
-              }}
+              className="input_icon_settings"
               margin="normal"
               required
               fullWidth
@@ -140,13 +116,8 @@ export default function Register() {
                   </IconButton>
                 ),
               }}
-              sx={{
-                backgroundColor: "white",
-                borderRadius: 1,
-              }}
             />
             <p
-              style={{ margin: 10, textAlign: "center" }}
               id="response_msg"
             ></p>
             {loadingButton ? (
@@ -162,7 +133,7 @@ export default function Register() {
                 Sign up
               </Button>
             )}
-            <div style={{ margin: 5 }}>
+            <div className="form_links">
               <Link href="/forgot" variant="body2">
                 Forgot password
               </Link>
