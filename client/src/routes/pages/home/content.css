@@ -1,0 +1,33 @@
+.content {
+    position: relative;
+    margin-top: 5rem;
+    min-height: 80vh;
+}
+
+.form_body {
+    text-align: center;
+    background-color: #363333;
+    color: white;
+    border-radius: 5%;
+    padding: 1.5rem;
+}
+
+.input_icon_settings {
+    background-color: white;
+}
+
+#response_msg {
+    color: #cc4e5c;
+    margin: 10;
+    text-align: center;
+}
+
+.response_msg_success {
+    color: #2CE69B !important; 
+    margin: 10;
+    text-align: center;
+}
+
+.form_links {
+    margin: 5px;
+}
