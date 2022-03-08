@@ -2,12 +2,12 @@ import React from "react";
 import { Route, Routes, Navigate } from "react-router-dom";
 
 // Route pages before login
-import Home from "./pages/home/home";
-import Register from "./pages/home/register";
-import Login from "./pages/home/login";
-import Forgot from "./pages/home/forgot";
-import NewPassword from "./pages/home/newPassword";
-import UserActivation from "./pages/home/userActivation";
+import Home from "./pages/notProtected/home";
+import Register from "./pages/notProtected/forms/register";
+import Login from "./pages/notProtected/forms/login";
+import Forgot from "./pages/notProtected/forms/forgot";
+import NewPassword from "./pages/notProtected/forms/newPassword";
+import UserActivation from "./pages/notProtected/userActivation";
 //settings
 import AccountDetails from "./pages/app/settings/details";
 import AccountPassword from "./pages/app/settings/password";

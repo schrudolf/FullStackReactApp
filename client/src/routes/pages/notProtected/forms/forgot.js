@@ -8,8 +8,9 @@ import Link from "@mui/material/Link";
 import IconButton from "@mui/material/IconButton";
 import EmailIcon from "@mui/icons-material/Email";
 
-import LoadingButton from "../../../components/ui/loadingButton";
-import createNewAxios from "../../../axios/axios";
+import LoadingButton from "../../../../components/ui/loadingButton";
+import createNewAxios from "../../../../axios/axios";
+import "./form.css"
 
 export default function Forgot() {
   const [loadingButton, setLoadingButton] = useState(false);
@@ -36,7 +37,7 @@ export default function Forgot() {
   }
 
   return (
-    <div className="content">
+    <div className="form">
       <Container className="form_body" maxWidth="xs">
         <Box>
           <Typography

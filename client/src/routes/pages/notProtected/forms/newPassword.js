@@ -9,9 +9,10 @@ import {
   Button,
 } from "@mui/material";
 import LockIcon from "@mui/icons-material/Lock";
-import PageLoading from "../../../components/ui/pageLoading";
-import LoadingButton from "../../../components/ui/loadingButton";
-import createNewAxios from "../../../axios/axios";
+import PageLoading from "../../../../components/ui/pageLoading";
+import LoadingButton from "../../../../components/ui/loadingButton";
+import createNewAxios from "../../../../axios/axios";
+import "./form.css"
 
 // if valid link and token not expired render the newPassword component (status 204 not valid or expired. status 200 volid token)
 export default function NewPassword() {
@@ -69,7 +70,7 @@ export default function NewPassword() {
       // if valid and not expired -> token status 200. Rendering newPassword component
     } else {
       return (
-        <div className="content">
+        <div className="form">
           <Container className="form_body" maxWidth="xs">
             <Box>
               <Typography

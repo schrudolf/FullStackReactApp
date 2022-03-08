@@ -9,10 +9,9 @@ import IconButton from "@mui/material/IconButton";
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
 
-import LoadingButton from "../../../components/ui/loadingButton";
-import createNewAxios from "../../../axios/axios";
-
-import "./content.css"
+import LoadingButton from "../../../../components/ui/loadingButton";
+import createNewAxios from "../../../../axios/axios";
+import "./form.css"
 
 export default function Login({ isLogged, setIsLogged }) {
   const [loadingButton, setLoadingButton] = useState(false);
@@ -64,7 +63,7 @@ export default function Login({ isLogged, setIsLogged }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
   return (
-    <div className="content">
+    <div className="form">
       <Container
         className="form_body"
         maxWidth="xs"
