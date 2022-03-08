@@ -1,5 +1,4 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -10,6 +9,8 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Container from "@mui/material/Container";
 import Button from "@mui/material/Button";
 import MenuItem from "@mui/material/MenuItem";
+
+import "./header.css";
 
 const logoName = "FullStackReactApp";
 const pages = [
@@ -49,12 +50,7 @@ export default function Header() {
   };
 
   return (
-    <AppBar
-      position="static"
-      sx={{
-        display: { backgroundColor: "black" },
-      }}
-    >
+    <header className="header">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography
@@ -143,6 +139,6 @@ export default function Header() {
           </Button>
         </Toolbar>
       </Container>
-    </AppBar>
+    </header>
   );
 }
