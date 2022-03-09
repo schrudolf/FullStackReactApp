@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Grid, Container, TextField, Button } from "@mui/material/";
+import LockIcon from "@mui/icons-material/Lock";
+import IconButton from "@mui/material/IconButton";
 import NavLinks from "./navLinks";
 import createNewAxios from "../../../../axios/axios";
 import LoadingButton from "../../../../components/ui/loadingButton";
+import "./form.css"
 
 export default function AccountPassword() {
   const [detailsChanged, setdetailsChanged] = useState(false);
@@ -22,8 +25,9 @@ export default function AccountPassword() {
       newPassword2: new_password2.value,
     });
     setLoadingButton(false);
+    response_msg.classList.remove("response_msg_success")
     if (response.status === 200 && response.data.success) {
-      response_msg.style.color = "green";
+      response_msg.classList.add("response_msg_success")
       response_msg.innerHTML = response.data.msg;
       // set button to disabled
       setdetailsChanged(false);
@@ -31,7 +35,6 @@ export default function AccountPassword() {
       new_password.value = "";
       new_password2.value = "";
     } else {
-      response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;
     }
   }
@@ -57,7 +60,7 @@ export default function AccountPassword() {
   }
 
   return (
-    <div>
+    <div className="form">
       <Container maxWidth="lg">
         <Grid container>
           <Grid item textAlign={"left"} xs={12} sm={8}>
@@ -74,6 +77,13 @@ export default function AccountPassword() {
                   id="current_password"
                   type="password"
                   required
+                  InputProps={{
+                    startAdornment: (
+                      <IconButton disabled tabIndex={-1}>
+                        <LockIcon />
+                      </IconButton>
+                    ),
+                  }}
                 />
                 <TextField
                   fullWidth
@@ -85,6 +95,13 @@ export default function AccountPassword() {
                   id="new_password"
                   type="password"
                   required
+                  InputProps={{
+                    startAdornment: (
+                      <IconButton disabled tabIndex={-1}>
+                        <LockIcon />
+                      </IconButton>
+                    ),
+                  }}
                 />
                 <TextField
                   fullWidth
@@ -96,9 +113,15 @@ export default function AccountPassword() {
                   id="new_password2"
                   type="password"
                   required
+                  InputProps={{
+                    startAdornment: (
+                      <IconButton disabled tabIndex={-1}>
+                        <LockIcon />
+                      </IconButton>
+                    ),
+                  }}
                 />
                 <p
-                  style={{ margin: 10, textAlign: "center" }}
                   id="response_msg"
                 ></p>
                 {loadingButton ? (
