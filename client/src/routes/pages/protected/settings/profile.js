@@ -1,10 +1,14 @@
 import { useState, useEffect } from "react";
 import { Grid, Container, Button, TextField, Typography } from "@mui/material/";
+import IconButton from "@mui/material/IconButton";
+import EmailIcon from "@mui/icons-material/Email";
+import LockIcon from "@mui/icons-material/Lock";
 
 import NavLinks from "./navLinks";
 import LoadingButton from "../../../../components/ui/loadingButton";
 import PageLoading from "../../../../components/ui/pageLoading";
 import createNewAxios from "../../../../axios/axios";
+import "./form.css"
 
 export default function AccountProfile() {
   const [detailsChanged, setdetailsChanged] = useState(false);
@@ -27,8 +31,9 @@ export default function AccountProfile() {
       password: current_password.value,
     });
     setLoadingButton(false);
+    response_msg.classList.remove("response_msg_success")
     if (response.status === 200 && response.data.success) {
-      response_msg.style.color = "green";
+      response_msg.classList.add("response_msg_success")
       response_msg.innerHTML = response.data.msg;
       // set button to disabled
       setdetailsChanged(false);
@@ -39,7 +44,6 @@ export default function AccountProfile() {
         window.location.replace("/app/logout");
       }, 5000);
     } else {
-      response_msg.style.color = "red";
       response_msg.innerHTML = response.data.msg;
     }
   }
@@ -87,7 +91,7 @@ export default function AccountProfile() {
     );
   } else {
     return (
-      <div>
+      <div className="form">
         <Container maxWidth="lg">
           <Grid container>
             <Grid item textAlign={"left"} xs={12} sm={8}>
@@ -109,9 +113,9 @@ export default function AccountProfile() {
                       <Typography variant="h6">
                         Email active:{" "}
                         {userProfile.data.activated === 1 ? (
-                          <span style={{ color: "green" }}>Yes</span>
+                          <span style={{ color: "#2CE69B" }}>Yes</span>
                         ) : (
-                          <span style={{ color: "red" }}>No</span>
+                          <span style={{ color: "#cc4e5c" }}>No</span>
                         )}
                       </Typography>
                     </Grid>
@@ -129,6 +133,13 @@ export default function AccountProfile() {
                     id="email_address"
                     type="email"
                     required
+                    InputProps={{
+                      startAdornment: (
+                        <IconButton disabled tabIndex={-1}>
+                          <EmailIcon />
+                        </IconButton>
+                      ),
+                    }}
                   />
                   <TextField
                     fullWidth
@@ -140,15 +151,21 @@ export default function AccountProfile() {
                     id="current_password"
                     type="password"
                     required
+                    InputProps={{
+                      startAdornment: (
+                        <IconButton disabled tabIndex={-1}>
+                          <LockIcon />
+                        </IconButton>
+                      ),
+                    }}
                   />
                   {detailsChanged && (
-                    <p style={{ color: "red" }}>
+                    <p className="emailChangeAlert">
                       You will be logged out after successfully changing your
                       email address. And you need to reactivate it via email
                     </p>
                   )}
                   <p
-                    style={{ margin: 10, textAlign: "center" }}
                     id="response_msg"
                   ></p>
                   {loadingButton ? (

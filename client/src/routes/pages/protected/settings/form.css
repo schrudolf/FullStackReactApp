@@ -1,19 +1,7 @@
 .form {
     position: relative;
-    margin-top: 5rem;
+    margin-top: 1rem;
     min-height: 80vh;
-}
-
-.form_body {
-    text-align: center;
-    background-color: #363333;
-    color: white;
-    border-radius: 5%;
-    padding: 1.5rem;
-}
-
-.input_icon_settings {
-    background-color: white;
 }
 
 #response_msg {
@@ -25,11 +13,12 @@
 
 .response_msg_success {
     color: #2CE69B !important; 
-    margin: 10px;
+    margin: 10;
     text-align: center;
     font-weight: 500;
 }
 
-.form_links {
-    margin: 5px;
+.emailChangeAlert {
+    color: #cc4e5c;
+    font-weight: 500;
 }
