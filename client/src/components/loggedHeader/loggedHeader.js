@@ -1,5 +1,4 @@
 import * as React from "react";
-import AppBar from "@mui/material/AppBar";
 import Link from "@mui/material/Link";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -12,6 +11,8 @@ import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import Tooltip from "@mui/material/Tooltip";
 import MenuItem from "@mui/material/MenuItem";
+
+import "./loggedHeader.css"
 
 const logoName = "FullStackReactApp";
 const pages = [
@@ -48,11 +49,8 @@ const LoggedHeader = () => {
   };
 
   return (
-    <AppBar
-      position="static"
-      sx={{
-        display: { backgroundColor: "black" },
-      }}
+    <header
+      className="loggedHeader"
     >
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -156,7 +154,7 @@ const LoggedHeader = () => {
           </Box>
         </Toolbar>
       </Container>
-    </AppBar>
+    </header>
   );
 };
 export default LoggedHeader;
