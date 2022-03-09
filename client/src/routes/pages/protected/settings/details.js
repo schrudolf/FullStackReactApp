@@ -3,6 +3,7 @@ import { Grid, Container, Button, TextField } from "@mui/material/";
 import LoadingButton from "../../../../components/ui/loadingButton";
 import PageLoading from "../../../../components/ui/pageLoading";
 import createNewAxios from "../../../../axios/axios";
+import "./form.css";
 
 import NavLinks from "./navLinks";
 
@@ -110,18 +111,23 @@ export default function AccountDetails() {
     );
     let response_msg = document.getElementById("response_msg");
     setLoadingButton(false);
+    response_msg.classList.remove("response_msg_success");
     if (response.status === 200 && response.data.success) {
-      response_msg.style.color = "green";
+      response_msg.classList.add("response_msg_success");
       response_msg.innerHTML = response.data.msg;
       // set button to disabled
       setdetailsChanged(false);
       // update default user details data with new saved
       setDefaultUserDetails(newUserDetails);
+    } else {
+      response_msg.innerHTML = response.data.msg;
     }
   }
+
   useEffect(() => {
     getUserDetails();
   }, []);
+
   if (!userDetails.isReady) {
     return (
       <div>
@@ -130,7 +136,7 @@ export default function AccountDetails() {
     );
   } else {
     return (
-      <div>
+      <div className="form">
         <Container maxWidth="lg">
           <Grid container>
             <Grid item textAlign={"left"} xs={12} sm={8}>
@@ -204,7 +210,6 @@ export default function AccountDetails() {
                     required
                   />
                   <p
-                    style={{ margin: 10, textAlign: "center" }}
                     id="response_msg"
                   ></p>
                   {loadingButton ? (
