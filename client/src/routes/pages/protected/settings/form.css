@@ -4,6 +4,10 @@
     min-height: 80vh;
 }
 
+.input_icon_settings {
+    background-color: white;
+}
+
 #response_msg {
     color: #cc4e5c;
     margin: 10px;

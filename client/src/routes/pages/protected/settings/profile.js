@@ -124,10 +124,10 @@ export default function AccountProfile() {
                 </Grid>
                 <form onSubmit={sendNewEmailToServer}>
                   <TextField
+                    className="input_icon_settings"
                     fullWidth
                     onChange={checkUserEmailField}
                     margin="dense"
-                    label="Email address"
                     placeholder="Email address"
                     name="email_address"
                     id="email_address"
@@ -142,10 +142,10 @@ export default function AccountProfile() {
                     }}
                   />
                   <TextField
+                    className="input_icon_settings"
                     fullWidth
                     onChange={checkUserEmailField}
                     margin="dense"
-                    label="Current password"
                     placeholder="Current password"
                     name="current_password"
                     id="current_password"

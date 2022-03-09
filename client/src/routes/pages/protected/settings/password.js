@@ -68,10 +68,10 @@ export default function AccountPassword() {
               <h1>Change Password</h1>
               <form onSubmit={sendNewPasswordToServer}>
                 <TextField
+                  className="input_icon_settings"
                   fullWidth
                   onChange={checkUserPasswordField}
                   margin="dense"
-                  label="Current password"
                   placeholder="Current password"
                   name="current_password"
                   id="current_password"
@@ -86,10 +86,10 @@ export default function AccountPassword() {
                   }}
                 />
                 <TextField
+                  className="input_icon_settings"
                   fullWidth
                   onChange={checkUserPasswordField}
                   margin="dense"
-                  label="New password"
                   placeholder="New password"
                   name="new_password"
                   id="new_password"
@@ -104,10 +104,10 @@ export default function AccountPassword() {
                   }}
                 />
                 <TextField
+                  className="input_icon_settings"
                   fullWidth
                   onChange={checkUserPasswordField}
                   margin="dense"
-                  label="New password again"
                   placeholder="New password again"
                   name="new_password2"
                   id="new_password2"

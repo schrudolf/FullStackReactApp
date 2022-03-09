@@ -144,10 +144,10 @@ export default function AccountDetails() {
                 <h1>User Details</h1>
                 <form onSubmit={sendDataToserver}>
                   <TextField
+                    className="input_icon_settings"
                     fullWidth
                     onChange={checkInputData}
                     margin="dense"
-                    label="First name"
                     placeholder="First name"
                     name="first_name"
                     id="first_name"
@@ -155,10 +155,10 @@ export default function AccountDetails() {
                     required
                   />
                   <TextField
+                    className="input_icon_settings"
                     fullWidth
                     onChange={checkInputData}
                     margin="dense"
-                    label="Last name"
                     placeholder="Last name"
                     name="last_name"
                     id="last_name"
@@ -166,10 +166,10 @@ export default function AccountDetails() {
                     required
                   />
                   <TextField
+                    className="input_icon_settings"
                     fullWidth
                     onChange={checkInputData}
                     margin="dense"
-                    label="Country"
                     placeholder="Country"
                     name="country"
                     id="country"
@@ -177,10 +177,10 @@ export default function AccountDetails() {
                     required
                   />
                   <TextField
+                    className="input_icon_settings"
                     fullWidth
                     onChange={checkInputData}
                     margin="dense"
-                    label="City"
                     placeholder="City"
                     name="city"
                     id="city"
@@ -188,10 +188,10 @@ export default function AccountDetails() {
                     required
                   />
                   <TextField
+                    className="input_icon_settings"
                     fullWidth
                     onChange={checkInputData}
                     margin="dense"
-                    label="Zip code"
                     placeholder="Zip code"
                     name="zip_code"
                     id="zip_code"
@@ -199,10 +199,10 @@ export default function AccountDetails() {
                     required
                   />
                   <TextField
+                    className="input_icon_settings"
                     fullWidth
                     onChange={checkInputData}
                     margin="dense"
-                    label="Address"
                     placeholder="Address"
                     name="address"
                     id="address"
