@@ -25,3 +25,7 @@ fieldset{
     border: none !important;
     outline: none !important;
 }
+/* all button burder radius */
+.css-98uc13-MuiButtonBase-root-MuiButton-root, .loadingButton {
+    border-radius: 15px !important;
+}
