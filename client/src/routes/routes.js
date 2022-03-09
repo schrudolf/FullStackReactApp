@@ -9,13 +9,13 @@ import Forgot from "./pages/notProtected/forms/forgot";
 import NewPassword from "./pages/notProtected/forms/newPassword";
 import UserActivation from "./pages/notProtected/userActivation";
 //settings
-import AccountDetails from "./pages/app/settings/details";
-import AccountPassword from "./pages/app/settings/password";
-import AccountProfile from "./pages/app/settings/profile";
+import AccountDetails from "./pages/protected/settings/details";
+import AccountPassword from "./pages/protected/settings/password";
+import AccountProfile from "./pages/protected/settings/profile";
 
 // Route pages after login
-import AppIndex from "./pages/app";
-import AppLogout from "./pages/app/logout";
+import AppIndex from "./pages/protected";
+import AppLogout from "./pages/protected/logout";
 
 export default function Routing({ isLogged, setIsLogged }) {
   // Protected routes (if user logged)
