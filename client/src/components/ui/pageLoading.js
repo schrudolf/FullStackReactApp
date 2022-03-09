@@ -1,7 +1,10 @@
-import loadingGif from "../../assets/img/loading.gif"
+import loadingGif from "../../assets/img/loading.gif";
+import "./pageLoading.css";
 
-export default function PageLoading(){
-    return(
-        <img src={loadingGif} style={{position: "absolute", top: "50%", left: "50%", margin: "-100px 0 0 -150px"}} alt="Loading.." />
-    )
+export default function PageLoading() {
+  return (
+    <div className="loading">
+      <img className="pageLoading" src={loadingGif} alt="Loading.." />
+    </div>
+  );
 }

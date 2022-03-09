@@ -1,0 +1,12 @@
+.loading {
+  position: relative;
+  margin-top: 1rem;
+  min-height: 80vh;
+}
+
+.pageLoading {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin: -100px 0 0 -150px;
+}
