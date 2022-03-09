@@ -4,16 +4,11 @@ body {
     min-height: 100vh;
     flex-direction: column;
     /* font-family: sf pro text,-apple-system,BlinkMacSystemFont,Roboto,segoe ui,Helvetica,Arial,sans-serif,apple color emoji,segoe ui emoji,segoe ui symbol; */
-    font-family: 'Sniglet', cursive !important;
+    font-family: 'Sniglet', cursive;
     font-weight: 400;
     line-height: 1.4;
     color: #1c1d1f;
-    display: flex;
     background-color: rgb(233, 233, 233);
-}
-div {
-    margin: 0px;
-    padding: 0px;
 }
 
 /* all input background */
@@ -22,5 +17,11 @@ input:-webkit-autofill,
 input:-webkit-autofill:hover, 
 input:-webkit-autofill:focus, 
 input:-webkit-autofill:active{
-    -webkit-box-shadow: 0 0 0 30px white inset !important;
+    box-shadow: 0 0 0 30px white inset !important;
+}
+
+/* remove all input border outline */
+fieldset{
+    border: none !important;
+    outline: none !important;
 }
