@@ -29,6 +29,7 @@ export default function Login({ isLogged, setIsLogged }) {
       password: password.value,
     });
     response_msg.innerHTML = "";
+    response_msg.classList.remove("response_msg_success")
     setLoadingButton(false);
     if (response.status === 200 && response.data.success) {
       setIsLogged(!isLogged);
