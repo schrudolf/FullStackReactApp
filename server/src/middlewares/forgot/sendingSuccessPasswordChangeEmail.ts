@@ -7,8 +7,8 @@ export default function sendingSuccessPasswordChangeEmail() {
     return function (req: Request, res: Response, next: NextFunction) {
         try {
             const { email } = res.locals.newPassword
-            const { forgotPasswordEmailWithTokenOptions } = emailsData(email, "");
-            settings.email.transporter.sendMail(forgotPasswordEmailWithTokenOptions, function (err, info) {
+            const { successPasswordChangeOptions } = emailsData(email, "");
+            settings.email.transporter.sendMail(successPasswordChangeOptions, function (err, info) {
                 if (err) {
                     next(err);
                 } res.end();
