@@ -1,19 +1,13 @@
 import settings from "./settings"
 import successRegistration from "./emals/successRegistration"
 import successRegistrationWithActivationLink from "./emals/successRegistrationWithActivationLink"
+import forgotPasswordEmailWithToken from "./emals/forgotPasswordEmailWithToken"
 
 export = (userEmail: any, ref_id: any) => {
     return {
         successRegistrationOptions: successRegistration(userEmail),
         successRegistrationWithActivationLink: successRegistrationWithActivationLink(userEmail, ref_id),
-        forgotPasswordEmailWithTokenOptions: {
-            from: settings.email.auth.user,
-            to: userEmail,
-            subject: 'Password Change',
-            html: '<h1>New password</h1>' + `<p>for the next email: ${userEmail} </p>` +
-                "<p>using this link for new password: </p>" + '<span>' + settings.client.information + "/forgot/" + ref_id +
-                "</span><p>This link is working for the next one hour</p>"
-        },
+        forgotPasswordEmailWithTokenOptions: forgotPasswordEmailWithToken(userEmail, ref_id),
         successPasswordChangeOptions: {
             from: settings.email.auth.user,
             to: userEmail,

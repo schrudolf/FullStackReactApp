@@ -1,10 +1,10 @@
 import settings from "../settings";
 
-const successRegistrationWithActivationLink = (userEmail: any, ref_id: any) => {
+const forgotPasswordEmailWithToken = (userEmail: any, ref_id: any) => {
     return {
         from: settings.email.auth.user,
         to: userEmail,
-        subject: `Success registration <${settings.app.name}>! Email activation needed`,
+        subject: `Forgot password <${settings.app.name}>`,
         html: `<!DOCTYPE html>
             <html lang="en">
               <head>
@@ -152,13 +152,13 @@ const successRegistrationWithActivationLink = (userEmail: any, ref_id: any) => {
                     />
                   </div>
                   <div class="one-col">
-                    <h1>Success registration! Welcome to the ${settings.app.name} website!</h1>
+                    <h1>Password change!</h1>
                         <p>
-                            with the next email: ${userEmail}
+                            for the next email: ${userEmail}
                         </p>
-                        <p>Before login you need to activate your user with the activate button</p>
+                        <p>This link is working for the next one hour</p>
                         <div class="btn_div">
-                            <a href="${settings.client.information}/user/activate/${ref_id}" class="btn">Activate</a>
+                            <a href="${settings.client.information}/forgot/${ref_id}" class="btn">Password change</a>
                         </div>
             
                     <hr />
@@ -175,4 +175,4 @@ const successRegistrationWithActivationLink = (userEmail: any, ref_id: any) => {
     }
 }
 
-export default successRegistrationWithActivationLink;
+export default forgotPasswordEmailWithToken;
