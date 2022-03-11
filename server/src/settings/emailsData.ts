@@ -1,14 +1,9 @@
 import settings from "./settings"
+import successRegistration from "./emals/successRegistration"
 
 export = (userEmail: any, ref_id: any) => {
     return {
-        successRegistrationOptions: {
-            from: settings.email.auth.user,
-            to: userEmail,
-            subject: 'Success registration',
-            html: `<h1>Success registration on the ${settings.app.name}</h1>` + `<p>with the next email: ${userEmail} </p>` +
-                `<p>Login page: ${settings.client.information}/login </p>`
-        },
+        successRegistrationOptions: successRegistration(userEmail),
         successRegistrationWithActivationOptions: {
             from: settings.email.auth.user,
             to: userEmail,
