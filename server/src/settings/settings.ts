@@ -48,6 +48,7 @@ export = {
         successRegistration: true, // Sending email after success registration
         successPasswordChange: true, // Sending email after success password change,
         needActivation: false, // if true, send an email with activation link and user not activated
+        emailBannerUrl: "https://www.a1solutionsni.co.uk/site/wp-content/uploads/2019/02/TEST-BANNER.jpg"
     },
     client: {
         information: "http://localhost" // it is only information which host and port used in the client

@@ -14,8 +14,8 @@ const forgotPassword_Email = (userEmail: any, ref_id: any) => {
                 <div id="wrapper">
                   <div id="banner">
                     <img
-                      src="https://www.a1solutionsni.co.uk/site/wp-content/uploads/2019/02/TEST-BANNER.jpg"
-                      alt=""
+                      src=${settings.email.emailBannerUrl}
+                      alt="banner"
                     />
                   </div>
                   <div class="one-col">
