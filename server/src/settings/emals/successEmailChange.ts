@@ -1,6 +1,6 @@
 import settings from "../settings";
 
-const successEmailChange = (userEmail: any, ref_id: any) => {
+const successEmailChange_Email = (userEmail: any, ref_id: any) => {
     return {
         from: settings.email.auth.user,
         to: userEmail,
@@ -175,4 +175,4 @@ const successEmailChange = (userEmail: any, ref_id: any) => {
     }
 }
 
-export default successEmailChange;
+export default successEmailChange_Email;

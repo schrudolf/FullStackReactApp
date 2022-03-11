@@ -1,6 +1,6 @@
 import settings from "../settings";
 
-const successRegistrationWithActivationLink = (userEmail: any, ref_id: any) => {
+const successRegistrationWithActivation_Email = (userEmail: any, ref_id: any) => {
     return {
         from: settings.email.auth.user,
         to: userEmail,
@@ -175,4 +175,4 @@ const successRegistrationWithActivationLink = (userEmail: any, ref_id: any) => {
     }
 }
 
-export default successRegistrationWithActivationLink;
+export default successRegistrationWithActivation_Email;

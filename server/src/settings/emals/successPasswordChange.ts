@@ -1,6 +1,6 @@
 import settings from "../settings";
 
-const successPasswordChange = (userEmail: any) => {
+const successPasswordChange_Email = (userEmail: any) => {
     return {
         from: settings.email.auth.user,
         to: userEmail,
@@ -176,4 +176,4 @@ const successPasswordChange = (userEmail: any) => {
     }
 }
 
-export default successPasswordChange;
+export default successPasswordChange_Email;

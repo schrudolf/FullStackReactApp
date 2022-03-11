@@ -1,6 +1,6 @@
 import settings from "../settings";
 
-const successRegistration = (userEmail: any) => {
+const successRegistration_Email = (userEmail: any) => {
     return {
         from: settings.email.auth.user,
         to: userEmail,
@@ -179,4 +179,4 @@ const successRegistration = (userEmail: any) => {
     }
 }
 
-export default successRegistration;
+export default successRegistration_Email;

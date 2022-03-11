@@ -7,8 +7,8 @@ export default function sendEmailWithToken() {
     return function (req: Request, res: Response, next: NextFunction) {
         try {
             const { email, token } = res.locals.user_token
-            const { forgotPasswordEmailWithTokenOptions } = emailsData(email, token)
-            settings.email.transporter.sendMail(forgotPasswordEmailWithTokenOptions, function (err, info) {
+            const { forgotPassword } = emailsData(email, token)
+            settings.email.transporter.sendMail(forgotPassword, function (err, info) {
                 if (err) {
                     next(err);
                 } res.end();

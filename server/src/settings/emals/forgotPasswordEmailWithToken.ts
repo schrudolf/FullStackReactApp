@@ -1,6 +1,6 @@
 import settings from "../settings";
 
-const forgotPasswordEmailWithToken = (userEmail: any, ref_id: any) => {
+const forgotPassword_Email = (userEmail: any, ref_id: any) => {
     return {
         from: settings.email.auth.user,
         to: userEmail,
@@ -175,4 +175,4 @@ const forgotPasswordEmailWithToken = (userEmail: any, ref_id: any) => {
     }
 }
 
-export default forgotPasswordEmailWithToken;
+export default forgotPassword_Email;

@@ -10,8 +10,8 @@ export default function sendingSuccessRegistrationEmail() {
                 next();
             } else {
                 const { email, ref_id } = res.locals.newUser
-                const { successRegistrationOptions } = emailsData(email, ref_id);
-                settings.email.transporter.sendMail(successRegistrationOptions, function (err, info) {
+                const { successRegistrationWithoutActivationLink } = emailsData(email, ref_id);
+                settings.email.transporter.sendMail(successRegistrationWithoutActivationLink, function (err, info) {
                     if (err) {
                         next(err);
                     } res.end();

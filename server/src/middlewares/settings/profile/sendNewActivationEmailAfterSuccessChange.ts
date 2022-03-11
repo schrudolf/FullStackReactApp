@@ -7,8 +7,8 @@ export default function sendNewActivationEmailAfterSuccessChange() {
     return function (req: Request, res: Response, next: NextFunction) {
         try {
             const { email, ref_id } = req.session.user;
-            const { successEmailChangeOptions } = emailsData(email, ref_id);
-            settings.email.transporter.sendMail(successEmailChangeOptions, function (err, info) {
+            const { successEmailChange } = emailsData(email, ref_id);
+            settings.email.transporter.sendMail(successEmailChange, function (err, info) {
                 if (err) {
                     next(err);
                 } res.end();
