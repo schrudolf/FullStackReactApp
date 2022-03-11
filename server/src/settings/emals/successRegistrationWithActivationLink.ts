@@ -1,14 +1,5 @@
 import settings from "../settings";
 
-// {
-//     from: settings.email.auth.user,
-//     to: userEmail,
-//     subject: 'Success registration',
-//     html: `<h1>Success registration on the ${settings.app.name}</h1>` + `<p>with the next email: ${userEmail} </p>` +
-//         `<p>Before login you need to activate your user </p>` +
-//         `<p>Activation link: ${settings.client.information}/user/activate/${ref_id} </p>`
-// },
-
 const successRegistrationWithActivationLink = (userEmail: any, ref_id: any) => {
     return {
         from: settings.email.auth.user,

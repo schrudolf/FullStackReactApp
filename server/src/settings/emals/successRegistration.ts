@@ -22,6 +22,7 @@ const successRegistration = (userEmail: any) => {
             
                   body {
                     font-family: "Raleway", sans-serif;
+                    color: black !important;
                     background-color: #d8dada;
                     font-size: 19px;
                     max-width: 800px;
@@ -75,7 +76,8 @@ const successRegistration = (userEmail: any) => {
                   }
                   .btn {
                     background-color: #303840;
-                    color: #f6faff;
+                    min-width: 200px !important;
+                    color: white !important;
                     text-decoration: none;
                     font-weight: 800;
                     padding: 8px 12px;
