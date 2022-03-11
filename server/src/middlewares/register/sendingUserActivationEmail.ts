@@ -7,8 +7,8 @@ export default function sendingUserActivationEmail() {
     return function (req: Request, res: Response, next: NextFunction) {
         try {
             const { email, ref_id } = res.locals.newUser
-            const { successRegistrationWithActivationOptions } = emailsData(email, ref_id);
-            settings.email.transporter.sendMail(successRegistrationWithActivationOptions, function (err, info) {
+            const { successRegistrationWithActivationLink } = emailsData(email, ref_id);
+            settings.email.transporter.sendMail(successRegistrationWithActivationLink, function (err, info) {
                 if (err) {
                     next(err);
                 } res.end();
