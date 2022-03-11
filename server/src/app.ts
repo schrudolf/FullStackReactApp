@@ -4,9 +4,11 @@ import routes from "./routes/routes";
 import settings from "./settings/settings";
 import session from "express-session";
 import cors from "cors";
+import helmet from "helmet"
 
 const app = express();
 
+app.use(helmet());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 

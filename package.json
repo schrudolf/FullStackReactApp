@@ -2,11 +2,17 @@
     "name": "fullstackreactapp",
     "version": "1.0.0",
     "scripts": {
-      "install-client": "cd ./client && npm install && npm audit fix",
-      "install-server": "cd ./server && npm install && npm audit fix",
-      "build-client": "cd ./client && npm run build",
-      "build-server": "cd ./server && tsc",
-      "dev-start-client": "cd ./client && npm start",
-      "dev-start-server": "cd ./server && npx ts-node ./src/app.ts"
+        "install-client": "cd ./client && npm install && npm audit fix",
+        "install-server": "cd ./server && npm install && npm audit fix",
+        "build-client": "cd ./client && npm run build",
+        "build-server": "cd ./server && tsc",
+        "dev-start-client": "cd ./client && npm start",
+        "dev-start-server": "cd ./server && npx ts-node ./src/app.ts"
+    },
+    "dependencies": {
+        "helmet": "^5.0.2"
+    },
+    "devDependencies": {
+        "@types/helmet": "^4.0.0"
     }
-  }
+}

@@ -15,7 +15,7 @@ const forgotPassword_Email = (userEmail: any, ref_id: any) => {
                   <div id="banner">
                     <img
                       src=${settings.email.emailBannerUrl}
-                      alt="banner"
+                      alt="banner img"
                     />
                   </div>
                   <div class="one-col">
