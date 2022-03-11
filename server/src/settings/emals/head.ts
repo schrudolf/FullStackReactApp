@@ -24,6 +24,10 @@ const emailHead = `
     padding: 3%;
   }
 
+  p {
+    font-weight: 600;
+  }
+
   img {
     max-width: 100%;
   }
